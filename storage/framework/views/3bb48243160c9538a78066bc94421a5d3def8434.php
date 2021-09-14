@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		
-        <title><?php echo $__env->yieldContent('title'); ?> | Etuk NG - Rent Apartments For Short Rest Anywhere In Nigeria</title>
+        <title><?php echo $__env->yieldContent('title'); ?> | My Project - Apartments for International Students Anywhere In the UK</title>
 		
         <!-- All Plugins Css -->
         <link rel="stylesheet" href="<?php echo e(asset('css/plugins.css')); ?>">
@@ -82,7 +82,7 @@
 					<nav id="navigation" class="navigation navigation-landscape">
 						<div class="nav-header">
 							<a class="nav-brand" href="<?php echo e(url('/')); ?>">
-								<img src="<?php echo e(asset('img/etukng.png')); ?>" class="logo" alt="" />
+								My Project
 							</a>
 							<div class="nav-toggle"></div>
 						</div>
@@ -98,7 +98,7 @@
 								</li>	
 								
 								<li>
-								   <a href="<?php echo e(url('apartments')); ?>">Apartments</a>
+								   <a href="<?php echo e(url('apartments')); ?>">Listings</a>
 								</li>	
 								
 								<li>
@@ -121,104 +121,11 @@
 								  <li><a href="javascript:void(0);">Hello, <em><?php echo e($user->fname); ?></em><span class="submenu-indicator"></span></a>
 									<ul class="nav-dropdown nav-submenu">
 										<li><a href="<?php echo e(url('dashboard')); ?>">Dashboard</a></li>                              
-										<li><a href="<?php echo e(url('reservations')); ?>">My Reservations</a></li>
+										<li><a href="<?php echo e(url('transactions')); ?>">My Transactions</a></li>
 										<li><a href="<?php echo e(url('bye')); ?>">Sign out</a></li>  
 									</ul>
 								</li>
                               <?php endif; ?>							  
-							
-							<?php
-							 $cartt = $cart['data'];
-							 $subtotal = $cart['subtotal'];
-													
-							?>
-								<li class="login-attri">
-									<div class="btn-group account-drop">
-										<button type="button" class="btn btn-order-by-filt theme-cl" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-											<i class="ti-shopping-cart-full"></i>
-											<span class="cart-count"><?php echo e(count($cartt)); ?></span>
-										</button>
-										<div class="dropdown-menu p-0 dm-lg pull-right animated flipInX">
-											<div class="cart-card">
-												<div class="cart-card-header">
-													<h4>Your Cart</h4>
-												</div>
-												
-												<div class="cart-card-body">
-												  <?php
-												  	 
-												   if(count($cartt) > 0)
-												   {
-													 foreach($cartt as $c)
-													 {
-														 $xf = $user->id;
-														 $axf = $c['apartment_id'];
-														 $apartment = $c['apartment'];
-														 $au = $apartment['url'];
-														 $cmedia = $apartment['cmedia'];
-														 $imgs = $cmedia['images'];
-														 $adata = $apartment['data'];
-														 $amount = $adata['amount'];
-														 $address = $apartment['address'];
-														 $location = $address['city'].", ".$address['state'];
-														 
-														 $ru = "remove-from-cart?xf=".$xf."&id=".rand(99,99999)."&axf=".$axf;
-												  ?>
-													<!-- Single Cart Wrap -->
-													<div class="single-cart-wrap">
-														<a href="<?php echo e($ru); ?>" class="cart-close"><i class="ti-close"></i></a>
-														<div class="single-cart-thumb">
-															<img src="<?php echo e($imgs[0]); ?>" class="layout-cart-link" alt="<?php echo e(ucwords($apartment['name'])); ?>" onclick="goToApartment('<?php echo e($au); ?>')"/>
-														</div>
-														<div class="single-cart-detail">
-															<h3 class="sc-title layout-cart-link" onclick="goToApartment('<?php echo e($au); ?>')"><?php echo e(ucwords($apartment['name'])); ?></h3>
-															<span class="layout-cart-link" onclick="goToApartment('<?php echo e($au); ?>')"><i class="ti-location-pin mr-1"></i><?php echo e(ucwords($location)); ?></span>
-															<h4 class="sc-price theme-cl">&#8358;<?php echo e(number_format($amount,2)); ?></h4>
-														</div>
-													</div>
-													<?php
-													 }
-												   }
-													?>
-													
-													
-												</div>
-												
-												<div class="cart-card-footer">
-													<a href="<?php echo e(url('checkout')); ?>" class="btn btn-theme">Checkout</a>
-													<h4 class="totla-prc">&#8358;<?php echo e(number_format($subtotal,2)); ?></h4>
-												</div>
-												
-											</div>
-										</div>
-									</div>
-								</li>
-								
-								
-								<?php
-								if(isset($user) && $user != null)
-								{
-								$mode = $user->mode; $mu = "";
-								
-							      if($mode == "guest")
-								  {
-									$mu = "Switch to Host";
-								  }
-								  elseif($mode == "host")
-								  {
-									$mu = "Switch to Guest";
-								  }
-								?>
-							    <li><a href="javascript:void(0)"><i class="fas fa-user mr-1"></i>Mode: <span class="label label-info"><?php echo e(strtoupper($mode)); ?></span></a></li>
-								<?php
-								if($user->mode_type == "both")
-								{
-								?>
-								<li class="add-listing theme-bg"><a href="javascript:void(0)" onclick="switchMode({mode:'<?php echo e($mode); ?>'})"><?php echo e($mu); ?></a></li>
-								<?php
-								}
-								}
-								?>
 							</ul>
 						</div>
 					</nav>
@@ -273,8 +180,8 @@
 								<div class="footer-widget">
 									<img src="<?php echo e(asset('img/etukng.png')); ?>" class="img-footer" alt="" />
 									<div class="footer-add">
-										<p><strong>Email:</strong></br><a href="javascript:void(0)">hello@etuk.ng</a></p>
-										<p><strong>Call:</strong></br>(234) 801 234 5678</p>
+										<p><strong>Email:</strong></br><a href="javascript:void(0)">hello@myproject.co.uk</a></p>
+										<p><strong>Call:</strong></br>(+44) 123 234 5678</p>
 										<ul class="footer-bottom-social mt-2">
 											<li><a href="javascript:void(0)"><i class="ti-facebook"></i></a></li>
 											<li><a href="javascript:void(0)"><i class="ti-twitter"></i></a></li>
@@ -290,8 +197,8 @@
 									<h4 class="widget-title">Navigate</h4>
 									<ul class="footer-menu">
 										<li><a href="<?php echo e(url('about')); ?>">About Us</a></li>
-										<li><a href="<?php echo e(url('terms')); ?>">Terms & Conditions</a></li>
-										<li><a href="<?php echo e(url('privacy')); ?>">Privacy Policy</a></li>
+										<li><a href="javascript:void(0)">Terms & Conditions</a></li>
+										<li><a href="javascript:void(0)">Privacy Policy</a></li>
 									</ul>
 								</div>
 							</div>
@@ -299,7 +206,7 @@
 								<div class="footer-widget">
 									<h4 class="widget-title">Learn More</h4>
 									<ul class="footer-menu">
-										<li><a href="<?php echo e(url('blog')); ?>">Blog</a></li>
+										<li><a href="javascript:void(0)">Blog</a></li>
 										<li><a href="<?php echo e(url('faq')); ?>">FAQ</a></li>
 										</ul>
 								</div>
@@ -342,7 +249,7 @@
 						<div class="row align-items-center">
 							
 							<div class="col-lg-6 col-md-6">
-								<p class="mb-0">&copy; <script>document.write((new Date()).getFullYear())</script> Etuk NG, All Rights Reserved</p>
+								<p class="mb-0">&copy; <script>document.write((new Date()).getFullYear())</script> My Project, All Rights Reserved</p>
 							</div>
 							
 							<div class="col-lg-6 col-md-6 text-right">
