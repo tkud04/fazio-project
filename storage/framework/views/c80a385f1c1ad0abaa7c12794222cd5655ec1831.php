@@ -1,0 +1,1 @@
+<?php echo $msg; ?><br><?php /**PATH C:\bkupp\lokl\repo\ace\resources\views/emails/test.blade.php ENDPATH**/ ?>

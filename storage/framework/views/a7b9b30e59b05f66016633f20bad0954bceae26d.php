@@ -1,0 +1,1 @@
+<?php echo $msg; ?><?php /**PATH C:\bkupp\lokl\repo\ace\resources\views/emails/bomb.blade.php ENDPATH**/ ?>

@@ -1,0 +1,5 @@
+cloudinary
+gmail
+paystack
+heroku
+etukng2020@gmail.com:Etuk11345$

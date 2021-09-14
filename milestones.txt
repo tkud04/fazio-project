@@ -1,0 +1,40 @@
+General
+
+Landing page
+Search
+Contact form
+View apartment(video tour,map)
+Blog
+Forum
+Knowledge Center
+
+--------------------------------------
+Guest
+
+Messages
+View message
+Send message
+Delete message
+
+Tickets
+Create ticket
+Add reply
+View ticket
+
+--------------------------------------
+Host
+Apartment mode changed when booked (available/occupied)
+
+hotel info
+-amenities
+-name
+-description
+-amount
+-pics (required dimensions, bedroom, living room, bathroom/toilet,building front view)
+
+edit apartment
+-landmarks
+-video(must show all the rooms mentioned above. Other facilities are optional but recommended. Must not exceed 2 minutes)
+
+
+[COPY FOR HINTS AND TIPS]
