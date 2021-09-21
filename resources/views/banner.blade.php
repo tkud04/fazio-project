@@ -23,7 +23,7 @@ let countries = `{!!$countries!!}`;
 						
 						<form class="st-search-form-tour icon-frm withlbl" action="{{url('search')}}" id="landing-search-form" method="post">
 						{!! csrf_field() !!}
-						<input type="hidden" id="landing-search-country" value="">
+						<input type="hidden" id="landing-search-country" value="uk">
 						<input type="hidden" id="landing-search-state" value="">
 						<input type="hidden" id="landing-search-city" value="">
 						<input type="hidden" name="dt" id="landing-search-dt"/>
@@ -33,10 +33,12 @@ let countries = `{!!$countries!!}`;
 										<div class="form-group">
 											<i class="ti-location-pin field-icon"></i>
 											<label>Location</label>
-											<a href="javascript:void(0)" id="location-picker-btn">
-											
-											  <input type="text" class="form-control" id="landing-search-location" value="{{$def['city']}}" placeholder="Where are you going?" readonly>
-											</a>
+											<select class="form-control" id="landing-search-location">
+                                                                                         <option value="none">Select location</option>
+                                                                                          @foreach($cities as $c)
+                                                                                          <option value="{{$c}}">{{$c}}</option>
+                                                                                          @endforeach
+											</select>
 										</div>
 									</div>
 									
