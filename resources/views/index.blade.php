@@ -38,6 +38,11 @@ let landingSearchDT = {
 				],
 				rating: "0"
 			};
+
+$(document).ready(() => {
+ $('#landing-search-location').flexselect();
+});
+
 </script>
 @stop
 
