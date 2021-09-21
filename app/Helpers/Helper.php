@@ -1288,7 +1288,8 @@ public $contacts = [
 			    'email' => "kudayisitobi@gmail.com",
 			  ];
    
-           
+  public $cities = "['Aberdeen', 'Armagh', 'Bangor', 'Bath', 'Belfast', 'Birmingham', 'Bradford', 'Brighton &amp; Hove', 'Bristol', 'Cambridge', 'Canterbury', 'Cardiff', 'Carlisle', 'Chelmsford', 'Chester', 'Chichester', 'Coventry', 'Derby', 'Derry', 'Dundee', 'Durham', 'Edinburgh', 'Ely', 'Exeter', 'Glasgow', 'Gloucester', 'Hereford', 'Inverness', 'Kingston upon Hull', 'Lancaster', 'Leeds', 'Leicester', 'Lichfield', 'Lincoln', 'Lisburn', 'Liverpool', 'City of London', 'Manchester', 'Newcastle upon Tyne', 'Newport', 'Newry', 'Norwich', 'Nottingham', 'Oxford', 'Perth', 'Peterborough', 'Plymouth', 'Portsmouth', 'Preston', 'Ripon', 'St Albans', 'St Asaph', 'St Davids', 'Salford', 'Salisbury', 'Sheffield', 'Southampton', 'Stirling', 'Stoke-on-Trent', 'Sunderland', 'Swansea', 'Truro', 'Wakefield', 'Wells', 'Westminster', 'Winchester', 'Wolverhampton', 'Worcester', 'York']";
+	
 		   #{'msg':msg,'em':em,'subject':subject,'link':link,'sn':senderName,'se':senderEmail,'ss':SMTPServer,'sp':SMTPPort,'su':SMTPUser,'spp':SMTPPass,'sa':SMTPAuth};
            function sendEmailSMTP($data,$view,$type="view")
            {
