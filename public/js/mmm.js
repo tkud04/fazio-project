@@ -794,9 +794,8 @@ $(document).ready(function() {
 		e.preventDefault();
 		console.log("landing search");
 		
-		let loc = $('#landing-search-location').val(), dts = $('#landing-search-dates').val(),
-		    country = $('#landing-search-country').val(), city = $('#landing-search-city').val(),
-		    state = $('#landing-search-state').val(), kids = $('#landing-search-kids').val(), adults = $('#landing-search-adults').val();
+		let loc = $('#landing-search-location').val(), duration = $('#landing-search-duration').val(),
+		           kids = $('#landing-search-kids').val(), adults = $('#landing-search-adults').val();
 		
 		if(loc == "" || parseInt(adults) < 1){
 			let hh = "";
@@ -809,9 +808,8 @@ $(document).ready(function() {
            });
 		}
 		else{
-			 landingSearchDT.country = country;
-			 landingSearchDT.city = city;
-			 landingSearchDT.state = state;
+			 landingSearchDT.country = "uk";
+			 landingSearchDT.loc = loc;
 			 landingSearchDT.kids = kids;
 			 landingSearchDT.adults = adults;
 			
