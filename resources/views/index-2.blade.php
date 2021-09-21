@@ -148,7 +148,7 @@
                           <div class="product-info">
                             <h3 class="product-name"><a href="{{$uu}}">{{$displayName}}</a></h3>
                             <p class="group inner list-group-item-text">{{$description}}</p>
-                            <div class="product-price"><span class="real-price text-info"><strong>&#8358;{{number_format($amount,2)}}</strong></span> <!--  <span class="old-price">&#8358;{{number_format($amount + 1000,2)}}</span> --></div> 
+                            <div class="product-price"><span class="real-price text-info"><strong>&#0163;{{number_format($amount,2)}}</strong></span> <!--  <span class="old-price">&#0163;{{number_format($amount + 1000,2)}}</span> --></div> 
                           <div class="product-evaluate text-info"> <i class="ion-android-star"></i><i class="ion-android-star"></i><i class="ion-android-star"></i><i class="ion-android-star"></i><i class="ion-android-star-half"></i> </div>
                           </div>
                         </div>
@@ -231,7 +231,7 @@
                   </div>
                   <div class="col-sm-6 col-md-8">
                     <h3 class="product-name"><a href="{{$uu}}">{{$name}}</a></h3>
-                    <div class="product-price"> <span class="real-price text-info"><strong>&#8358;{{number_format($amount -$dsc,2)}}</strong></span> @if($dsc > 0)<span class="old-price"><del>&#8358;{{number_format($amount + 1000,2)}}</del></span>@endif </div>
+                    <div class="product-price"> <span class="real-price text-info"><strong>&#0163;{{number_format($amount -$dsc,2)}}</strong></span> @if($dsc > 0)<span class="old-price"><del>&#0163;{{number_format($amount + 1000,2)}}</del></span>@endif </div>
                     <div class="product-evaluate text-info"><span><i class="ion-android-star"></i> <i class="ion-android-star"></i> <i class="ion-android-star"></i> <i class="ion-android-star"></i> <i class="ion-android-star-half"></i></span></div>
                   </div>
                 </div>

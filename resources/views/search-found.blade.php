@@ -52,7 +52,7 @@
                         <h5 class="item-title text-primary text-uppercase text-primary text-uppercase"><a href="{{$pu}}">{{$p['name']}}</a></h5>
                         <p class="item-description">{!! $pd['description'] !!} </p>
                       </div>
-                      <div class="item-price js-item-price col-sm-2 text-info text-center"> <strong>&#8358;{{number_format($pd['amount'],2)}}</strong> </div>
+                      <div class="item-price js-item-price col-sm-2 text-info text-center"> <strong>&#0163;{{number_format($pd['amount'],2)}}</strong> </div>
                     </div>
                   </div>
                   <div class="item-interactions">

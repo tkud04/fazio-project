@@ -45,7 +45,7 @@ const hideInputErrors = type => {
 	  switch(types[i]){
 		case "signup":
 		  $('#signup-finish').html(`<b>Signup successful!</b><p class='text-primary'>Redirecting you to the home page.</p>`);
-		  ret = ['#s-mode-error','#s-fname-error','#s-lname-error','#s-email-error','#s-phone-error','#s-pass-error','#s-pass2-error','#signup-finish'];	 
+		  ret = ['#s-mode-error','#s-username-error','#s-fname-error','#s-lname-error','#s-email-error','#s-phone-error','#s-pass-error','#s-pass2-error','#signup-finish'];	 
 		break;
 		
 		case "login":

@@ -2,16 +2,16 @@
 $title = "Plans";
 $subtitle = "Our subscription plans";
 ?>
-@extends('layout')
 
-@section('title',$title)
 
-@section('top-header')
-@include('top-header')
-@stop
+<?php $__env->startSection('title',$title); ?>
 
-@section('content')
-@include('banner-2',['title' => $title,'subtitle' => $subtitle,'banner' => $banner])
+<?php $__env->startSection('top-header'); ?>
+<?php echo $__env->make('top-header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<?php echo $__env->make('banner-2',['title' => $title,'subtitle' => $subtitle,'banner' => $banner], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <section class="gray">
 				<div class="container">
@@ -43,18 +43,19 @@ $subtitle = "Our subscription plans";
 							   <div class="single-item">
 									<div class="destination-discount">
 										<div class="destination-discount-thumb">
-											<a href="javascript:void(0)"><img src="{{$img}}" class="img-responsive" alt=""></a>
+											<a href="javascript:void(0)"><img src="<?php echo e($img); ?>" class="img-responsive" alt=""></a>
 										</div>
 										<div class="destination-discount-caption">
 											<div class="discount-box">
-												<h4 class="discount-title">{{ucwords($p['name'])}}</h4>
+												<h4 class="discount-title"><?php echo e(ucwords($p['name'])); ?></h4>
 											</div>
 											<h4 class="destination-title">
-											  	{!! $p['description'] !!}
+											  	<?php echo $p['description']; ?>
+
 											</h4>
 											
-											<h5 class="destination-price theme-cl"><span>From</span>&#0163;{{number_format($p['amount'],2)}}</h5>
-											<a href="{{url('add-apartment')}}" class="check-btn">Subscribe<i class="ti-arrow-right"></i></a>
+											<h5 class="destination-price theme-cl"><span>From</span>&#8358;<?php echo e(number_format($p['amount'],2)); ?></h5>
+											<a href="<?php echo e(url('add-apartment')); ?>" class="check-btn">Subscribe<i class="ti-arrow-right"></i></a>
 										</div>
 									</div>
 								</div>
@@ -80,4 +81,6 @@ $subtitle = "Our subscription plans";
 					
 				</div>
 			</section>
-@stop
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\bkupp\lokl\repo\fazio-project\resources\views/plans.blade.php ENDPATH**/ ?>

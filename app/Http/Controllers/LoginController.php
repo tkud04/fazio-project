@@ -44,7 +44,7 @@ class LoginController extends Controller {
 	 */
 	 
     /**
-	 * Show the application welcome screen to the user.
+	 * Show the application register screen to the user.
 	 *
 	 * @return Response
 	 */
@@ -98,7 +98,7 @@ class LoginController extends Controller {
 			$remember = true; 
              
          	//authenticate this login
-            if(Auth::attempt(['email' => $dt['id'],'password' => $dt['pass'],'status'=> "enabled"],$remember) || Auth::attempt(['phone' => $dt['id'],'password' => $dt['pass'],'status'=> "enabled"],$remember))
+            if(Auth::attempt(['username' => $dt['id'],'password' => $dt['pass'],'status'=> "enabled"],$remember))
             {
             	//Login successful               
                $user = Auth::user();   
@@ -138,10 +138,8 @@ class LoginController extends Controller {
 			 $dt = json_decode($req['dt'],true);
 		    $validator = Validator::make($dt, [
                              'pass' => 'required|min:7|confirmed',
-                             'email' => 'required|email',                            
-                             'phone' => 'required|numeric',
-                             'fname' => 'required',
-                             'lname' => 'required',                  
+                             'email' => 'required|email',       
+                             'username' => 'required',                  
                              'mode' => 'required'                  
          ]);
          
@@ -152,14 +150,14 @@ class LoginController extends Controller {
          
          else
          {
-			 $isNew = $this->helpers->isDuplicateUser(['email' => $dt['email'], 'phone' => $dt['phone']]);
+			 $isNew = $this->helpers->isDuplicateUser(['email' => $dt['email'], 'username' => $dt['username']]);
 			 
             $dt['role'] = "user";    
             $dt['status'] = "enabled";           
-            $dt['currency'] = "ngn";           
+            $dt['currency'] = "gbp";           
             $dt['verified'] = "yes";
             $mu = "";
-            if($dt['mode'] == "host" || $dt['mode'] == "both") $mu = "host";			
+            if($dt['mode'] == "host") $mu = "host";			
             else if($dt['mode'] == "guest") $mu = "guest";			
             $dt['mode_type'] = $dt['mode'];           
             $dt['mode'] = $mu;           

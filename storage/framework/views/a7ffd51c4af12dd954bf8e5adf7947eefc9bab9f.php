@@ -3,12 +3,12 @@ $title = "Receipt";
 $subtitle = "Receipt for order #".$order['reference'];
 $noFooter = true;
 ?>
-@extends('layout')
-
-@section('title',$title)
 
 
-@section('content')
+<?php $__env->startSection('title',$title); ?>
+
+
+<?php $__env->startSection('content'); ?>
 <!-- =================== Sidebar Search ==================== -->
 			<section class="gray">
 				<div class="container">
@@ -35,8 +35,8 @@ $noFooter = true;
 
 											<div class="col-md-6">	
 												<p id="invoice-info">
-													<strong>Order:</strong> #{{$order['reference']}} <br>
-													<strong>Issued:</strong> {{$order['date']}} <br>
+													<strong>Order:</strong> #<?php echo e($order['reference']); ?> <br>
+													<strong>Issued:</strong> <?php echo e($order['date']); ?> <br>
 													
 												</p>
 											</div>
@@ -65,11 +65,11 @@ $noFooter = true;
 												  </div>
 												  <div class="col-lg-5 col-md-5 col-sm-5">
 													<h4>Guest:</h4>
-													<h6>{{$user->fname." ".$user->lname}}</h6>
+													<h6><?php echo e($user->fname." ".$user->lname); ?></h6>
 													<p>
-													   {{$user->email}}<br>
+													   <?php echo e($user->email); ?><br>
 														
-														{{$user->phone}}<br>
+														<?php echo e($user->phone); ?><br>
 														
 													</p>
 												  </div>
@@ -142,21 +142,21 @@ $noFooter = true;
 														 
 															?>
 																<tr>
-																  <td><b>{{strtoupper($s)}}</b></td>
+																  <td><b><?php echo e(strtoupper($s)); ?></b></td>
 																	<td>
 																	  <div class="row">
 																	    <div class="col-md-5">
-																		  <img src="{{$imgs[0]}}" alt="{{$apartment['name']}}" style="width: 100px; height: 100px;"/>
+																		  <img src="<?php echo e($imgs[0]); ?>" alt="<?php echo e($apartment['name']); ?>" style="width: 100px; height: 100px;"/>
 																		</div>
 																	    <div class="col-md-7">
-																		  <h4>{{$apartment['name']}}</h4>
-																		  <h6>{{$location}}</h6>
+																		  <h4><?php echo e($apartment['name']); ?></h4>
+																		  <h6><?php echo e($location); ?></h6>
 																		</div>
 																	  </div>
 																	</td>
-																	<td>{{$duration." ".$dtt}}</td>
-																	<td>&#0163;{{number_format($amount,2)}}</td>
-																	<td>&#0163;{{number_format($amount * $duration,2)}}</td>
+																	<td><?php echo e($duration." ".$dtt); ?></td>
+																	<td>&#0163;<?php echo e(number_format($amount,2)); ?></td>
+																	<td>&#0163;<?php echo e(number_format($amount * $duration,2)); ?></td>
 																</tr>
 															<?php
 										  }
@@ -166,7 +166,7 @@ $noFooter = true;
 													</div>
 													<hr>
 													<div>
-														<p>Subtotal : &#0163;{{number_format($subtotal,2)}} </p>
+														<p>Subtotal : &#0163;<?php echo e(number_format($subtotal,2)); ?> </p>
 													</div>
 													<hr>
 													<div>
@@ -174,7 +174,7 @@ $noFooter = true;
 													</div>
 													<hr>
 													<div>
-														<h4>Total : &#0163;{{number_format($order['amount'],2)}} </h4>
+														<h4>Total : &#0163;<?php echo e(number_format($order['amount'],2)); ?> </h4>
 													</div>
 												</div>
 											</div>
@@ -211,15 +211,15 @@ $noFooter = true;
 														 $duration = $cdiff->format("%r%a");
 														 $dtt = $duration == 1 ? "night" : "nights";
 								?>
-								<h4>{{$apartment['name']}}</h4>
+								<h4><?php echo e($apartment['name']); ?></h4>
 								<div class="booking-bio">
 									<ul>
-										<li><strong>Booking Date</strong>{{$order['date']}}</li>
-										<li><strong>Check In</strong>{{$checkin}}</li>
-										<li><strong>Check Out</strong>{{$checkout}}</li>
-										<li><strong>Guests</strong>{{$i['guests']}}</li>
-										<li><strong>Kids</strong>{{$i['kids']}}</li>
-										<li><strong>Host</strong>{{$hostName}}</li>
+										<li><strong>Booking Date</strong><?php echo e($order['date']); ?></li>
+										<li><strong>Check In</strong><?php echo e($checkin); ?></li>
+										<li><strong>Check Out</strong><?php echo e($checkout); ?></li>
+										<li><strong>Guests</strong><?php echo e($i['guests']); ?></li>
+										<li><strong>Kids</strong><?php echo e($i['kids']); ?></li>
+										<li><strong>Host</strong><?php echo e($hostName); ?></li>
 									</ul>
 								</div>
 								<hr>
@@ -232,4 +232,5 @@ $noFooter = true;
 				</div>
 			</section>
 			<!-- =================== Sidebar Search ==================== -->
-@stop
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\bkupp\lokl\repo\fazio-project\resources\views/receipt.blade.php ENDPATH**/ ?>

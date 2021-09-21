@@ -52,16 +52,16 @@ switch($as)
 
 ?>
 
-@extends('layout')
-
-@section('title',$title)
-
-@section('top-header')
-@include('top-header')
-@stop
 
 
-@section('content')
+<?php $__env->startSection('title',$title); ?>
+
+<?php $__env->startSection('top-header'); ?>
+<?php echo $__env->make('top-header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php $__env->stopSection(); ?>
+
+
+<?php $__env->startSection('content'); ?>
 <script>
 let sec = 0, svc = 0, loc = 0, cln = 0, cmf = 0;
 
@@ -76,8 +76,8 @@ let sec = 0, svc = 0, loc = 0, cln = 0, cmf = 0;
 				 {
 				?>
 					<div>
-					  <a href="{{$img}}" class="mfp-gallery">
-					    <img src="{{$img}}" class="img-fluid mx-auto" alt="" />
+					  <a href="<?php echo e($img); ?>" class="mfp-gallery">
+					    <img src="<?php echo e($img); ?>" class="img-fluid mx-auto" alt="" />
 					  </a>
 					</div>
 				<?php
@@ -104,9 +104,9 @@ let sec = 0, svc = 0, loc = 0, cln = 0, cmf = 0;
 															<i class="icofont-home"></i>
 														</div>
 														<div class="info">
-															<input type="hidden" id="apt-as" value="{{$as}}"/>
-															<h4 class="name">{{ucwords($as)}}</h4>
-															<p class="value">{{$asText}}</p>
+															<input type="hidden" id="apt-as" value="<?php echo e($as); ?>"/>
+															<h4 class="name"><?php echo e(ucwords($as)); ?></h4>
+															<p class="value"><?php echo e($asText); ?></p>
 														</div>
 													</div>
 												</div>
@@ -119,7 +119,7 @@ let sec = 0, svc = 0, loc = 0, cln = 0, cmf = 0;
 															<i class="icofont-credit-card"></i>
 														</div>
 														<div class="info">
-															<h4 class="name">&#0163;{{number_format($adata['amount'],2)}} </h4>
+															<h4 class="name">&#8358;<?php echo e(number_format($adata['amount'],2)); ?> </h4>
 															<p class="value">per night</p>
 														</div>
 													</div>
@@ -133,7 +133,7 @@ let sec = 0, svc = 0, loc = 0, cln = 0, cmf = 0;
 															<i class="icofont-travelling"></i>
 														</div>
 														<div class="info">
-															<h4 class="name">{{$terms['max_adults']}}</h4>
+															<h4 class="name"><?php echo e($terms['max_adults']); ?></h4>
 															<p class="value">Max. adults</p>
 														</div>
 													</div>
@@ -148,7 +148,7 @@ let sec = 0, svc = 0, loc = 0, cln = 0, cmf = 0;
 														</div>
 														<div class="info">
 															<h4 class="name"><em>[Address hidden]</em></h4>
-															<p class="value">{{$address['city'].", ".$address['state']}}</p>
+															<p class="value"><?php echo e($address['city'].", ".$address['state']); ?></p>
 														</div>
 													</div>
 												</div>
@@ -183,7 +183,8 @@ let sec = 0, svc = 0, loc = 0, cln = 0, cmf = 0;
 								</div>
 								
 								<div class="block-body">
-								{!! $adata['description'] !!}
+								<?php echo $adata['description']; ?>
+
 								</div>
 								
 							</div>
@@ -198,11 +199,11 @@ let sec = 0, svc = 0, loc = 0, cln = 0, cmf = 0;
 								</div>
 								
 								<div class="block-body">
-								@if($isSaved)
+								<?php if($isSaved): ?>
 								 <h4>You've already saved this apartment.</h4>
-							    @else
-								<a href="{{$svu}}" class="btn btn-theme">Save this apartment</a>
-							    @endif
+							    <?php else: ?>
+								<a href="<?php echo e($svu); ?>" class="btn btn-theme">Save this apartment</a>
+							    <?php endif; ?>
 								</div>
 								
 							</div>
@@ -227,7 +228,7 @@ let sec = 0, svc = 0, loc = 0, cln = 0, cmf = 0;
 														  {															  
 														
 					                 ?>
-										<li>{{$s['name']}}</li>
+										<li><?php echo e($s['name']); ?></li>
 									<?php
 														  }
 														}
@@ -254,9 +255,9 @@ let sec = 0, svc = 0, loc = 0, cln = 0, cmf = 0;
 										<!-- Single List -->
 										<li>
 											<div class="qa-skill-box">
-												<h4 class="qa-skill-title">{{$tip['title']}}</h4>
+												<h4 class="qa-skill-title"><?php echo e($tip['title']); ?></h4>
 												<div class="qa-content">
-													<p>{{$tip['msg']}}</p>
+													<p><?php echo e($tip['msg']); ?></p>
 												</div>
 											</div>
 										</li>
@@ -272,12 +273,12 @@ let sec = 0, svc = 0, loc = 0, cln = 0, cmf = 0;
 							<!-- Review Block Wrap -->
 							<div class="rating-overview">
 								<div class="rating-overview-box">
-									<span class="rating-overview-box-total">{{$stars}}</span>
+									<span class="rating-overview-box-total"><?php echo e($stars); ?></span>
 									<span class="rating-overview-box-percent">out of 5</span>
 									<div class="star-rating" data-rating="5">
-									 @for($i = 0; $i < floor($stars); $i++)
+									 <?php for($i = 0; $i < floor($stars); $i++): ?>
 									  <i class="ti-star"></i>
-									 @endfor
+									 <?php endfor; ?>
 									</div>
 								</div>
 
@@ -333,12 +334,12 @@ let sec = 0, svc = 0, loc = 0, cln = 0, cmf = 0;
 									 }
 								?>
 										<div class="rating-bars-item">
-											<span class="rating-bars-name">{{ucwords($n)}}</span>
+											<span class="rating-bars-name"><?php echo e(ucwords($n)); ?></span>
 											<span class="rating-bars-inner">
-												<span class="rating-bars-rating {{$rc}}" data-rating="{{$v}}">
-													<span class="rating-bars-rating-inner" style="width: {{$v * 20}}%;"></span>
+												<span class="rating-bars-rating <?php echo e($rc); ?>" data-rating="<?php echo e($v); ?>">
+													<span class="rating-bars-rating-inner" style="width: <?php echo e($v * 20); ?>%;"></span>
 												</span>
-												<strong>{{$v}}</strong>
+												<strong><?php echo e($v); ?></strong>
 											</span>
 										</div>
 								<?php
@@ -351,10 +352,10 @@ let sec = 0, svc = 0, loc = 0, cln = 0, cmf = 0;
 							<!-- Reviews Comments -->
 							<div class="list-single-main-item fl-wrap">
 								<div class="list-single-main-item-title fl-wrap">
-									<h3>Item Reviews -  <span> {{$reviewsLength}} </span></h3>
+									<h3>Item Reviews -  <span> <?php echo e($reviewsLength); ?> </span></h3>
 								</div>
 								
-								@if($reviewsLength > 0)
+								<?php if($reviewsLength > 0): ?>
 								<div class="reviews-comments-wrap">
 							       <?php
 								   
@@ -371,10 +372,10 @@ let sec = 0, svc = 0, loc = 0, cln = 0, cmf = 0;
 									<!-- reviews-comments-item -->  
 									<div class="reviews-comments-item">
 										<div class="review-comments-avatar">
-											<img src="{{$av}}" class="img-fluid" alt=""> 
+											<img src="<?php echo e($av); ?>" class="img-fluid" alt=""> 
 										</div>
 										<div class="reviews-comments-item-text">
-											<h4><a href="javascript:void(0)">{{$ru}}</a> <span class="reviews-comments-item-date"><i class="ti-calendar theme-cl"></i>{{$r['date']}}</span></h4>
+											<h4><a href="javascript:void(0)"><?php echo e($ru); ?></a> <span class="reviews-comments-item-date"><i class="ti-calendar theme-cl"></i><?php echo e($r['date']); ?></span></h4>
 											
 											<div class="listing-rating high" data-starrating2="5">
 											  <?php
@@ -385,14 +386,14 @@ let sec = 0, svc = 0, loc = 0, cln = 0, cmf = 0;
 											  <?php
 											   }
 											  ?>
-											  <span class="review-count">{{$stars}}</span> 
+											  <span class="review-count"><?php echo e($stars); ?></span> 
 											 </div>
 											<div class="clearfix"></div>
-											<p>" {{$r['comment']}} "</p>
+											<p>" <?php echo e($r['comment']); ?> "</p>
 											<div class="pull-left reviews-reaction">
-												<a href="javascript:void(0)" class="comment-like active" onclick="voteReview({r: '{{$rxf}}', xf: '{{$xf}}', type: 'up'})"><i class="ti-thumb-up"></i> <span id="apartment-upvotes">{{$upvotes}}</span></a>
-												<a href="javascript:void(0)" class="comment-dislike active" onclick="voteReview({r: '{{$rxf}}', xf: '{{$xf}}', type: 'down'})"><i class="ti-thumb-down"></i> <span id="apartment-downvotes">{{$downvotes}}</span></a>
-												<a id="review-{{$rxf}}-loading" class="review-loading"><img alt="Loading.." src="{{asset('img/loading.gif')}}"></a>
+												<a href="javascript:void(0)" class="comment-like active" onclick="voteReview({r: '<?php echo e($rxf); ?>', xf: '<?php echo e($xf); ?>', type: 'up'})"><i class="ti-thumb-up"></i> <span id="apartment-upvotes"><?php echo e($upvotes); ?></span></a>
+												<a href="javascript:void(0)" class="comment-dislike active" onclick="voteReview({r: '<?php echo e($rxf); ?>', xf: '<?php echo e($xf); ?>', type: 'down'})"><i class="ti-thumb-down"></i> <span id="apartment-downvotes"><?php echo e($downvotes); ?></span></a>
+												<a id="review-<?php echo e($rxf); ?>-loading" class="review-loading"><img alt="Loading.." src="<?php echo e(asset('img/loading.gif')); ?>"></a>
 											</div>
 										</div>
 									</div>
@@ -402,20 +403,21 @@ let sec = 0, svc = 0, loc = 0, cln = 0, cmf = 0;
 									?>
 									
 								</div>
-								@else
+								<?php else: ?>
 								<div>
 								  <h4>Be the first to rate this apartment! <a href="javascript:void(0)" id="apartment-add-first-review-btn" class="btn btn-theme">Add review</a></h4>
 								</div>
-								@endif
+								<?php endif; ?>
 							</div>
 							
 							<!-- Add Review Wrap -->
 							<div class="block-wrap" id="apartment-add-review">
 							 <form method="post" action="add-review" id="apartment-add-review-form">
-							   {!! csrf_field() !!}
-							   <input type="hidden" name="apt-id" id="apt-id" value="{{$apartment['apartment_id']}}">
-							   <input type="hidden" name="axf" value="{{$apartment['url']}}">
-							   <input type="hidden" name="gxf" id="apt-gxf" value="{{$uid}}">
+							   <?php echo csrf_field(); ?>
+
+							   <input type="hidden" name="apt-id" id="apt-id" value="<?php echo e($apartment['apartment_id']); ?>">
+							   <input type="hidden" name="axf" value="<?php echo e($apartment['url']); ?>">
+							   <input type="hidden" name="gxf" id="apt-gxf" value="<?php echo e($uid); ?>">
 							   
 								<?php
 								$ars = [
@@ -448,12 +450,12 @@ let sec = 0, svc = 0, loc = 0, cln = 0, cmf = 0;
 													{
 												   ?>
 													<div class="col-lg-6 col-md-6 col-sm-12">
-														<label>{{ucwords($a['name'])}}?</label>
+														<label><?php echo e(ucwords($a['name'])); ?>?</label>
 														<div class="rate-stars">
-														    @for($i = 5; $i > 0; $i--)
-															<input type="checkbox" id="{{$a['id']}}-{{$i}}" onclick="setUserRating({r:'{{$a['id']}}',v:'{{$i}}'})" value="{{$i}}" />
-															<label for="{{$a['id']}}-{{$i}}"></label>
-															@endfor
+														    <?php for($i = 5; $i > 0; $i--): ?>
+															<input type="checkbox" id="<?php echo e($a['id']); ?>-<?php echo e($i); ?>" onclick="setUserRating({r:'<?php echo e($a['id']); ?>',v:'<?php echo e($i); ?>'})" value="<?php echo e($i); ?>" />
+															<label for="<?php echo e($a['id']); ?>-<?php echo e($i); ?>"></label>
+															<?php endfor; ?>
 															
 														</div>
 													</div>
@@ -465,7 +467,7 @@ let sec = 0, svc = 0, loc = 0, cln = 0, cmf = 0;
 											
 											<div class="col-lg-4 col-md-4 col-sm-12">
 												<div class="avg-total-pilx">
-													<h4 class="high">{{$stars}}</h4>
+													<h4 class="high"><?php echo e($stars); ?></h4>
 													<span>Average Rating</span>
 												</div>
 											</div>
@@ -504,26 +506,26 @@ let sec = 0, svc = 0, loc = 0, cln = 0, cmf = 0;
 							
 							<div class="side-booking-wraps ">
 								<div class="side-booking-wrap hotel-booking">
-						         <form method="get" id="add-to-cart-form" action="{{url('add-to-cart')}}">
-								    <input type="hidden" name="axf" value="{{$apartment['id']}}"/>
+						         <form method="get" id="add-to-cart-form" action="<?php echo e(url('add-to-cart')); ?>">
+								    <input type="hidden" name="axf" value="<?php echo e($apartment['id']); ?>"/>
 									 <div class="side-booking-header light">
 										<div class="author-with-rate">
 											<div class="head-author">
 												<div class="hau-thumb">
-													<img src="{{$imgs[0]}}" alt="" style="width=100px; height: 100px;" />
+													<img src="<?php echo e($imgs[0]); ?>" alt="" style="width=100px; height: 100px;" />
 												</div>
-												<h4 class="head-list-titleup">{{$apartment['name']}}</h4>
-												<span><i class="ti-location-pin"></i>{{$location}}</span>
+												<h4 class="head-list-titleup"><?php echo e($apartment['name']); ?></h4>
+												<span><i class="ti-location-pin"></i><?php echo e($location); ?></span>
 											</div>
 											<div class="head-ratting">
 												<div class="ht-star">
-												    @for($i = 0; $i < $stars; $i++)
+												    <?php for($i = 0; $i < $stars; $i++): ?>
 													<i class="fa fa-star filled"></i>
-												    @endfor
-										            @for($i = 0; $i < 5 - $stars; $i++)									
+												    <?php endfor; ?>
+										            <?php for($i = 0; $i < 5 - $stars; $i++): ?>									
 													<i class="fa fa-star"></i>
-												    @endfor
-													<span>{{count($reviews)}} Reviews</span>
+												    <?php endfor; ?>
+													<span><?php echo e(count($reviews)); ?> Reviews</span>
 												</div>
 											</div>
 										</div>
@@ -542,7 +544,7 @@ let sec = 0, svc = 0, loc = 0, cln = 0, cmf = 0;
 													<label>Check In</label>
 													<div class="cld-box">
 														<i class="ti-calendar"></i>
-														<input type="text" name="checkin" id="apartment-checkin" class="form-control" value="{{$checkin}}" />
+														<input type="text" name="checkin" id="apartment-checkin" class="form-control" value="<?php echo e($checkin); ?>" />
 													</div>
 												</div>
 											</div>
@@ -551,7 +553,7 @@ let sec = 0, svc = 0, loc = 0, cln = 0, cmf = 0;
 													<label>Check Out</label>
 													<div class="cld-box">
 														<i class="ti-calendar"></i>
-														<input type="text" name="checkout" id="apartment-checkout" class="form-control" value="{{$checkout}}" />
+														<input type="text" name="checkout" id="apartment-checkout" class="form-control" value="<?php echo e($checkout); ?>" />
 													</div>
 												</div>
 											</div>
@@ -571,13 +573,13 @@ let sec = 0, svc = 0, loc = 0, cln = 0, cmf = 0;
 															
 																<div class="guest-type">
 																	<h5>Guests</h5>
-																	<span>{{$terms['max_adults']}} max.</span>
+																	<span><?php echo e($terms['max_adults']); ?> max.</span>
 																</div>
 																
 																<div class="guests-box">
 																	  <button class="counter-btn" type="button" id="cnt-down"><i class="ti-minus"></i></button>
-																	  <input type="text" id="guestNo" name="guests" value="2" max="{{$terms['max_adults']}}"/>
-																	  <input type="hidden" id="mg" value="{{$terms['max_adults']}}"/>
+																	  <input type="text" id="guestNo" name="guests" value="2" max="<?php echo e($terms['max_adults']); ?>"/>
+																	  <input type="hidden" id="mg" value="<?php echo e($terms['max_adults']); ?>"/>
 																	  <button class="counter-btn" type="button" id="cnt-up"><i class="ti-plus"></i></button>
 																</div>
 																
@@ -599,7 +601,7 @@ let sec = 0, svc = 0, loc = 0, cln = 0, cmf = 0;
 												<h5 class="st-subtitle">Subtotal:</h5>
 												<span>Expected Tax</span>
 											</div>
-											<h4 class="stbooking-title" id="checkout-total">&#0163;{{number_format($adata['amount'],2)}}</h4>
+											<h4 class="stbooking-title" id="checkout-total">&#8358;<?php echo e(number_format($adata['amount'],2)); ?></h4>
 										</div>
 										<div class="stbooking-footer-bottom">
 											<a href="javascript:void(0)" id="apartment-reservation-btn" class="books-btn btn-theme">Confirm Reservation</a>
@@ -723,7 +725,8 @@ let sec = 0, svc = 0, loc = 0, cln = 0, cmf = 0;
 															<i class="lni-map-marker"></i>
 														</div>
 														<div class="icon-box-text">
-															Landmark {{$i + 1}}
+															Landmark <?php echo e($i + 1); ?>
+
 														</div>
 													</a>
 												</div>
@@ -836,4 +839,5 @@ let sec = 0, svc = 0, loc = 0, cln = 0, cmf = 0;
 				</div>
 			</section>
 			<!-- ============================ Property Detail End ================================== -->
-@stop
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\bkupp\lokl\repo\fazio-project\resources\views/apartment.blade.php ENDPATH**/ ?>

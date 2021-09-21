@@ -9,24 +9,24 @@ $month = date("F");
 $year = date("Y");
 
 ?>
-@extends('layout')
 
-@section('title',$title)
 
-@section('scripts')
+<?php $__env->startSection('title',$title); ?>
+
+<?php $__env->startSection('scripts'); ?>
 <!-- Morris Charts -->
-<link href="{{asset('lib/morris-bundle/morris.css')}}" rel="stylesheet">
-<script src="{{asset('lib/morris-bundle/raphael.min.js')}}"></script>
-<script src="{{asset('lib/morris-bundle/morris.js')}}"></script>
-<script src="{{asset('lib/morris-bundle/morris-init.js')}}"></script>
-@stop
+<link href="<?php echo e(asset('lib/morris-bundle/morris.css')); ?>" rel="stylesheet">
+<script src="<?php echo e(asset('lib/morris-bundle/raphael.min.js')); ?>"></script>
+<script src="<?php echo e(asset('lib/morris-bundle/morris.js')); ?>"></script>
+<script src="<?php echo e(asset('lib/morris-bundle/morris-init.js')); ?>"></script>
+<?php $__env->stopSection(); ?>
 
-@section('top-header')
-@include('top-header')
-@stop
+<?php $__env->startSection('top-header'); ?>
+<?php echo $__env->make('top-header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php $__env->stopSection(); ?>
 
-@section('content')
-@include('banner-2',['title' => $title,'subtitle' => $subtitle])
+<?php $__env->startSection('content'); ?>
+<?php echo $__env->make('banner-2',['title' => $title,'subtitle' => $subtitle], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <script>
 let transactionsData1 = [
 <?php
@@ -38,7 +38,7 @@ let transactionsData1 = [
 											   $item = $t['item'];
 											   $date = new DateTime($t['date']);
 											?>
-{x: '{{$date->format("d M")}}',y: {{$item['amount']}}}@if($i != count($revenueData) - 1),@endif
+{x: '<?php echo e($date->format("d M")); ?>',y: <?php echo e($item['amount']); ?>}<?php if($i != count($revenueData) - 1): ?>,<?php endif; ?>
 											<?php
 											   }
 											 }
@@ -51,7 +51,7 @@ let transactionsData1 = [
 											   { 
 										       $t = $bsa[$i];
 											?>
-{value: "{{$t['value']}}",label: "{{$t['label']}}"}@if($i != count($bsa) - 1),@endif
+{value: "<?php echo e($t['value']); ?>",label: "<?php echo e($t['label']); ?>"}<?php if($i != count($bsa) - 1): ?>,<?php endif; ?>
 											<?php
 											   }
 											 }
@@ -63,7 +63,7 @@ let transactionsData1 = [
 				<div class="container-fluid">
 					<div class="row">
 						
-						@include('host-dashboard-sidebar',['user' => $user])
+						<?php echo $__env->make('host-dashboard-sidebar',['user' => $user], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 						
 						<div class="col-lg-9 col-md-8 col-sm-12">
 							<div class="dashboard-wrapers">
@@ -72,21 +72,21 @@ let transactionsData1 = [
 								<div class="row">
 									<div class="col-lg-4 col-md-4 col-sm-12">
 										<div class="dashboard-stat widget-1">
-											<div class="dashboard-stat-content"><h4>{{$stats['apartments']}}</h4> <span>Total Apartments</span></div>
+											<div class="dashboard-stat-content"><h4><?php echo e($stats['apartments']); ?></h4> <span>Total Apartments</span></div>
 											<div class="dashboard-stat-icon"><i class="ti-home"></i></div>
 										</div>	
 									</div>
 									
 									<div class="col-lg-4 col-md-4 col-sm-12">
 										<div class="dashboard-stat widget-2">
-											<div class="dashboard-stat-content"><h4>{{$stats['active-bookings']}}</h4> <span>Active Bookings</span></div>
+											<div class="dashboard-stat-content"><h4><?php echo e($stats['active-bookings']); ?></h4> <span>Active Bookings</span></div>
 											<div class="dashboard-stat-icon"><i class="ti-location-pin"></i></div>
 										</div>	
 									</div>
 									
 									<div class="col-lg-4 col-md-4 col-sm-12">
 										<div class="dashboard-stat widget-4">
-											<div class="dashboard-stat-content"><h4>&#0163;{{number_format($stats['profit'])}}</h4> <span>Total Profit</span></div>
+											<div class="dashboard-stat-content"><h4>&#0163;<?php echo e(number_format($stats['profit'])); ?></h4> <span>Total Profit</span></div>
 											<div class="dashboard-stat-icon"><i class="ti-stats-up"></i></div>
 										</div>	
 									</div>
@@ -110,7 +110,8 @@ let transactionsData1 = [
                                                   $m = $a['msg'];												  
 										     ?>
 												<li>
-													<i class="dash-icon-box {{$m['icon']}}"></i> {!! $m['msg'] !!}
+													<i class="dash-icon-box <?php echo e($m['icon']); ?>"></i> <?php echo $m['msg']; ?>
+
 													<a href="javascript:void(0)" class="close-list-item"><i class="fa fa-close"></i></a>
 												</li>
 											<?php
@@ -163,15 +164,16 @@ let transactionsData1 = [
 												  $cmedia = $a['cmedia'];
 												  $imgs = $cmedia['images'];
 											?>
-												<li><img src="{{$imgs[0]}}" style="width: 80px; height: 80px;">
-													<strong>{{ucwords($a['name'])}}</strong>
-														{!! $avbh !!}
+												<li><img src="<?php echo e($imgs[0]); ?>" style="width: 80px; height: 80px;">
+													<strong><?php echo e(ucwords($a['name'])); ?></strong>
+														<?php echo $avbh; ?>
+
 													<ul>
-														<li>Order: #{{$item['order_id']}}</li>
-														<li>Date: {{$t['date']}}</li>
+														<li>Order: #<?php echo e($item['order_id']); ?></li>
+														<li>Date: <?php echo e($t['date']); ?></li>
 													</ul>
 													<div class="buttons-to-right">
-														<a href="{{$iuu}}" target="_blank" class="button gray">View Receipt</a>
+														<a href="<?php echo e($iuu); ?>" target="_blank" class="button gray">View Receipt</a>
 													</div>
 												</li>
 
@@ -180,7 +182,7 @@ let transactionsData1 = [
 											 }
                                             ?>											 
 											</ul>
-											<h4><center><a href="{{url('my-bookings')}}" class="btn btn-theme">View more</a></center></h4>
+											<h4><center><a href="<?php echo e(url('my-bookings')); ?>" class="btn btn-theme">View more</a></center></h4>
 											<?php
 											 }
 											 else
@@ -215,14 +217,14 @@ let transactionsData1 = [
 												  $cmedia = $a['cmedia'];
 												  $imgs = $cmedia['images'];
 											?>
-												<li><img src="{{$imgs[0]}}" style="width: 80px; height: 80px;">
-													<strong>{{ucwords($a['name'])}}</strong>
+												<li><img src="<?php echo e($imgs[0]); ?>" style="width: 80px; height: 80px;">
+													<strong><?php echo e(ucwords($a['name'])); ?></strong>
 													<ul>
-														<li>Order: #{{$item['order_id']}}</li>
-														<li>Date: {{$t['date']}}</li>
+														<li>Order: #<?php echo e($item['order_id']); ?></li>
+														<li>Date: <?php echo e($t['date']); ?></li>
 													</ul>
 													<div class="buttons-to-right">
-														<a href="{{$tiu}}" target="_blank" class="button gray">View Receipt</a>
+														<a href="<?php echo e($tiu); ?>" target="_blank" class="button gray">View Receipt</a>
 													</div>
 												</li>
 
@@ -230,7 +232,7 @@ let transactionsData1 = [
 											 }
                                             ?>											 
 											</ul>
-											<h4><center><a href="{{url('transactions')}}" class="btn btn-theme">View more</a></center></h4>
+											<h4><center><a href="<?php echo e(url('transactions')); ?>" class="btn btn-theme">View more</a></center></h4>
 											<?php
 											 }
 											 else
@@ -261,15 +263,15 @@ let transactionsData1 = [
 													$mm = ucwords($m);
 													$ss = $month == $mm ? " selected='selected'" : "";
 												?>
-												 <option value="{{$mdd->format('m')}}"{{$ss}}>{{$mm}}</option>
+												 <option value="<?php echo e($mdd->format('m')); ?>"<?php echo e($ss); ?>><?php echo e($mm); ?></option>
 												<?php
 												 }
 												?>
 											  </select>
-											  <input class="form-control" type="number" value="{{$year}}" id="host-total-revenue-year"/>
+											  <input class="form-control" type="number" value="<?php echo e($year); ?>" id="host-total-revenue-year"/>
 											  <center>
 											    <a class="btn btn-theme btn-sm mt-2" id="host-total-revenue-btn">Submit</a>
-												<img id="host-total-revenue-loading" alt="Loading.." src="{{asset('img/loading.gif')}}">
+												<img id="host-total-revenue-loading" alt="Loading.." src="<?php echo e(asset('img/loading.gif')); ?>">
 											  </center>
 											</div>
 											  
@@ -305,15 +307,15 @@ let transactionsData1 = [
 													$mm = ucwords($m);
 													$ss = $month == $mm ? " selected='selected'" : "";
 												?>
-												 <option value="{{$mdd->format('m')}}"{{$ss}}>{{$mm}}</option>
+												 <option value="<?php echo e($mdd->format('m')); ?>"<?php echo e($ss); ?>><?php echo e($mm); ?></option>
 												<?php
 												 }
 												?>
 											  </select>
-											  <input class="form-control" type="number" value="{{$year}}" id="host-best-selling-apartments-year"/>
+											  <input class="form-control" type="number" value="<?php echo e($year); ?>" id="host-best-selling-apartments-year"/>
 											  <center>
 											    <a class="btn btn-theme btn-sm mt-2" id="host-best-selling-apartments-btn">Submit</a>
-												<img id="host-best-selling-apartments-loading" alt="Loading.." src="{{asset('img/loading.gif')}}">
+												<img id="host-best-selling-apartments-loading" alt="Loading.." src="<?php echo e(asset('img/loading.gif')); ?>">
 											  </center>
 											</div>
 											  
@@ -345,4 +347,5 @@ let transactionsData1 = [
 			</section>
 			<!-- ============================ Dashboard End ================================== -->
 
-@stop
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\bkupp\lokl\repo\fazio-project\resources\views/host-dashboard.blade.php ENDPATH**/ ?>

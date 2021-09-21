@@ -157,7 +157,7 @@
 					$itemAmount = $item['pd']['amount'];
 				?>
                 <li>
-                  <div class="lnt-cart-products text-success"><i class="ion-android-checkmark-circle icon"></i> {{$item['sku']}} <b>x{{$qty}}</b><span class="lnt-cart-total">&#8358;{{number_format($itemAmount * $qty, 2)}}</span> </div>
+                  <div class="lnt-cart-products text-success"><i class="ion-android-checkmark-circle icon"></i> {{$item['sku']}} <b>x{{$qty}}</b><span class="lnt-cart-total">&#0163;{{number_format($itemAmount * $qty, 2)}}</span> </div>
                 </li>
                <?php
 			   }
@@ -600,7 +600,7 @@
               <div class="product-availability in-stock">
                 <p>Availability: <span class="text-info" id="quickviewboxInStock"></span></p>
               </div>
-              <div class="product-price clearfix"> <span class="pull-left btn btn-primary"><strong>&#8358;<span id="quickviewboxAmount">0.00</span></strong></span> </div>
+              <div class="product-price clearfix"> <span class="pull-left btn btn-primary"><strong>&#0163;<span id="quickviewboxAmount">0.00</span></strong></span> </div>
             </div>
           </div>
         </div>

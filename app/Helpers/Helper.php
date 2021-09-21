@@ -1468,18 +1468,15 @@ $subject = $data['subject'];
 			   $avatarType = isset($data['avatar_type']) ? $data['avatar_type'] : "cloudinary";
 			   $pass = (isset($data['pass']) && $data['pass'] != "") ? bcrypt($data['pass']) : "";
 			   
-           	   $ret = User::create(['fname' => $data['fname'], 
-                                                      'lname' => $data['lname'], 
-                                                      'email' => $data['email'], 
-                                                      'phone' => $data['phone'], 
+           	   $ret = User::create(['email' => $data['email'], 
+                                                      'username' => $data['username'], 
                                                       'role' => $data['role'], 
                                                       'mode' => $data['mode'], 
                                                       'mode_type' => $data['mode_type'], 
                                                       'avatar' => $avatar, 
                                                       'avatar_type' => $avatarType, 
-                                                      'currency' => $data['currency'], 
-                                                      'host_upgraded' => "no", 
-                                                      'status' => $data['status'], 
+                                                      //'currency' => $data['currency'], 
+                                                     'status' => $data['status'], 
                                                       'verified' => $data['verified'], 
                                                       'password' => $pass, 
                                                       ]);
@@ -1648,7 +1645,7 @@ function isDuplicateUser($data)
 		$ret = false;
 
 		$dup = User::where('email',$data['email'])
-		           ->orWhere('phone',$data['phone'])->get();
+		           ->orWhere('username',$data['username'])->get();
 
        if(count($dup) > 0) $ret = true;		
 		return [$dup,$ret];

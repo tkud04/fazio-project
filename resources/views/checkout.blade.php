@@ -152,7 +152,7 @@ $(document).ready(() => {
 							<div class="row">
 							  <div class="col-lg-12 col-md-12">
 							   <h3>{{count($cartt)}} {{$ii}}</h3><br>
-							   <h4>Subtotal: &#8358;<span>{{number_format($subtotal,2)}}</span></h4><br>
+							   <h4>Subtotal: &#0163;<span>{{number_format($subtotal,2)}}</span></h4><br>
 							  </div><br>
 							  <div class="col-lg-12 col-md-12">
 							  <?php
@@ -186,7 +186,7 @@ $(document).ready(() => {
 							 }
 							 ?>
 							    <input type="hidden" id="gn-{{$axf}}"  value="{{$terms['max_adults']}}"/>																	 
-							   <h3><span class="label label-primary">{{$apartment['name']}}</span> <b>&#8358;{{number_format($amount,2)}}</b> <small>per night</small></h3>
+							   <h3><span class="label label-primary">{{$apartment['name']}}</span> <b>&#0163;{{number_format($amount,2)}}</b> <small>per night</small></h3>
 							   <p>Check-in: <b>{{$checkin->format("jS F, Y")}}</b></p>
 							   <p>Duration: <b>{{$duration." ".$dtt}}</b></p>
 							   <p>Guests: <b>{{$c['guests']}}</b></p>

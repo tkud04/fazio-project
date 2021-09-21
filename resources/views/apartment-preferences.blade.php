@@ -80,7 +80,7 @@ $('#apartment-preference-loading').hide();
 										
 										<div class="col-lg-6 col-md-6 col-sm-12">
 											<div class="form-group">
-												<label>Price per day(&#8358;)<i class="req">*</i></label>
+												<label>Price per day(&#0163;)<i class="req">*</i></label>
 												<input type="number" class="form-control" value="{{$def['amount']}}" id="apartment-preference-amount" placeholder="Enter amount in NGN">
 											</div>
 										</div>

@@ -29,22 +29,22 @@ foreach($plans as $p)
  
 
 ?>
-@extends('layout')
 
-@section('title',$title)
 
-@section('top-header')
-@include('top-header')
-@stop
+<?php $__env->startSection('title',$title); ?>
 
-@section('content')
-@include('banner-2',['title' => $title,'subtitle' => $subtitle])
+<?php $__env->startSection('top-header'); ?>
+<?php echo $__env->make('top-header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<?php echo $__env->make('banner-2',['title' => $title,'subtitle' => $subtitle], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <script>
-let selectedSide = "1", facilities = [], aptImages = [], aptImgCount = 1, aptCover = "none", aptPlan = "", fpp = "{{$fp}}";
+let selectedSide = "1", facilities = [], aptImages = [], aptImgCount = 1, aptCover = "none", aptPlan = "", fpp = "<?php echo e($fp); ?>";
   
 let mc = {
       "type":"posting",
-	  "email":"{{$user->email}}",
+	  "email":"<?php echo e($user->email); ?>",
 	  "notes":""
 };
                     
@@ -59,15 +59,15 @@ let addApartmentDescriptionEditor = new Simditor({
 });
 
 </script>
-<input type="hidden" id="card-action" value="{{$pay}}">
+<input type="hidden" id="card-action" value="<?php echo e($pay); ?>">
 
 <!-- =================== Add Apartment Search ==================== -->
 			<section class="gray">
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-9 col-md-8">
-							<input type="hidden" id="tk-apt" value="{{csrf_token()}}">
-							<input type="hidden" id="tk-axf" value="{{url('apartments')}}">
+							<input type="hidden" id="tk-apt" value="<?php echo e(csrf_token()); ?>">
+							<input type="hidden" id="tk-axf" value="<?php echo e(url('apartments')); ?>">
 							<!-- Add Apartment Step 1 -->
 							<div class="checkout-wrap" id="add-apartment-side-0">
 								
@@ -88,22 +88,22 @@ let addApartmentDescriptionEditor = new Simditor({
 									$ac = $stats['aptCount'] == $p['pc'] ? "lluf" : "sey";
 									?>
 									   <div class="col-lg-12 col-md-12 col-sm-12">
-										  <h4 class="text-success">{{$stats['aptCount']}} out of {{$p['pc']}} postings used</h4>
+										  <h4 class="text-success"><?php echo e($stats['aptCount']); ?> out of <?php echo e($p['pc']); ?> postings used</h4>
 									   </div>
                                      <div class="col-lg-12 col-md-12 col-sm-12 mt-1">
-									   <h4>Current Plan: <a href="javascript:void(0)" class="btn btn-success">{{$p['name']}}</a></h4>
-									   <input type="hidden" id="ac" value="{{$ac}}">
+									   <h4>Current Plan: <a href="javascript:void(0)" class="btn btn-success"><?php echo e($p['name']); ?></a></h4>
+									   <input type="hidden" id="ac" value="<?php echo e($ac); ?>">
 									   <div class="row">
 									     <div class="col-lg-6 col-md-6 col-sm-12">
 											<div class="form-group">
 												<label>Postings<i class="req">*</i></label>
-												<input type="text" class="form-control" value="{{$stats['aptCount']}} out of {{$p['pc']}} used" readonly>
+												<input type="text" class="form-control" value="<?php echo e($stats['aptCount']); ?> out of <?php echo e($p['pc']); ?> used" readonly>
 											</div>
 										  </div>
 										  <div class="col-lg-6 col-md-6 col-sm-12">
 											<div class="form-group">
 												<label>Expires on:<i class="req">*</i></label>
-												<input type="text" class="form-control" value="{{$e1->format('jS F, Y')}}" readonly>
+												<input type="text" class="form-control" value="<?php echo e($e1->format('jS F, Y')); ?>" readonly>
 											</div>
 										  </div>
 									   </div>
@@ -115,11 +115,11 @@ let addApartmentDescriptionEditor = new Simditor({
 										 $ac = $stats['aptCount'] == $p['pc'] ? "lluf" : "sey";
 									?>
 									   <div class="col-lg-12 col-md-12 col-sm-12">
-										  <h4 class="text-success">{{$stats['aptCount']}} out of {{$p['pc']}} postings used</h4>
+										  <h4 class="text-success"><?php echo e($stats['aptCount']); ?> out of <?php echo e($p['pc']); ?> postings used</h4>
 									   </div>
 									  <div class="col-lg-12 col-md-12 col-sm-12 mt-5">
-											  <h4>Choose a Plan <a href="{{url('plans')}}" target="_blank" class="btn btn-success">See Plans</a></h4>
-											  <input type="hidden" id="ac" value="{{$ac}}">
+											  <h4>Choose a Plan <a href="<?php echo e(url('plans')); ?>" target="_blank" class="btn btn-success">See Plans</a></h4>
+											  <input type="hidden" id="ac" value="<?php echo e($ac); ?>">
 											  <div class="form-group">
 												<label>Subscription Plan<i class="req">*</i></label>
 												<select class="form-control" id="add-apartment-plan" name="pid">
@@ -137,7 +137,7 @@ let addApartmentDescriptionEditor = new Simditor({
 													  {
 													  $ss = $p['ps_id'] == "free" ? " selected='selected'" : "";
 												  ?>
-												  <option value="{{$p['id']}}"{{$ss}}>{{$p['name']}} - &#0163;{{number_format($p['amount'],2)}}/{{$p['frequency']}}</option>
+												  <option value="<?php echo e($p['id']); ?>"<?php echo e($ss); ?>><?php echo e($p['name']); ?> - &#8358;<?php echo e(number_format($p['amount'],2)); ?>/<?php echo e($p['frequency']); ?></option>
 												  <?php
 												      }
 												  }
@@ -160,7 +160,7 @@ let addApartmentDescriptionEditor = new Simditor({
 													   $dt = $s['data'];
 													   $n = $dt->bank." | **** ".$dt->last4." | Expires: ".$dt->exp_month."/".$dt->exp_year;
 												  ?>
-												    <option value="{{$s['id']}}">{{$n}}</option>
+												    <option value="<?php echo e($s['id']); ?>"><?php echo e($n); ?></option>
 												  <?php
 												   }
 												  ?>
@@ -199,12 +199,13 @@ let addApartmentDescriptionEditor = new Simditor({
 										   <div class="col-lg-12 col-md-12 col-sm-12">
 										    <!-- payment form -->
 										   <form id="posting-form" method="post">
-								            {!! csrf_field() !!}
+								            <?php echo csrf_field(); ?>
+
 											
-                            	            <input type="hidden" name="email" value="{{$user->email}}"> {{-- required --}}
-                            	            <input type="hidden" name="quantity" value="1"> {{-- required --}}
-                            	            <input type="hidden" name="amount" value="100"> {{-- required in kobo --}}
-                            	            <input type="hidden" name="metadata" id="posting-md" value="" > {{-- For other necessary things you want to add to your payload. it is optional though --}}
+                            	            <input type="hidden" name="email" value="<?php echo e($user->email); ?>"> 
+                            	            <input type="hidden" name="quantity" value="1"> 
+                            	            <input type="hidden" name="amount" value="100"> 
+                            	            <input type="hidden" name="metadata" id="posting-md" value="" > 
                             	            
 										   </form>
 										    <!-- payment form -->
@@ -221,7 +222,8 @@ let addApartmentDescriptionEditor = new Simditor({
 								<!-- Add Apartment Step 1 -->
 							<div class="checkout-wrap" id="add-apartment-side-1">
 								
-								{!! $checkoutHead !!}
+								<?php echo $checkoutHead; ?>
+
 								
 								<div class="checkout-body">
 									<div class="row">
@@ -252,7 +254,7 @@ let addApartmentDescriptionEditor = new Simditor({
 										
 										<div class="col-lg-6 col-md-6 col-sm-12">
 											<div class="form-group">
-												<label>Price per day(&#0163;)<i class="req">*</i></label>
+												<label>Price per day(&#8358;)<i class="req">*</i></label>
 												<input type="number" class="form-control" id="add-apartment-amount" placeholder="Enter amount in NGN">
 											</div>
 										</div>
@@ -279,7 +281,7 @@ let addApartmentDescriptionEditor = new Simditor({
 												  foreach($opts3 as $key => $value)
 												  {
 												?>
-												  <option value="{{$key}}">{{$value}}</option>
+												  <option value="<?php echo e($key); ?>"><?php echo e($value); ?></option>
 												<?php
 												  }
 												?>
@@ -311,7 +313,7 @@ let addApartmentDescriptionEditor = new Simditor({
 												  foreach($aptCategories as $key => $value)
 												  {
 												  ?>
-												  <option value="{{$key}}">{{$value}}</option>
+												  <option value="<?php echo e($key); ?>"><?php echo e($value); ?></option>
 												  <?php
 												  }
 												  ?>
@@ -333,7 +335,7 @@ let addApartmentDescriptionEditor = new Simditor({
 												  foreach($aptTypes as $key => $value)
 												  {
 												  ?>
-												  <option value="{{$key}}">{{$value}}</option>
+												  <option value="<?php echo e($key); ?>"><?php echo e($value); ?></option>
 												  <?php
 												  }
 												  ?>
@@ -350,7 +352,7 @@ let addApartmentDescriptionEditor = new Simditor({
 												   {
                                                      $rr = $i == 0 ? "room" : "rooms";													   
 												  ?>
-												  <option value="{{$i + 1}}">{{$i + 1}} {{$rr}}</option>
+												  <option value="<?php echo e($i + 1); ?>"><?php echo e($i + 1); ?> <?php echo e($rr); ?></option>
 												  <?php
 												   }
 												  ?>
@@ -367,7 +369,7 @@ let addApartmentDescriptionEditor = new Simditor({
 												   {
                                                      $rr = $i == 0 ? "unit" : "units";													   
 												  ?>
-												  <option value="{{$i + 1}}">{{$i + 1}} {{$rr}}</option>
+												  <option value="<?php echo e($i + 1); ?>"><?php echo e($i + 1); ?> <?php echo e($rr); ?></option>
 												  <?php
 												   }
 												  ?>
@@ -384,7 +386,7 @@ let addApartmentDescriptionEditor = new Simditor({
 												   {
                                                      $rr = $i == 0 ? "bathroom" : "bathrooms";													   
 												  ?>
-												  <option value="{{$i + 1}}">{{$i + 1}} {{$rr}}</option>
+												  <option value="<?php echo e($i + 1); ?>"><?php echo e($i + 1); ?> <?php echo e($rr); ?></option>
 												  <?php
 												   }
 												  ?>
@@ -401,7 +403,7 @@ let addApartmentDescriptionEditor = new Simditor({
 												   {
                                                      $rr = $i == 0 ? "bedroom" : "bedrooms";													   
 												  ?>
-												  <option value="{{$i + 1}}">{{$i + 1}} {{$rr}}</option>
+												  <option value="<?php echo e($i + 1); ?>"><?php echo e($i + 1); ?> <?php echo e($rr); ?></option>
 												  <?php
 												   }
 												  ?>
@@ -427,10 +429,10 @@ let addApartmentDescriptionEditor = new Simditor({
 											      ?>
 												  <div class="col-lg-3 col-md-6 col-sm-12">
 												   
- 												    <a class="btn btn-primary btn-sm text-white apt-service" id="apt-service-{{$key}}" onclick="toggleFacility('{{$key}}')" data-check="unchecked">
-													  <center><i id="apt-service-icon-{{$key}}" class="ti-control-stop"></i></center>
+ 												    <a class="btn btn-primary btn-sm text-white apt-service" id="apt-service-<?php echo e($key); ?>" onclick="toggleFacility('<?php echo e($key); ?>')" data-check="unchecked">
+													  <center><i id="apt-service-icon-<?php echo e($key); ?>" class="ti-control-stop"></i></center>
 													</a>
-													 <label>{{$value}}</label>
+													 <label><?php echo e($value); ?></label>
 												  </div>
 												  <?php
 													}
@@ -456,7 +458,8 @@ let addApartmentDescriptionEditor = new Simditor({
 							<!-- Add Apartment Step 2 -->
 							<div class="checkout-wrap" id="add-apartment-side-2">
 								
-								{!! $checkoutHead !!}
+								<?php echo $checkoutHead; ?>
+
 								
 								<div class="checkout-body">
 									<div class="row mb-5">
@@ -495,7 +498,7 @@ let addApartmentDescriptionEditor = new Simditor({
 												   foreach($states as $key => $value)
 												   {
 												  ?>
-												    <option value="{{$key}}">{{$value}}</option>
+												    <option value="<?php echo e($key); ?>"><?php echo e($value); ?></option>
 												  <?php
 												   }
 												  ?>
@@ -511,7 +514,7 @@ let addApartmentDescriptionEditor = new Simditor({
 												   foreach($countries as $key => $value)
 												   {
 												  ?>
-												    <option value="{{$key}}">{{$value}}</option>
+												    <option value="<?php echo e($key); ?>"><?php echo e($value); ?></option>
 												  <?php
 												   }
 												  ?>
@@ -564,7 +567,7 @@ let addApartmentDescriptionEditor = new Simditor({
 										<div class="col-lg-6 col-md-6 col-sm-12">
 											<div class="form-group">
 												<input id="a-2" class="checkbox-custom" name="a-2" type="checkbox" checked>
-												<label for="a-2" class="checkbox-custom-label">By continuing, you agree to our <a href="{{url('terms')}}">terms & conditions</a></label>
+												<label for="a-2" class="checkbox-custom-label">By continuing, you agree to our <a href="<?php echo e(url('terms')); ?>">terms & conditions</a></label>
 											</div>
 										</div>
 										
@@ -584,7 +587,8 @@ let addApartmentDescriptionEditor = new Simditor({
 							<!-- Add Apartment Step 3 -->
 							<div class="checkout-wrap" id="add-apartment-side-3">
 								
-								{!! $checkoutHead !!}
+								<?php echo $checkoutHead; ?>
+
 								
 								<div class="checkout-body">
 									
@@ -612,7 +616,7 @@ let addApartmentDescriptionEditor = new Simditor({
 												   foreach($bankAccounts as $b)
 												   {
 												  ?>
-												    <option value="{{$b['id']}}">{{strtoupper($b['bname'])}} - {{$b['acname']}} - {{$b['acnum']}}</option>
+												    <option value="<?php echo e($b['id']); ?>"><?php echo e(strtoupper($b['bname'])); ?> - <?php echo e($b['acname']); ?> - <?php echo e($b['acnum']); ?></option>
 												  <?php
 												   }
 												  ?>
@@ -629,7 +633,7 @@ let addApartmentDescriptionEditor = new Simditor({
 												   foreach($banks as $b)
 												   {
 												  ?>
-												    <option value="{{$b['slug']}}">{{$b['name']}}</option>
+												    <option value="<?php echo e($b['slug']); ?>"><?php echo e($b['name']); ?></option>
 												  <?php
 												   }
 												  ?>
@@ -651,7 +655,7 @@ let addApartmentDescriptionEditor = new Simditor({
 												<a href="javascript:void(0)" id="add-apartment-side-3-next" class="btn btn-theme">Proceed</a>
 											</div>
 											<div class="form-group text-center" id="add-apartment-loading">
-												 <h4>Processing.. <img src="{{asset('img/loading.gif')}}" class="img img-fluid" alt="Proceeding to payment.."></h4><br>
+												 <h4>Processing.. <img src="<?php echo e(asset('img/loading.gif')); ?>" class="img img-fluid" alt="Proceeding to payment.."></h4><br>
 											</div>
 										</div>
 									</div>
@@ -665,10 +669,11 @@ let addApartmentDescriptionEditor = new Simditor({
 						<!-- Sidebar End -->
 							
 						<div class="col-lg-3 col-md-4">
-							@include('apt-sidebar',['cmedia' => [],'media' => []])
+							<?php echo $__env->make('apt-sidebar',['cmedia' => [],'media' => []], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 						</div>
 					</div>
 				</div>
 			</section>
 			<!-- =================== Add Apartment Search ==================== -->
-@stop
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\bkupp\lokl\repo\fazio-project\resources\views/add-apartment.blade.php ENDPATH**/ ?>

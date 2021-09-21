@@ -57,16 +57,16 @@
 								  ?>
 							      <div class="row">
 								    <div class="col-lg-2 col-md-2">
-								      <label class="mt-3 text-light">&#8358;<span id="ssf-min"><?php echo e($lowest); ?></span></label>
+								      <label class="mt-3 text-light">&#0163;<span id="ssf-min"><?php echo e($lowest); ?></span></label>
 									</div>
 									<div class="col-lg-8 col-md-8">
 									  <div class="form-group">
-										<h4 for="ssf-amount" class="text-light">&#8358;<span id="ssf-amount-display">1000</span></h4>
+										<h4 for="ssf-amount" class="text-light">&#0163;<span id="ssf-amount-display">1000</span></h4>
 							            <input type="range" class="form-control form-control-range" name="amount" id="ssf-amount" min="1000" max="<?php echo e($highest); ?>" value="1000" step="1000">
 								      </div>
 								   </div>
 									<div class="col-lg-2 col-md-2">
-									  <label class="mt-3 text-light">&#8358;<span id="ssf-max"><?php echo e($highest); ?></span></label>
+									  <label class="mt-3 text-light">&#0163;<span id="ssf-max"><?php echo e($highest); ?></span></label>
 									</div>
 							      </div>
 							    </div>

@@ -98,7 +98,7 @@
 								</li>	
 								
 								<li>
-								   <a href="<?php echo e(url('apartments')); ?>">Listings</a>
+								   <a href="<?php echo e(url('postings')); ?>">Postings</a>
 								</li>	
 								
 								<li>
@@ -118,7 +118,7 @@
 								<li><a href="#" data-toggle="modal" data-target="#login"><i class="fas fa-user-circle text-info mr-1"></i>Log In</a></li>
 								<li><a href="#" data-toggle="modal" data-target="#signup"><i class="fas fa-arrow-alt-circle-right text-warning mr-1"></i>Sign Up</a></li>
 							  <?php else: ?>
-								  <li><a href="javascript:void(0);">Hello, <em><?php echo e($user->fname); ?></em><span class="submenu-indicator"></span></a>
+								  <li><a href="javascript:void(0);">Hello, <em><?php echo e($user->username); ?></em><span class="submenu-indicator"></span></a>
 									<ul class="nav-dropdown nav-submenu">
 										<li><a href="<?php echo e(url('dashboard')); ?>">Dashboard</a></li>                              
 										<li><a href="<?php echo e(url('transactions')); ?>">My Transactions</a></li>
@@ -277,7 +277,7 @@
 									<div class="form-group">
 										<label>User Name</label>
 										<div class="input-with-icon">
-											<input type="text" id="l-id" class="form-control" placeholder="Email or phone number">
+											<input type="text" id="l-id" class="form-control" placeholder="Your username">
 										</div>
 										<span class="text-danger text-bold input-error" id="l-id-error">This field is required</span>
 									</div>
@@ -293,7 +293,7 @@
 									<div class="form-group">
 										<button type="submit" id="login-submit" class="btn btn-md full-width pop-login">Submit</button>
 										<h4 class="text-primary" id="login-loading">Signing you in.. <img alt="Loading.." src="<?php echo e(asset('img/loading.gif')); ?>"></h4>
-										<h4 class="text-primary" id="login-finish"><b>Signin successful!</b><p class='text-primary'>Redirecting..</p></h4>
+										<h4 class="text-primary mt-2" id="login-finish"><b>Signin successful!</b><p class='text-primary'>Redirecting..</p></h4>
 									</div>
 								
 								</form>
@@ -332,7 +332,7 @@
 									<input id="tk-signup" type="hidden" value="<?php echo e(csrf_token()); ?>">
 									<div class="row">
 										<?php
-										 $modes = ['guest' => "Sign up as a Guest",'host' => "Sign up as a Host",'both' => "Switch between Guest and Host"];
+										 $modes = ['student' => "Sign up as an International Student",'host' => "Sign up as a Host"];
 										?>
 										<div class="col-lg-12 col-md-12">
 											<div class="form-group">
@@ -352,39 +352,22 @@
 												<span class="text-danger text-bold input-error" id="s-mode-error">This field is required</span>
 											</div>
 										</div>
-										<div class="col-lg-6 col-md-6">
-											<div class="form-group">
-												<div class="input-with-icon">
-													<input type="text" id="s-fname" class="form-control" placeholder="First name">												
-												</div>
-												<span class="text-danger text-bold input-error" id="s-fname-error">This field is required</span>
-											</div>
-										</div>
+										
 										
 										<div class="col-lg-6 col-md-6">
 											<div class="form-group">
 												<div class="input-with-icon">
-													<input type="text" id="s-lname" class="form-control" placeholder="Last name">
+													<input type="text" id="s-username" class="form-control" placeholder="Your desired username">
 													<!--<i class="ti-user"></i>-->
 												</div>
-												<span class="text-danger text-bold input-error" id="s-lname-error">This field is required</span>
+												<span class="text-danger text-bold input-error" id="s-username-error">This field is required</span>
 											</div>
 										</div>
 										
 										<div class="col-lg-6 col-md-6">
 											<div class="form-group">
 												<div class="input-with-icon">
-													<input type="text" id="s-phone" class="form-control" placeholder="Phone number">
-													<!--<i class="ti-user"></i>-->
-												</div>
-												<span class="text-danger text-bold input-error" id="s-phone-error">This field is required</span>
-											</div>
-										</div>
-										
-										<div class="col-lg-6 col-md-6">
-											<div class="form-group">
-												<div class="input-with-icon">
-													<input type="email" id="s-email" class="form-control" placeholder="Email">
+													<input type="email" id="s-email" class="form-control" placeholder="Email (to verify your account)">
 													<!--<i class="ti-user"></i>-->
 												</div>
 												<span class="text-danger text-bold input-error" id="s-email-error">This field is required</span>

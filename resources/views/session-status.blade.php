@@ -49,7 +49,7 @@ else if("{{$pop}}" == "payy-bank-status"){
   icon: 'info',
   showCloseButton: true,
   html:
-     "<h4>Payment code<br><em>" + dt.payment_code + "</em></h4><h5 class='text-danger'><b>NOTE: </b>Make sure you include your payment code as reference when making payment.</h5><p class='text-primary'>Bank name: GTBank</p><p class='text-primary'>Account number: 0123456789</p><p class='text-primary'>Amount: &#8358;{{number_format($amount,2)}}</p>"
+     "<h4>Payment code<br><em>" + dt.payment_code + "</em></h4><h5 class='text-danger'><b>NOTE: </b>Make sure you include your payment code as reference when making payment.</h5><p class='text-primary'>Bank name: GTBank</p><p class='text-primary'>Account number: 0123456789</p><p class='text-primary'>Amount: &#0163;{{number_format($amount,2)}}</p>"
 });
 
 }

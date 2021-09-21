@@ -117,7 +117,7 @@ $subtitle = "List of bookings made by you";
 														<div class="inner-booking-list">
 															<h5>Price per night:</h5>
 															<ul class="booking-list">
-																<li class="highlighted">&#8358;{{number_format($amount,2)}}</li>
+																<li class="highlighted">&#0163;{{number_format($amount,2)}}</li>
 															</ul>
 														</div>		
 

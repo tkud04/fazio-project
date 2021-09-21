@@ -46,15 +46,13 @@ $(document).ready(function() {
        hideInputErrors("signup");	 
        hideElem(["#signup-error"]);	   
       let mode = $('#s-mode').val(),fname = $('#s-fname').val(),lname = $('#s-lname').val(),em = $('#s-email').val(),
-	      phone = $('#s-phone').val(),p = $('#s-pass').val(),p2 = $('#s-pass2').val();
+	      username = $('#s-username').val(),p = $('#s-pass').val(),p2 = $('#s-pass2').val();
 		  
 		  
-	   if(mode == "none" || fname == "" || lname == "" || em == "" || phone == "" || p == "" || p2 == "" || p != p2){
-		   if(mode == "") showElem('#s-mode-error');
-		   if(fname == "") showElem('#s-fname-error');
-		   if(lname == "") showElem('#s-lname-error');
-		   if(em == "") showElem('#s-em-error');
-		   if(phone == "") showElem('#s-phone-error');
+	   if(mode == "none" || username == "" || em == "" || p == "" || p2 == "" || p != p2){
+		   if(mode == "none") showElem('#s-mode-error');
+		   if(em == "") showElem('#s-email-error');
+		   if(username == "") showElem('#s-username-error');
 		   if(p == "") showElem('#s-pass-error');
 		   if(p2 == "") showElem('#s-pass2-error');
 		   if(p != p2) showElem('#s-pass2-error');
@@ -65,10 +63,8 @@ $(document).ready(function() {
 		  
 		 signup({
 			 mode: mode,
-			 fname: fname,
-			 lname: lname,
 			 email: em,
-			 phone: phone,
+			 username: username,
 			 pass: p,
 			 pass_confirmation: p2
 		 });   
