@@ -154,7 +154,7 @@ $pt['name'] = $pa['name'];
 											<i class="ti-star"></i>
 										   <?php endfor; ?>
 										</div>
-										<h5 class="ts-price">&#8358;<?php echo e(number_format($pt['amount'],2)); ?></h5>
+										<h5 class="ts-price">&#0163;<?php echo e(number_format($pt['amount'],2)); ?></h5>
 									</div>
 								</div>
 							</div>

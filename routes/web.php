@@ -21,6 +21,7 @@ Route::get('terms', 'MainController@getTerms');
 Route::get('privacy', 'MainController@getPrivacy');
 Route::get('contact', 'MainController@getContact');
 Route::post('contact', 'MainController@postContact');
+Route::get('ttt', 'MainController@getScrap');
 
 //Authentication
 Route::get('signup', 'LoginController@getSignup');

@@ -22,6 +22,39 @@ class MainController extends Controller {
     {
     	$this->helpers = $h;                      
     }
+	
+	/**
+	 * Show the debug page.
+	 *
+	 * @return Response
+	 */
+	public function getScrap(Request $request)
+    {
+		$user = null;
+		$messages = [];
+		if(Auth::check())
+		{
+			$user = Auth::user();
+			$messages = $this->helpers->getMessages(['user_id' => $user->id]);
+		}
+		$req = $request->all();
+		$gid = isset($_COOKIE['gid']) ? $_COOKIE['gid'] : "";
+		$cart = $this->helpers->getCart($user,$gid);
+		$c = $this->helpers->getCategories();
+		$banner = $this->helpers->getBanner();
+		//dd($bs);
+		$signals = $this->helpers->signals;
+		
+		$ads = $this->helpers->getAds("wide-ad");
+		$plugins = $this->helpers->getPlugins();
+		
+		#dd($hasUnpaidOrders);
+		
+		shuffle($ads);
+		$ad = count($ads) < 1 ? "images/inner-ad-2.png" : $ads[0]['img'];
+
+    	return view("ttt",compact(['user','cart','messages','c','ad','banner','signals','plugins','banner']));
+    }
 
 	/**
 	 * Show the application home page.

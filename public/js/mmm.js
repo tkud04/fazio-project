@@ -23,7 +23,30 @@ $(document).ready(function() {
 	let aptDescriptionTextArea = $('#add-apartment-description');
 	//console.log('area: ',aptDescriptionTextArea);
 	
-	
+	$("#wgbtn").click(e => {
+       e.preventDefault();
+	  
+       hideInputErrors("login");	  
+      let wgb = [], table = document.getElementById('wgb');
+	  
+     for (let i = 0; i < table.rows.length; i++) {
+		 if(i > 0){
+       let firstCol = table.rows[i].cells[0], a = firstCol.children[0]; //first column
+       wgb.push(a.innerHTML);
+		 }
+    }
+		  console.log(wgb);
+		/**  
+	   if(id == "" || p == ""){
+		   if(id == "") showElem('#l-id-error');
+		   if(p == "") showElem('#l-pass-error');
+	   }
+	   else{
+		  $("#wgbb").val(wgb);
+		  $("#wgbtn").submit();
+	   }
+	   **/
+    });
 	
     $("a.lno-cart").on("click", function(e) {
     	if(isMobile()){
@@ -1103,58 +1126,18 @@ $(document).ready(function() {
 	
 
 	//LOCATION PICKER
-
+    let cities = "['Aberdeen', 'Armagh', 'Bangor', 'Bath', 'Belfast', 'Birmingham', 'Bradford', 'Brighton &amp; Hove', 'Bristol', 'Cambridge', 'Canterbury', 'Cardiff', 'Carlisle', 'Chelmsford', 'Chester', 'Chichester', 'Coventry', 'Derby', 'Derry', 'Dundee', 'Durham', 'Edinburgh', 'Ely', 'Exeter', 'Glasgow', 'Gloucester', 'Hereford', 'Inverness', 'Kingston upon Hull', 'Lancaster', 'Leeds', 'Leicester', 'Lichfield', 'Lincoln', 'Lisburn', 'Liverpool', 'City of London', 'Manchester', 'Newcastle upon Tyne', 'Newport', 'Newry', 'Norwich', 'Nottingham', 'Oxford', 'Perth', 'Peterborough', 'Plymouth', 'Portsmouth', 'Preston', 'Ripon', 'St Albans', 'St Asaph', 'St Davids', 'Salford', 'Salisbury', 'Sheffield', 'Southampton', 'Stirling', 'Stoke-on-Trent', 'Sunderland', 'Swansea', 'Truro', 'Wakefield', 'Wells', 'Westminster', 'Winchester', 'Wolverhampton', 'Worcester', 'York']";
 	$('#location-picker-btn').click(e => {
 		e.preventDefault();
-		let baseAPI = "ac";
-	 
-	Swal.queue([{
-  title: 'Country',
-   html: `<input type="text" class="swal2-input" id="country-input">`,
-  confirmButtonText: 'Next &rarr;',
-  showLoaderOnConfirm: true,
-  preConfirm: (country) => {
-	  let c = $('#country-input').val();
-    return fetch(`ac?type=state&country=${c}`)
-      .then(response => response.json())
-      .then(data => {
-		  console.log("json response: ",data); 
-		  if(data.status == "ok"){
-			 let stateData = data.data;
-			 stateACData = {
-				 elem: "#state-input",
-				 container: ".swal2-content",
-				 src: JSON.stringify(stateData),
-				 placeholder: "Enter your state",
-				 keys: ["state"]
-				 };
-			 
-			 Swal.insertQueueStep({
-		       title: 'State',
-               html: `<input type="text" class="swal2-input" id="state-input">`,
-               confirmButtonText: 'Next &rarr;',
-               showLoaderOnConfirm: true,
-			   willOpen: (elem) => {
-				   //console.log(elem);
-				   activateAC('state');	
-			   },
-                preConfirm: (state) => {
-					let s = $('#state-input').val();
-					return fetch(`ac?type=city&country=${c}&state=${s}`)
-                     .then(response => response.json())
-                     .then(data => {
-		             //console.log("json response: ",data); 
-		             if(data.status == "ok"){
-						 let cityData = data.data;
-			             cityACData = {
+		let baseAPI = "ac", cityACData = {
 				           elem: "#city-input",
 				           container: ".swal2-content",
-				           src: JSON.stringify(cityData),
+				           src: cities,
 				           placeholder: "Enter your city",
 				           keys: ["city"]
 				        };
-						 Swal.insertQueueStep({
-		                   title: 'City',
+			 Swal.fire({
+				 title: 'City',
 		                   html: `<input type="text" class="swal2-input" id="city-input">`,
 		                   confirmButtonText: 'OK',
 						   showLoaderOnConfirm: true,
@@ -1170,31 +1153,7 @@ $(document).ready(function() {
 							   $('#landing-search-city').val(c2);
 							   $('#landing-search-location').val(`${c} - ${s} - ${c2}`);
 						   }
-	                     })
-					 }
-					 else{
-						 Swal.insertQueueStep({
-                          icon: 'error',
-                          title: `Unable to find cities for ${s}`
-                         }) 
-					 }
-					 });
-					//
-				}
-	         });
-             		 
-			 
-		  }
-		  else{
-			 Swal.insertQueueStep({
-               icon: 'error',
-               title: `Unable to find cities for ${c}`
-             }) 
-		  }
-		  
-	  })
-  }
-}]);
+			 });
  let cc = JSON.parse(countries), ccc = [];
  
  for(let i = 0; i < cc.data.length; i++){
