@@ -17,8 +17,8 @@ let countries = `{!!$countries!!}`;
 					<div class="col-md-12 col-sm-12">
 					
 						<div class="caption text-center cl-white mb-5">
-							<span class="stylish">Rent An Apartment for Short Rest</span>
-							<h1>Explore Choice Apartments</h1>
+							<span class="stylish">Rent An Apartment for Your Study Program</span>
+							<h1>Explore Choice Postings</h1>
 						</div>
 						
 						<form class="st-search-form-tour icon-frm withlbl" action="{{url('search')}}" id="landing-search-form" method="post">
@@ -45,8 +45,8 @@ let countries = `{!!$countries!!}`;
 									<div class="col-lg-3 col-md-4 border-right mxnbr">
 										<div class="form-group">
 											<i class="ti-calendar field-icon"></i>
-											<label>From - To</label>
-											<input type="text" class="form-control check-in-out"id="landing-search-dates" value="{{$today}} - {{$tomorrow}}" />
+											<label>Period (Weeks)</label>
+											<input type="text" class="form-control check-in-out"id="landing-search-duration" placeholder="Number of weeks you want to rent for" />
 										</div>
 									</div>
 									
@@ -55,7 +55,7 @@ let countries = `{!!$countries!!}`;
 											<i class="ti-user field-icon"></i>
 											<div class="form-content dropdown-toggle" data-toggle="dropdown">
 												<div class="wrapper-more">
-													<label>Guests</label>
+													<label>No. of Tenants</label>
 													<div class="render">
 														<span class="adults"><span class="one ">1 Adult</span> <span class=" d-none  multi" data-html=":count Adults">1 Adults</span></span>-
 														<span class="children">
