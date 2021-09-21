@@ -2823,10 +2823,10 @@ function updateApartment($data)
 			   $dt = json_decode($data);
 			 #dd($dt);
 			 $avb = $dt->avb;
-			 $city = $dt->city == "" ? $dt->state: $dt->city;
-			 $lga = $dt->lga == "" ? $dt->state: $dt->lga;
-			 $country = $dt->country == "" ? $dt->country: "nigeria";
-			 $state = $dt->state;
+			 $city = $dt->city;
+			
+			 $country = $dt->country;
+			
 			 $max_adults = $dt->max_adults;
 			 $max_children = $dt->max_children;
 			 
@@ -2852,7 +2852,7 @@ function updateApartment($data)
 			 
 			 //Location
 			 $byAddress = ApartmentAddresses::where('city',"LIKE","%$city%")
-				              ->where('state',"LIKE","%$state%")
+				
 			                  ->where('country',"LIKE","%$country%")->get();
 			 
              //Apartment			 
