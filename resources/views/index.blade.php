@@ -48,7 +48,7 @@ $(document).ready(() => {
 
 @section('content')
 
-@include('banner',['def' => $def,'banner' => $banner])
+@include('banner',['def' => $def,'banner' => $banner,'cities' => $cities])
 
 
 
