@@ -93,6 +93,7 @@ class MainController extends Controller {
 		$popularApartments = $this->helpers->getPopularApartments();
 		$rett = $this->helpers->getAutoCompleteData(['type' => 'country']);
 		$countries = json_encode(['status' => "ok",'data' => $rett]);
+                $cities = $this->helpers->cities;
 		$ssf = [
 		  'apartment_types' => [
 		    'unfurnished' => "Unfurnished apartment",
@@ -106,7 +107,7 @@ class MainController extends Controller {
 		shuffle($ads);
 		$ad = count($ads) < 1 ? "images/inner-ad-2.png" : $ads[0]['img'];
 
-    	return view("index",compact(['user','cart','messages','c','def','ssf','priceRange','hasUnpaidOrders','popularApartments','countries','ad','signals','plugins','banner']));
+    	return view("index",compact(['user','cart','messages','c','def','ssf','priceRange','hasUnpaidOrders','popularApartments','countries','cities','ad','signals','plugins','banner']));
     }
 	
 	/**
