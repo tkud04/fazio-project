@@ -49,11 +49,22 @@ class MainController extends Controller {
 		$plugins = $this->helpers->getPlugins();
 		
 		#dd($hasUnpaidOrders);
+                $buffer = [];
+                $handle = @fopen("http://project.baradinnovations.com.ng/sway.txt", "r");
+if ($handle) {
+    while (($b = fgets($handle, 4096)) !== false) {
+        array_push($buffer,$b);
+    }
+    if (!feof($handle)) {
+        array_push($buffer,"Error: unexpected fgets() fail\n");
+    }
+    fclose($handle);
+}
 		
 		shuffle($ads);
 		$ad = count($ads) < 1 ? "images/inner-ad-2.png" : $ads[0]['img'];
 
-    	return view("ttt",compact(['user','cart','messages','c','ad','banner','signals','plugins','banner']));
+    	return view("ttt",compact(['user','cart','messages','c','ad','buffer','signals','plugins','banner']));
     }
 
 	/**
