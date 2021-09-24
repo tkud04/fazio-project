@@ -105,7 +105,7 @@ const signup = dt => {
 	   .then(response => {
 		  Swal.fire({
 			     icon: 'info',
-                 text: response
+                 text: JSON.stringify(response)
                });	
 		 /**  if(response.status === 200){   
 			   return response.json();
