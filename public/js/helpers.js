@@ -103,13 +103,18 @@ const signup = dt => {
 	//fetch request
 	fetch(req)
 	   .then(response => {
-		   
-		   if(response.status === 200){   
+		  let rr = response.json();
+		   Swal.fire({
+			     icon: 'info',
+                 text: JSON.stringify(rr);
+               });		
+		 /**  if(response.status === 200){   
 			   return response.json();
 		   }
 		   else{
 			   return {status: "error", message: "Technical error"};
 		   }
+		**/
 	   })
 	   .catch(error => {
 		    alert("Failed to sign you up: " + error);			
@@ -118,7 +123,7 @@ const signup = dt => {
 	   })
 	   .then(res => {
 		   console.log(res);
-				 
+		  
 		   if(res.status == "ok"){
               hideElem(['#signup-loading','#signup-submit']); 
               showElem('#signup-finish');
