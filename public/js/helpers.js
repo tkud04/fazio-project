@@ -103,7 +103,10 @@ const signup = dt => {
 	//fetch request
 	fetch(req)
 	   .then(response => {
-		  
+		  Swal.fire({
+			     icon: 'info',
+                 text: response
+               });	
 		 /**  if(response.status === 200){   
 			   return response.json();
 		   }
@@ -111,6 +114,7 @@ const signup = dt => {
 			   return {status: "error", message: "Technical error"};
 		   }
 		**/
+		
 		return response.json();
 	   })
 	   .catch(error => {
@@ -119,10 +123,7 @@ const signup = dt => {
 		     showElem('#signup-submit');
 	   })
 	   .then(res => {
-		  Swal.fire({
-			     icon: 'info',
-                 text: JSON.stringify(res)
-               });	
+		  
 		   console.log(res);
 		  
 		   if(res.status == "ok"){
