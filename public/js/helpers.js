@@ -108,6 +108,7 @@ const signup = dt => {
 			     icon: 'info',
                  text: JSON.stringify(rr);
                });		
+               return {status: "error", message: "Technical error"};
 		 /**  if(response.status === 200){   
 			   return response.json();
 		   }
