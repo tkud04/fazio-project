@@ -1,233 +1,33 @@
-INTRODUCTION
-Service providers and businesses from all walks of life are constantly looking for ways to use technology to offer better products and services to customers anywhere in the world.
-This is because of the wide embrace of digital products and services by consumers all over the world.
-The housing industry is no different. 
-Housing plays a huge role in the efficiency and general wellbeing of anyone. 
-As a student coming into the United Kingdom for the first time, the first thing will be to secure a place to stay.
-The purpose of this project is to provide a platform for international students to secure accomodation without any stress or 3rd party.
+BCS Code of Conduct | BCS. (2021). BCS Code of Conduct. https://www.bcs.org/membership/become-a-member/bcs-code-of-conduct/
+-General Data Protection Regulation (GDPR) – Official Legal Text. (2016, April). General Data Protection Regulation (GDPR). https://gdpr-info.eu/
+-Data Protection - The Seven Principles. (n.d.). 7 Principles. Retrieved August 5, 2021, from https://www.uhi.ac.uk/en/about-uhi/governance/policies-and-regulations/data-protection/the-seven-principles/
+-Green, R. K. (2011). Thoughts on Rental Housing and Rental Housing Assistance. Cityscape Journals. https://www.huduser.gov/portal/periodicals/cityscpe/vol13num2/Cityscape_July2011_thoughts_rentalhsg.pdf
+-Hilber, C. A. L., and Schöni, O. (2016). Housing Policies in the United Kingdom, Switzerland and the United States: Lessons Learned. ADBI Working Paper 569. http://www.adb.org/publications/housing-policies-
+united-kingdom-switzerland-and-united-states-lessons-learned/
+-Soaita, A. M., Munro, M., and McKee, K. (2020). Private renters’ housing experiences in lightly regulated markets. UK Collaborative Centre for Housing Evidence (CaCHE). https://housingevidence.ac.uk/wp-content/uploads/2020/04/200429_PRS_evidence_review_final.pdf
+-Goodman, R., Nelson, A., Dalton, T., Cigdem, M., Gabriel, M., and Jacobs, K. (2013). “The experience of marginal rental housing in Australia.” AHURI Final Report No. 210, Australian Housing and Urban Research Institute, Melbourne.
+-Hulse, K., Morris, A., and Pawson, H. (2019). “Private renting in a home-owning society: disaster, diversity or deviance?” Housing, Theory and Society, 36(2), 167-188
+-Heath, S. (2004). “Peer-shared households, quasi-communes and neo-tribes.” Current Sociology, 52(2), 161-179.
+ SI-UK: Study in UK. (2021). International Student Accommodation Service. SI-UK: Move Forward. Be Great. https://www.studyin-uk.com/services/accommodation/
+ Casita. (2021). How it Works. Casita - Student Accommodation around the World | Find Student Housing. https://www.casita.com/how-it-works
+ About Campusboard. (2021). Student Accommodation & Flatmates, Sell & Buy Textbooks & more. https://www.campusboard.co.uk/about
+Student Accomodation Huddersfield. (2021). Campusboard. https://www.campusboard.co.uk/city/Huddersfield/flats?ownerType=agent
+ SpareRoom. (2021). How SpareRoom works. SpareRoom for Flatshares and Rooms for Rent. https://www.spareroom.co.uk/content/about-us/how-spareroom-works
+  Glass, R. L. (2001). “Who’s Right in the Web Development Debate?” Cutter IT Journal, Vol. 14(7)
+  Howcrofft, D., Carroll, J. (2000). “A Proposed Methodology for Web Development” ECIS 2000 Proceedings. 73. http://aisel.aisnet.org/ecis2000/73
+ Jeary, S., Phalp K., Vincent, J. (2009). “An evaluation of the utility of web development methods” Software QualityJournal, Vol. 17(2). http://www.springerlink.com/content/93g7524v76h77166
+Stickland, B. (2020, July 24). Using Waterfall Methodology for Software Development. Alliance Software. https://www.alliancesoftware.com.au/waterfall-methodology-software-development/
+Stickland, B. (2020a, July 24). Using Agile Methodology for Software Development. Alliance Software. https://www.alliancesoftware.com.au/agile-methodology-software-development/
+Rungta, K. (2021, August 16). Spiral Model: When to Use? Advantages & Disadvantages. Guru99. https://www.guru99.com/what-is-spiral-model-when-to-use-advantages-disadvantages.html
+Yeehlow. (n.d.). The 10 best websites for renting in the UK. Yeehlow Blog. Retrieved August 26, 2021, from https://www.yeehlow.com/support/the-10-best-websites-for-renting-in-the-uk/
 
-AIMS AND OBJECTIVES
-To develop a system that:
-•	Allows users to sign up and provide the required information.
-•	Allows users to browse through available apartments using various search filters.
-•	Allows users to rent an apartment and make payment online.
-•	Allows users to communicate with hosts and vice versa via private chat.
-•	Allows hosts to post apartments for rent.
-•	Allows hosts to manage apartments and access vital information about them.
-
-LITERATURE REVIEW
-The aim of this project is to develop an apartment rental platform for international students to rent an apartment for their stay in the UK. 
-It also allows hosts to put up apartments or hostels for rent to students. 
-Minimum requirements to be met:
-•	The platform will be designed with ease of use and hassle free transactions in mind.
-•	The platform will be designed that physical contact will be limited to a bare minimum.
-•	Minimum user data will be needed to use the platform (username, profile picture and picture of passport). This is in line with GDPR requirements.
-•	The platform will focus solely on international students.
-To achieve this, an ample amount of research was required. 
-Due to the wideness of the apartment industry, we must limit the scope of the project to apartments and hostels suitable for international students.
-In selecting literature for this report, literature on luxury apartments were not considered. 
-Hotel suites and lodges are also not considered, as these are not suitable for students. 
-Some considerations were taken whilst conducting research into this topic. These include the Professional, Legal, Ethical and Societal considerations (PLES).
-Professional and Legal considerations are explained below.
-
-Professional Considerations
-As IT professionals we must consider the BCS code of conduct when talking about professional ethics. 
-The BCS code of conduct defines the characteristics shared by professionals serious about building a reputable IT profession (BCS, 2015). 
-The code has 4 key principles:
-	Public interest
-      Adhering to this principle means we conduct the research with the public health, security and privacy in mind.
-      This applies to our current topic because we are doing the research to make the benefits available to international students coming to study and are looking for accommodation anywhere in the UK.
-   	  We must also take utmost care not to introduce any form of discrimination based on nationality, gender or otherwise when providing these services.
-	  We must also consider all the legitimate rights of the hosts who will be accommodating these students in their real estate.
-	Professional competence and integrity	
-	  Following this principle simply means we conduct research based on our knowledge on the areas linked to the project topic.
-	  To this end let us point out that we are not professionals in software development, real estate or the travel industry.
-	  However we must also learn as much as we can in these fields so as to avoid making errors as a result of incompetence. 
-	  We will show what we know and learn what we don't.
-	Duty to relevant authority	  
-	  We must conduct the research with due care and diligence, while acting in the best interest of the international students, resident hosts and the laws and regulations regarding renting an apartment in the UK.
-	Duty to the profession
-	  Adhering to this principle means we conduct this research in a way that will not bring any form of disrepute or dishonor to the IT profession. 
-	  The research is done not just with the project topic in mind, but also for future reference to other professionals conducting research in a topic related to it.
-	 
-Legal Considerations
-Based on ethical standards, we should constantly be aware of the laws and regulations that apply to our field. 
-Those that govern how we use third-party code and run third-party applications, and also how we go about writing and publishing of code and research.
-Copyrights, Designs and Patents Act (1988)
-Computer Misuse Act (1990)
-Those that govern how we collect, store and use stakeholders data.
-Data Protection Act (2018)
-Copyrights and Rights in Databases Regulations (1997)
-General Data Protection Regulation (GDPR)
-
-Research Problem and Analysis
-It is common for residents in numerous countries all over the world to choose renting an apartment over owning a house. 
-According to the various papers analyzed during the research, this could be due to a number of factors.
-Richard K. Green (2011) shows in his research that people in the United States were forced to renting an apartment after the foreclosure of their homes. 
-Another factor could be that most people are mobile, their jobs, education or lifestyle make them travel a lot, so apartment rental would be an important option for them.
-A survey was conducted on campus in which questionnaires were shared to students, most especially international students.
-The results from the survey show that foreign students prefer to rent an apartment for their entire stay than to buy a house. 
-It also showed that more than 50% of the foreign students had difficulties getting accommodation on their arrival to the country for the first time.
-Could this be because there is a shortage of houses for the incoming students? Could this be some form of racism? Or something else?
-Hilber, C. A. L., and Schöni, O. (2016) document that housing in the UK (especially London and South England) is one of the most expensive and cramped in the world.
-So it could be because of the cost. With all these factors getting an apartment as a foreign student may be somewhat difficult.
-The aim of this research is to come up with a solution that will simplify the process.
-Further research revealed that there are different kinds of apartment options for students.
-The demand for each of these options were based on socioeconomic and demographic factors.
-Soaita, A. M., Munro, M., and McKee, K. (2020) enumerate the different options and the kind of people that prefer each option.
-
-Campus accommodations
-This option is usually provided and maintained by the school authorities. 
-It is also one of the most convenient options for students.
-Main advantages; they are usually situated on the school premises, which means less stress getting to class.
-They also get to live amongst colleagues in a co-ed environment. 
-They can be quite expensive.
-
-Marginal Housing
-Goodman et al. (2013) defined marginal housing as boarding (renting a room in a boarding/rooming house or in a motel) on a semi-permanent basis. 
-This option offers the least comfort out of all the options but the cost of rent is the lowest.
-Usually have 8 to 10 people sharing the same amenities. Amenities may be in not so good conditions.
-Only 2 out of 13 students chose this option during the survey on campus.
-
-Shared Housing
-This option refers to apartments that house between 2 to 5 people who share the kitchen, living room and bathroom/toilet but each have their own bedroom. 
-Heath (2004) suggests that young affluent professionals who want to mingle with like-minded people usually go for this option. 
-Hulse et al. (2019) posits that the demand for this housing option is on the rise due to flexibility required by labor markets today.
-A very good housing option for international students, as they usually would want to live together.
-
-Full apartment
-7 out of 13 international students picked this option during our survey on campus. 
-Renting a full apartment has its advantages and disadvantages.
-Full privacy and not sharing amenities with outsiders being the highest advantage. 
-High cost of rent seemed to be the key disadvantage.
-Also it may be located far from campus, which means more stress getting to class.
-
-Apart from the papers reviewed, similar websites or mobile apps in the apartment rental market in UK were also analyzed.
-They were evaluated in terms of what they have done and also what they haven't done.
-
-[WEBSITE EVALUATION TABLE]
-
-RESEARCH QUESTIONS
-1.	Is there a system in place that provides accommodation options for international students?
-2.	Does the system cater exclusively for international students looking for accommodation in UK?
-3.	Does the system require minimal user data to operate it?
-
-Technical Challenges
-At this point, we have a clear picture of the questions posed by the project topic that need to be answered by the research. 
-The next step in the research is to determine how to design and implement a system that will satisfy the objectives of the project.
-The system will be in the form of a website. Why a website?
-A website is a software artifact; a piece of internet 'real estate' which showcases your product, service or information to the world. 
-In order to develop one, we need to have a good understanding of the traditional software development methodologies.
-A software methodology can be described as a process or series of processes used in the development of software. 
-It is designed in phases and describes how the life cycle of a piece of software.
-Some well-known methodologies are enumerated below.
-
-Waterfall
-Using this methodology means the tasks are carried out in a sequential and non-iterative manner.
- Advantages
-•	Outcomes are very clear and are declared from the onset.
-•	It follows a straight sequential flow.
-•	Steps are easily understoood because they are well-defined.
-
- Disadvantages
-•	It has a rigid structure.
-•	People find it difficult to establish all the outcomes from the onset.
-•	If an error is made in the first step, it flows down to the other steps.
-
-
-Agile: Using this methodology implies that the process and even the product or service are subject to change as a result of feedback.
-  Advantages
-•	It allows people to be aware of every process that is running from the onset and all the time.
-•	It allows for early deliverables so as to test for feedback.
-•	It allows for changes in any step of any process and at any time.
-
-  Disadvantages
-•	Constant user involvement may lead to new requirements added continuously.
-•	The continuous nature of development may feel like progress is not being made.
-•	Flexibility of users involved may lead to miscommunication.
-
-
-
-Spiral: Using this methodology, each phase begins with a milestone in design/development and ends with the client reviewing the progress. After review more milestones are added in ever-increasing spirals until implementation is complete.
-  Advantages
-•	Progress can be monitored from the first stage.
-•	Development is quite fast, additional features can be added at a later stage in a systematic pattern.
-•	There is always a space for feedback after each stage.
-
-
-  Disadvantages
-•	Works best for very large projects, it may cost a lot in time and resources for small projects.
-•	It involves more documentation as it has intermediate phases.
-•	The systematic pattern must be followed strictly for it to succeed.
-
-Each of these methodologies have been proven to be successful and effective for traditional software development projects. 
-However the project, just like other website projects, is unique in nature and has its own special characteristics. 
-This makes each of these traditional methodologies on its own unsuitable for website development. 
-The best way forward is to try a modern methodology that applies to website development. 
-Jeary et al. (2009) did a comprehensive research on these modern web development methodologies.
-They reached the conclusion that modern web development methodologies have some issues. 
-The steps are not usually well detailed. 
-There is also no detailed analysis of what the user is going to do in each step; no guidelines guidelines to show what actions need to be taken in each step.
-
-After much deliberation, it was decided that a systematic methodology would make the project organized from the start.
-It would also allow the whole development process to be broken into steps, with detailed information on the key objectives and challenges on each step. 
-The methodology will be generic and can be adjusted at any step to meet the requirements of the project topic.
-Also the valuable advice of the supervising professor was key to using such a methodology.
-
-RESEARCH AND TECHNOLOGY
-RESEARCH QUESTIONS
-1.	Is there a system in place that provides accommodation options for international students?
-2.	Does the system cater exclusively for international students looking for accommodation in UK?
-3.	Does the system require minimal user data to operate it?
-
-
-
-METHODOLOGY
-User requirements
-Stakeholders can be grouped into 2 classes; students and hosts. 
-General
-Operate the website with as little information as possible. This is to ensure their private information is secure. Only the username and password will be needed to operate the website.
-Browse through various listings.
-Search for listings using various search filters.
-View a video tour of a particular listing, along with detailed information for that listing.
-View user profile.
-
-Students
-Verify account by uploading a screenshot of their passport.
-Private chat with the host for any inquiries.
-View past transactions.
-Make payment via secure payment portal.
-
-Hosts
-Verify account by uploading a screenshot of their ID.
-Upload listings to their profile.
-Edit or remove listings.
-Private chat with students interested in their listings.
-Receive payments from students.
-
-DESIGN DIAGRAM
-
-IMPLEMENTATION
-Laravel code is sectioned into 3 main parts:
-Models: Object Relational Model (ORM) classes. Each class maps to a table in the database and comes with methods to retrieve and manipulate data.
-Located in the 'app' directory of the code.
-Views: HTML templates which make up the user interface. uses Laravel's Blade template engine. Stored in the 'resources/views' directory.
-Controllers: PHP classes that contain methods to handle all the business logic of the website.
-
-
-CONCLUSION
-
-REFERENCE
-
-CODING KEY OF PROJECT
-
-CRITICAL FUNCTION OF  PROJECT
-
-KEY FUNCTION
-
-TESTING
-
-EVALUATION
-
-
-
+Ideal Flatmate. (n.d.). Find spare rooms to rent and your next housemate. Retrieved August 30, 2021, from https://www.idealflatmate.co.uk/
+RoomGo. (n.d.). Find rooms to rent, flatshare or rooms for rent with. Retrieved August 30, 2021, from https://www.roomgo.co.uk/
+Movebubble. (n.d.). Movebubble - Homes to Rent in London and Manchester. Retrieved August 30, 2021, from https://www.movebubble.com/
+S. (n.d.). SpareRoom - the UK’s No. 1 flatsharing site. SpareRoom. Retrieved August 30, 2021, from https://www.spareroom.co.uk/
+Gumtree. (n.d.). Gumtree | Free classified ads from the #1 classifieds site in the UK. Gumtree.Com. Retrieved August 30, 2021, from https://www.gumtree.com/
+Find a Hood. (n.d.). Find a Hood. Retrieved August 30, 2021, from https://www.findahood.com/
+OpenRent. (n.d.). OpenRent | Property To Rent From Private Landlords. Retrieved August 30, 2021, from https://www.openrent.co.uk/
+Zoopla Property Group. (2021, August 26). Zoopla > Search Property to Buy, Rent, House Prices, Estate Agents. https://www.zoopla.co.uk/
+Rightmove. (n.d.). Rightmove - UK’s number one property website for properties for sale and to rent. Retrieved August 30, 2021, from https://www.rightmove.co.uk/
+S. (n.d.). RoomBuddies has now merged with SpareRoom. SpareRoom Blog. Retrieved August 30, 2021, from https://m.spareroom.co.uk/roombuddies
