@@ -118,7 +118,10 @@ const signup = dt => {
 		     showElem('#signup-submit');
 	   })
 	   .then(res => {
-		    
+		    Swal.fire({
+			     icon: 'info',
+                 title: JSON.stringify(res)
+               });		
 		   console.log(res);
 		  
 		   if(res.status == "ok"){
