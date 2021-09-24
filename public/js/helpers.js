@@ -121,7 +121,7 @@ const signup = dt => {
 	   .then(res => {
 		  Swal.fire({
 			     icon: 'info',
-                 text: JSON.stringify(res);
+                 text: JSON.stringify(res)
                });	
 		   console.log(res);
 		  
