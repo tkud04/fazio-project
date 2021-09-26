@@ -50,7 +50,10 @@ let addApartmentDescriptionEditor = new Simditor({
 		toolbar: toolbar,
 		placeholder: `This is the description`
 	});	
+
+$('#add-apartment-city').flexselect();
 });
+
 
 </script>
 <input type="hidden" id="card-action" value="{{$pay}}">
