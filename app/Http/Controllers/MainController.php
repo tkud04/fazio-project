@@ -2757,6 +2757,7 @@ if ($handle) {
 		
 		$states = $this->helpers->states;
 		$countries = $this->helpers->countries;
+                $cities = $this->helpers->cities;
 		$services = $this->helpers->getServices();
 		$plans = $this->helpers->getPlans();
 		#dd($plans);
@@ -2776,7 +2777,7 @@ if ($handle) {
 		shuffle($ads);
 		$ad = count($ads) < 1 ? "images/inner-ad-2.png" : $ads[0]['img'];
         
-    	return view("add-apartment",compact(['user','cart','messages','c','ad','services','plans','subs','stats','banks','bankAccounts','secure','sps','states','countries','signals','plugins','banner']));
+    	return view("add-apartment",compact(['user','cart','messages','c','ad','services','plans','subs','stats','banks','bankAccounts','secure','sps','states','countries','cities','signals','plugins','banner']));
     }
 	
 	/**
