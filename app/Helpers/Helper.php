@@ -1809,7 +1809,7 @@ function isDuplicateUser($data)
                                                       'apartment_id' => $apartment_id, 
                                                       'user_id' => $data['user_id'],                                                       
                                                       'avb' => $data['avb'],                                                       
-                                                      'bank_id' => $data['bank_id'],                                                       
+                                                      'bank_id' => "",                                                      
                                                       'url' => $data['url'],                                                       
                                                       'in_catalog' => "no", 
                                                       'status' => "pending", 
@@ -1856,8 +1856,8 @@ function isDuplicateUser($data)
            	$ret = ApartmentAddresses::create(['apartment_id' => $data['apartment_id'], 
                                                       'address' => $data['address'],                                                       
                                                       'city' => $data['city'],                                                       
-                                                      'lga' => $data['lga'],                                                       
-                                                      'state' => $data['state'],
+                                                      'county' => $data['county'],                                                       
+                           
                                                       'country' => $data['country']
                                                       ]);
                               
@@ -1871,7 +1871,7 @@ function isDuplicateUser($data)
                                                       'category' => $data['category'],                                                       
                                                       'property_type' => $data['property_type'],                                                       
                                                       'rooms' => $data['rooms'],                                                       
-                                                      'units' => $data['units'],                                                       
+                                                                                            
                                                       'bathrooms' => $data['bathrooms'],                                                       
                                                       'bedrooms' => $data['bedrooms'],                                                
                                                       'amount' => $data['amount']                                                       
@@ -2158,7 +2158,7 @@ function isDuplicateUser($data)
 				  $temp['category'] = $adt->category;
      			  $temp['property_type'] = $adt->property_type;
      			  $temp['rooms'] = $adt->rooms;
-     			  $temp['units'] = $adt->units;
+     			  
      			  $temp['bathrooms'] = $adt->bathrooms;
      			  $temp['bedrooms'] = $adt->bedrooms;
      			  $temp['amount'] = $adt->amount;
@@ -2182,8 +2182,8 @@ function isDuplicateUser($data)
 				  $temp['apartment_id'] = $aa->apartment_id;
      			  $temp['address'] = $aa->address;
 				  $temp['city'] = $aa->city;
-				  $temp['lga'] = $aa->lga;
-				  $temp['state'] = $aa->state;
+				  $temp['county'] = $aa->county;
+				  
 				  $temp['country'] = $aa->country;
 				  $ret = $temp;
                }                         
@@ -2447,8 +2447,8 @@ function updateApartment($data)
            	       $aa->update([
                                                       'address' => $data['address'],                                                       
                                                       'city' => $data['city'],                                                       
-                                                      'lga' => $data['lga'],                                                       
-                                                      'state' => $data['state'],
+                                                      'county' => $data['county'],                                                       
+                                                      
                                                       'country' => $data['country'],
                                                       ]);
 			   }               
@@ -2469,7 +2469,7 @@ function updateApartment($data)
                                                      'category' => $data['category'], 
                                                      'property_type' => $data['property_type'], 
                                                      'rooms' => $data['rooms'], 
-                                                     'units' => $data['units'], 
+                                  
                                                      'bathrooms' => $data['bathrooms'], 
                                                      'bedrooms' => $data['bedrooms'],                                                      
                                                       'amount' => $data['amount'],                                                      
