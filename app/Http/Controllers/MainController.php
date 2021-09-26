@@ -2821,13 +2821,13 @@ if ($handle) {
 		                    'amount' => 'required|numeric',
 		                    'address' => 'required',
 		                    'city' => 'required',
-		                    'county' => 'required',
+		                 #   'county' => 'required',
 		                   # 'state' => 'required',
 		                    'country' => 'required',
 		                    'facilities' => 'required',
 		                    'img_count' => 'required|numeric',
 		                    'cover' => 'required',
-		                    'bank' => 'required|not_in:none'
+		                    #'bank' => 'required|not_in:none'
 							
 		]);
 		
