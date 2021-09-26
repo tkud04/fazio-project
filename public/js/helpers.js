@@ -445,7 +445,7 @@ const aptFinalPreview = (id) => {
 												<li>Friendly URL<span>${axf}?xf=<b>${aptUrl}</b></span></li>
 												<li>Max. guests<span>${aptMaxAdults}</span></li>
 												<li>Availability<span>${aptAvb}</span></li>
-												<li>Price per day<span>&#8358;${aptAmount}</span></li>
+												<li>Price per day<span>&#0163;${aptAmount}</span></li>
 												<li>Category<span>${aptCategory}</span></li>
 												<li>Property type<span>${aptPType}</span></li>
 												<li>No. of rooms<span>${aptRooms}</span></li>
@@ -489,7 +489,7 @@ const aptPreferencePreview = (id) => {
 	let i = `
 												<li>Max. guests<span>${aptMaxAdults}</span></li>
 												<li>Availability<span>${aptAvb}</span></li>
-												<li>Price per day<span>&#8358;${aptAmount}</span></li>
+												<li>Price per day<span>&#0163;${aptAmount}</span></li>
 												<li>Category<span>${aptCategory}</span></li>
 												<li>Property type<span>${aptPType}</span></li>
 												<li>No. of rooms<span>${aptRooms}</span></li>
@@ -795,8 +795,8 @@ const showPage = (p,changeViewType=false) => {
 												<span class="placeDetail-detail"><i class="ti-location-pin"></i>${a.location}</span>
 											</div>
 											<div class="pricedetail-box">
-											<h6 class="price-title-cut">&#8358;0.00</h6>
-											<h4 class="price-title">&#8358;${a.amount}</h4>
+											<h6 class="price-title-cut">&#0163;0.00</h6>
+											<h4 class="price-title">&#0163;${a.amount}</h4>
 											</div>
 										</div>
 									</div>
@@ -844,7 +844,7 @@ const showPage = (p,changeViewType=false) => {
 										<div class="col-lg-2 col-md-2 padd-l-0">
 											<div class="book_list_foot">
 												<span class="off-status theme-cl">${a.avb}</span>
-												<h4 class="book_list_price">&#8358;${a.amount}</h4>
+												<h4 class="book_list_price">&#0163;${a.amount}</h4>
 												<span class="booking-time">per night</span>
 												<a href="${a.uu}" class="book_list_btn btn-theme">View</a>
 											</div>
@@ -1537,7 +1537,7 @@ const setCartData = (cart) => {
 			for(let j = 0; j < cart.length; j++){
 				let cc = cart[j];
 				htt += `
-                  <li><div class="lnt-cart-products text-success"><i class="ion-android-checkmark-circle icon"></i> {{$item['sku']}} <b>x{{$qty}}</b><span class="lnt-cart-total">&#8358;{{number_format($itemAmount * $qty, 2)}}</span> </div></li>
+                  <li><div class="lnt-cart-products text-success"><i class="ion-android-checkmark-circle icon"></i> {{$item['sku']}} <b>x{{$qty}}</b><span class="lnt-cart-total">&#0163;{{number_format($itemAmount * $qty, 2)}}</span> </div></li>
 				 `; 
 				 
 			}
