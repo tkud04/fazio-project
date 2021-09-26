@@ -2814,15 +2814,15 @@ if ($handle) {
 		                    'category' => 'required|not_in:none',
 		                    'property_type' => 'required|not_in:none',
 		                    'rooms' => 'required|numeric',
-		                    'units' => 'required|numeric',
+		                   # 'units' => 'required|numeric',
 		                    'bathrooms' => 'required|numeric',
 		                    'bedrooms' => 'required|numeric',
 		                    'max_adults' => 'required|numeric',
 		                    'amount' => 'required|numeric',
 		                    'address' => 'required',
 		                    'city' => 'required',
-		                    'lga' => 'required',
-		                    'state' => 'required',
+		                    'county' => 'required',
+		                   # 'state' => 'required',
 		                    'country' => 'required',
 		                    'facilities' => 'required',
 		                    'img_count' => 'required|numeric',
@@ -2881,32 +2881,11 @@ if ($handle) {
 					    $req['id_required'] = "yes";
 					    $req['children'] = "none";
 					    $req['pets'] = "no";
-				        $bank_id = $req['bank'];
-						
-						if($bank_id == "new" && isset($req['bname']) && isset($req['acname']) && isset($req['acnum']))
-						{
-							$b = $this->helpers->createBankDetails($req);
-							$bank_id = $b->id;
-						}
-						$req['bank_id'] = $bank_id;
+				        
 						
 			            $a = $this->helpers->createApartment($req);
 						
-						if($bank_id != null)
-			            {
-						//create subaccount on paystack
-				        $data = [
-							 'apartment' => $a,
-				             'bank_details' => $this->helpers->getBankDetail($req['bank_id']),
-							 'description' => "PayStack subaccount for ".$user->fname." ".$user->lname,
-							 'percentage_charge' => "20"
-					    ];
-                         $sa = $this->helpers->createSubAccount($data);
-						 
-						 //create split group on paystack
-						 //$sg = $this->helpers->createSplitGroup($sa->id);
-						 
-					   }
+						
 						 $ret = ['status' => "ok"];
 					}
 					
