@@ -20,12 +20,6 @@ EOD;
 			  $pay = $isSecure ? $securePay : $unsecurePay;
 	
 $fp = "";
-
-foreach($plans as $p)
-{
-   if($p['ps_id'] == "free") $fp = $p['id'];
-}			 
-
  
 
 ?>
@@ -68,156 +62,8 @@ let addApartmentDescriptionEditor = new Simditor({
 						<div class="col-lg-9 col-md-8">
 							<input type="hidden" id="tk-apt" value="{{csrf_token()}}">
 							<input type="hidden" id="tk-axf" value="{{url('apartments')}}">
-							<!-- Add Apartment Step 1 -->
-							<div class="checkout-wrap" id="add-apartment-side-0">
-								
-								<div class="checkout-body">
-									
-									<div class="row">
-									<?php
-									 if(count($subs) > 0)
-									 {
-									 $sub = $subs[0];
-									 $p = $sub['plan'];
-									 $stats = $sub['stats'];
-									 
-									 $exp = new DateTime($sub['date']);
-									 $e1 = new DateTime($exp->format("jS F, Y"));
-									 $e1->add(new DateInterval('P1M'));
-									 
-									$ac = $stats['aptCount'] == $p['pc'] ? "lluf" : "sey";
-									?>
-									   <div class="col-lg-12 col-md-12 col-sm-12">
-										  <h4 class="text-success">{{$stats['aptCount']}} out of {{$p['pc']}} postings used</h4>
-									   </div>
-                                     <div class="col-lg-12 col-md-12 col-sm-12 mt-1">
-									   <h4>Current Plan: <a href="javascript:void(0)" class="btn btn-success">{{$p['name']}}</a></h4>
-									   <input type="hidden" id="ac" value="{{$ac}}">
-									   <div class="row">
-									     <div class="col-lg-6 col-md-6 col-sm-12">
-											<div class="form-group">
-												<label>Postings<i class="req">*</i></label>
-												<input type="text" class="form-control" value="{{$stats['aptCount']}} out of {{$p['pc']}} used" readonly>
-											</div>
-										  </div>
-										  <div class="col-lg-6 col-md-6 col-sm-12">
-											<div class="form-group">
-												<label>Expires on:<i class="req">*</i></label>
-												<input type="text" class="form-control" value="{{$e1->format('jS F, Y')}}" readonly>
-											</div>
-										  </div>
-									   </div>
-									 </div>
-									<?php
-									 }
-									 else
-									 {
-										 $ac = $stats['aptCount'] == $p['pc'] ? "lluf" : "sey";
-									?>
-									   <div class="col-lg-12 col-md-12 col-sm-12">
-										  <h4 class="text-success">{{$stats['aptCount']}} out of {{$p['pc']}} postings used</h4>
-									   </div>
-									  <div class="col-lg-12 col-md-12 col-sm-12 mt-5">
-											  <h4>Choose a Plan <a href="{{url('plans')}}" target="_blank" class="btn btn-success">See Plans</a></h4>
-											  <input type="hidden" id="ac" value="{{$ac}}">
-											  <div class="form-group">
-												<label>Subscription Plan<i class="req">*</i></label>
-												<select class="form-control" id="add-apartment-plan" name="pid">
-												  <option value="none">Select plan</option>
-												  <?php
-												  foreach($plans as $p)
-												  {
-													  $v = $p['ps_id'] == "free" && $user->host_upgraded == "yes";
-													  
-													  if($v)
-													  {
-														  
-													  }
-													  else
-													  {
-													  $ss = $p['ps_id'] == "free" ? " selected='selected'" : "";
-												  ?>
-												  <option value="{{$p['id']}}"{{$ss}}>{{$p['name']}} - &#0163;{{number_format($p['amount'],2)}}/{{$p['frequency']}}</option>
-												  <?php
-												      }
-												  }
-												  ?>
-												</select>
-											 </div><br>
-											 <div class="row" id="sps-row">
-										<div class="col-lg-6 col-md-6">
-										<?php
-										 if(count($sps) > 0)
-										 {
-										?>
-											<div class="form-group">
-												<label>Select saved payment</label>
-												<select class="form-control" id="posting-payment-type">
-												  <option value="none">Select a card to pay with</option>
-												  <?php
-												   foreach($sps as $s)
-												   {
-													   $dt = $s['data'];
-													   $n = $dt->bank." | **** ".$dt->last4." | Expires: ".$dt->exp_month."/".$dt->exp_year;
-												  ?>
-												    <option value="{{$s['id']}}">{{$n}}</option>
-												  <?php
-												   }
-												  ?>
-												  <option value="card">Use a different card</option>
-												</select>
-											</div>
-											
-										<?php
-										 }
-										 else
-										 {
-										?>
-										<div class="form-group">
-												<label>Payment type</label>
-												<select class="form-control" id="posting-payment-type">
-												  <option value="none">Select payment type</option>
-												  <option value="card" selected="selected">Card</option>
-												</select>
-											</div>
-										<?php
-										 }
-										?>
-                                        </div>
-										<div class="col-lg-6 col-md-6">
-											<div class="form-group">
-												<label>Save payment info?</label>
-												<select class="form-control" name="sps" id="posting-sps">
-												  <option value="yes" selected="selected">Yes</option>
-												  <option value="no">No</option>
-												</select>
-											</div>
-										</div>
-									</div>
-										   </div>
-										   
-										   <div class="col-lg-12 col-md-12 col-sm-12">
-										    <!-- payment form -->
-										   <form id="posting-form" method="post">
-								            {!! csrf_field() !!}
-											
-                            	            <input type="hidden" name="email" value="{{$user->email}}"> {{-- required --}}
-                            	            <input type="hidden" name="quantity" value="1"> {{-- required --}}
-                            	            <input type="hidden" name="amount" value="100"> {{-- required in kobo --}}
-                            	            <input type="hidden" name="metadata" id="posting-md" value="" > {{-- For other necessary things you want to add to your payload. it is optional though --}}
-                            	            
-										   </form>
-										    <!-- payment form -->
-											<?php
-											}
-											?>
-											<div class="form-group text-center">
-											  <a href="javascript:void(0)" id="add-apartment-side-0-next" class="btn btn-theme">Next</a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+							
+							
 								<!-- Add Apartment Step 1 -->
 							<div class="checkout-wrap" id="add-apartment-side-1">
 								
@@ -252,8 +98,8 @@ let addApartmentDescriptionEditor = new Simditor({
 										
 										<div class="col-lg-6 col-md-6 col-sm-12">
 											<div class="form-group">
-												<label>Price per day(&#0163;)<i class="req">*</i></label>
-												<input type="number" class="form-control" id="add-apartment-amount" placeholder="Enter amount in NGN">
+												<label>Price per week(&#0163;)<i class="req">*</i></label>
+												<input type="number" class="form-control" id="add-apartment-amount" placeholder="Enter amount in GBP">
 											</div>
 										</div>
 										
@@ -357,23 +203,7 @@ let addApartmentDescriptionEditor = new Simditor({
 												</select>
 											</div>
 										</div>
-										<div class="col-lg-6 col-md-6 col-sm-12">
-											<div class="form-group">
-												<label>No. of units<i class="req">*</i></label>
-												<select class="form-control" id="add-apartment-units">
-												  <option value="none">Select number of units</option>
-												  <?php
-												   for($i = 0; $i < 5; $i++)
-												   {
-                                                     $rr = $i == 0 ? "unit" : "units";													   
-												  ?>
-												  <option value="{{$i + 1}}">{{$i + 1}} {{$rr}}</option>
-												  <?php
-												   }
-												  ?>
-												</select>
-											</div>
-										</div>
+										
 										<div class="col-lg-6 col-md-6 col-sm-12">
 											<div class="form-group">
 												<label>No. of bathrooms<i class="req">*</i></label>
@@ -474,34 +304,29 @@ let addApartmentDescriptionEditor = new Simditor({
 										
 										<div class="col-lg-6 col-md-6 col-sm-12">
 											<div class="form-group">
+												<label>County (if applicable)</label>
+												<input type="text" class="form-control" id="add-apartment-county" placeholder="County">
+											</div>
+										</div>
+										
+										<div class="col-lg-6 col-md-6 col-sm-12">
+											<div class="form-group">
 												<label>City<i class="req">*</i></label>
-												<input type="text" class="form-control" id="add-apartment-city" placeholder="City">
-											</div>
-										</div>
-										
-										<div class="col-lg-6 col-md-6 col-sm-12">
-											<div class="form-group">
-												<label>LGA<i class="req">*</i></label>
-												<input type="text" class="form-control" id="add-apartment-lga" placeholder="LGA">
-											</div>
-										</div>
-										
-										<div class="col-lg-6 col-md-6 col-sm-12">
-											<div class="form-group">
-												<label>State<i class="req">*</i></label>
-												<select class="form-control" id="add-apartment-state">
-												  <option value="none">Select state</option>
+												<select class="form-control" id="add-apartment-city">
+												  <option value="none">Select city</option>
 												  <?php
-												   foreach($states as $key => $value)
+												   foreach($cities as $c)
 												   {
 												  ?>
-												    <option value="{{$key}}">{{$value}}</option>
+												    <option value="{{$c}}">{{$c}}</option>
 												  <?php
 												   }
 												  ?>
 												</select>
 											</div>
 										</div>
+										
+										
 										<div class="col-lg-6 col-md-6 col-sm-12">
 											<div class="form-group">
 												<label>Country<i class="req">*</i></label>
@@ -510,8 +335,9 @@ let addApartmentDescriptionEditor = new Simditor({
 												  <?php
 												   foreach($countries as $key => $value)
 												   {
+													$ss = $key == "uk" ? " selected='selected'" : "";
 												  ?>
-												    <option value="{{$key}}">{{$value}}</option>
+												    <option value="{{$key}}"{{$ss}}>{{$value}}</option>
 												  <?php
 												   }
 												  ?>
@@ -603,47 +429,6 @@ let addApartmentDescriptionEditor = new Simditor({
 										</div>
 										
 										
-										<div class="col-md-12 col-lg-12">
-										  <div class="form-group">
-												<label>Select Bank Account<i class="req">*</i></label>
-												<select class="form-control" id="add-apartment-bank">
-												  <option value="none">Select bank account</option>
-												  <?php
-												   foreach($bankAccounts as $b)
-												   {
-												  ?>
-												    <option value="{{$b['id']}}">{{strtoupper($b['bname'])}} - {{$b['acname']}} - {{$b['acnum']}}</option>
-												  <?php
-												   }
-												  ?>
-												  <option value="new">Add a new bank account</option>
-												</select>
-											</div>
-										</div>
-										<div class="col-md-12 col-lg-12" id="add-apartment-bank-new">
-										  <div class="form-group">
-												<label>Select Bank<i class="req">*</i></label>
-												<select class="form-control" id="add-apartment-bname">
-												  <option value="none">Select bank</option>
-												  <?php
-												   foreach($banks as $b)
-												   {
-												  ?>
-												    <option value="{{$b['slug']}}">{{$b['name']}}</option>
-												  <?php
-												   }
-												  ?>
-												</select>
-											</div>
-											<div class="form-group">
-												<label>Account name<i class="req">*</i></label>
-												<input type="text" class="form-control" id="add-apartment-acname" placeholder="Account name">
-											</div>
-											<div class="form-group">
-												<label>Account number<i class="req">*</i></label>
-												<input type="text" class="form-control" id="add-apartment-acnum" placeholder="Account number">
-											</div>
-										</div>
 										
 										<div class="col-lg-12 col-md-12 col-sm-12">
 											<div class="form-group text-center" id="add-apartment-submit">
