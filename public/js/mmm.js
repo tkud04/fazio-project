@@ -253,6 +253,12 @@ $(document).ready(function() {
     
 		   }
 	     });
+        $("#add-apartment-side-2-prev").click(e => {
+       e.preventDefault();
+	  hideElem(['#add-apartment-side-2','#add-apartment-side-3']);
+	  selectCheckoutSide({side: 1,type: ".add-apartment",content: "ti-check"});
+	  showElem(['#add-apartment-side-1']);
+    });	
 	$("#add-apartment-side-3-prev").click(e => {
        e.preventDefault();
 	  hideElem(['#add-apartment-side-1','#add-apartment-side-3']);
@@ -303,12 +309,8 @@ $(document).ready(function() {
              title: "Select a cover image."
            })
 	   }
-	   else if(side3_validation){
-		   Swal.fire({
-			 icon: 'error',
-             title: "Select a subscription plan."
-           })
-	   }
+	   
+	   
 	   
 	   /**
 	   else if(aptVideo[0].size > 15000000){
