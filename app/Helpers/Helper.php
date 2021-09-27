@@ -1853,11 +1853,11 @@ function isDuplicateUser($data)
 		   
 		   function createApartmentAddress($data)
            {
+			    $county = isset($data['county']) ? $data['county'] : "";
            	$ret = ApartmentAddresses::create(['apartment_id' => $data['apartment_id'], 
                                                       'address' => $data['address'],                                                       
                                                       'city' => $data['city'],                                                       
-                                                      'county' => $data['county'],                                                       
-                           
+                                                      'county' => $county,                                                       
                                                       'country' => $data['country']
                                                       ]);
                               
@@ -1865,13 +1865,12 @@ function isDuplicateUser($data)
            }
 		   
 		   function createApartmentData($data)
-           {
+           { 
            	$ret = ApartmentData::create(['apartment_id' => $data['apartment_id'], 
                                                       'description' => $data['description'],													  
                                                       'category' => $data['category'],                                                       
                                                       'property_type' => $data['property_type'],                                                       
-                                                      'rooms' => $data['rooms'],                                                       
-                                                                                            
+                                                      'rooms' => $data['rooms'],                                                                                                                                                                                                       
                                                       'bathrooms' => $data['bathrooms'],                                                       
                                                       'bedrooms' => $data['bedrooms'],                                                
                                                       'amount' => $data['amount']                                                       
@@ -2440,6 +2439,8 @@ function updateApartment($data)
           function updateApartmentAddress($data)
            {
 			   $apartment_id = $data['apartment_id'];
+			    $county = isset($data['county']) ? $data['county'] : "";
+				
            	   $aa = ApartmentAddresses::where('apartment_id',$apartment_id)->first();
 			
 			   if($aa != null)
@@ -2447,8 +2448,7 @@ function updateApartment($data)
            	       $aa->update([
                                                       'address' => $data['address'],                                                       
                                                       'city' => $data['city'],                                                       
-                                                      'county' => $data['county'],                                                       
-                                                      
+                                                      'county' => $county,                                                                                                         
                                                       'country' => $data['country'],
                                                       ]);
 			   }               

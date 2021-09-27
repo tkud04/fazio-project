@@ -449,7 +449,6 @@ const aptFinalPreview = (id) => {
 												<li>Category<span>${aptCategory}</span></li>
 												<li>Property type<span>${aptPType}</span></li>
 												<li>No. of rooms<span>${aptRooms}</span></li>
-												<li>No. of units<span>${aptUnits}</span></li>
 												<li>No. of bedrooms<span>${aptBedrooms}</span></li>
 												<li>No. of bathrooms<span>${aptBathrooms}</span></li>
 												<li>Pets<span>${aptPets}</span></li>
@@ -493,7 +492,6 @@ const aptPreferencePreview = (id) => {
 												<li>Category<span>${aptCategory}</span></li>
 												<li>Property type<span>${aptPType}</span></li>
 												<li>No. of rooms<span>${aptRooms}</span></li>
-												<li>No. of units<span>${aptUnits}</span></li>
 												<li>No. of bedrooms<span>${aptBedrooms}</span></li>
 												<li>No. of bathrooms<span>${aptBathrooms}</span></li>
 												<li>Pets<span>${aptPets}</span></li>

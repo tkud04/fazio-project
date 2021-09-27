@@ -2757,7 +2757,7 @@ if ($handle) {
 		
 		$states = $this->helpers->states;
 		$countries = $this->helpers->countries;
-                $cities = $this->helpers->cities;
+        $cities = $this->helpers->cities;
 		$services = $this->helpers->getServices();
 		$plans = $this->helpers->getPlans();
 		#dd($plans);
@@ -2932,20 +2932,17 @@ if ($handle) {
 			
 		    $states = $this->helpers->states;
 			$countries = $this->helpers->countries;
-		
+		    $cities = $this->helpers->cities;
 	    	$ads = $this->helpers->getAds("wide-ad");
 			$services = $this->helpers->getServices();
 		    $plugins = $this->helpers->getPlugins();
 		
 		    $apartment = $this->helpers->getApartment($req['xf'],['imgId' => true]);
-			$plans = $this->helpers->getPlans();
-			$banks = $this->helpers->banks2;
-		    $bankAccounts = $this->helpers->getBankDetails($user);
 			#dd($banks);
 		    shuffle($ads);
 		    $ad = count($ads) < 1 ? "images/inner-ad-2.png" : $ads[0]['img'];
         
-    	    return view("my-apartment",compact(['user','cart','messages','c','ad','services','plans','banks','bankAccounts','apartment','states','countries','signals','plugins','banner']));
+    	    return view("my-apartment",compact(['user','cart','messages','c','ad','services','apartment','cities','countries','signals','plugins','banner']));
 		}
 		else
 		{
@@ -2989,18 +2986,14 @@ if ($handle) {
 		                    'category' => 'required|not_in:none',
 		                    'property_type' => 'required|not_in:none',
 		                    'rooms' => 'required',
-		                    'units' => 'required',
 		                    'bathrooms' => 'required',
 		                    'bedrooms' => 'required',
 		                    'max_adults' => 'required|numeric',
 		                    'amount' => 'required|numeric',
 		                    'address' => 'required',
 		                    'city' => 'required',
-		                    'lga' => 'required',
-		                    'state' => 'required',
 		                    'facilities' => 'required',
 		                    'img_count' => 'required|numeric',
-							'bank' => 'required|not_in:none'
 		]);
 		
 		if($validator->fails())
@@ -3034,35 +3027,9 @@ if ($handle) {
 					$req['user_id'] = $user->id;
 					$req['ird'] = $ird;
 				    
-				     $bank_id = $req['bank'];
-						
-						if($bank_id == "new" && isset($req['bname']) && isset($req['acname']) && isset($req['acnum']))
-						{
-							$b = $this->helpers->createBankDetails($req);
-							$bank_id = $b->id;
-						}
-						$req['bank_id'] = $bank_id;
-				 
+				   
 			$a = $this->helpers->updateApartment($req);
-			
-			if($bank_id != null)
-			{
-				$sa = $this->helpers->getSubAccount($bank_id);
-				
-				if(count($sa) < 1)
-				{
-					//create subaccount on paystack
-				        $data = [
-							 'apartment' => $a,
-				             'bank_details' => $this->helpers->getBankDetail($req['bank_id']),
-							 'description' => "PayStack subaccount for ".$user->fname." ".$user->lname,
-							 'percentage_charge' => "20"
-					    ];
-                         $sa = $this->helpers->createSubAccount($data);
-				}       
-				$ret = ['status' => "ok"];
-			}
-			
+			$ret = ['status' => "ok"];
 		 }
 		 
 		 return json_encode($ret);

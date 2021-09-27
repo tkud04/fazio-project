@@ -1,5 +1,5 @@
 <?php
-$title = "My Listings";
+$title = "My Postings";
 $subtitle = "Manage everything about your apartments here";
 ?>
 @extends('layout')
@@ -33,6 +33,8 @@ $subtitle = "Manage everything about your apartments here";
 										   {
 											   $name = $a['name'];
 											   $address = $a['address'];
+											   $county = strlen($address['county']) > 0 ? ", ".$address['county'] : "";
+											   $fa = $address['address'].$county.", ".$address['city'];
 											   $reviews = $a['reviews'];
 											   $uu = url('my-apartment')."?xf=".$a['apartment_id'];
 											   $du = url('delete-apartment')."?xf=".$a['apartment_id'];
@@ -52,7 +54,7 @@ $subtitle = "Manage everything about your apartments here";
 												<div class="list-box-listing-content">
 													<div class="inner">
 														<h3><a href="{{$uu}}">{{$name}}</a><span class="ml-2 label label-{{$statusClass}}">{{strtoupper($sss)}}</span></h3>
-														<span>{{$address['address'].", ".$address['city'].", ".$address['state']}}</span>
+														<span>{{$fa}}</span>
 														<div class="star-rating">
 															<div class="rating-counter">({{count($reviews)}} reviews)</div>
 															<?php

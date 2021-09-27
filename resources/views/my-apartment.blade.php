@@ -243,24 +243,7 @@ let myApartmentDescriptionEditor = new Simditor({
 												</select>
 											</div>
 										</div>
-										<div class="col-lg-6 col-md-6 col-sm-12">
-											<div class="form-group">
-												<label>No. of units<i class="req">*</i></label>
-												<select class="form-control" id="my-apartment-units">
-												  <option value="none">Select number of units</option>
-												  <?php
-												   for($i = 0; $i < 5; $i++)
-												   {
-                                                     $rr = $i == 0 ? "unit" : "units";
-                                                     $ss = $adata['units'] == ($i + 1) ? " selected='selected'" : "";													 
-												  ?>
-												  <option value="{{$i + 1}}"{{$ss}}>{{$i + 1}} {{$rr}}</option>
-												  <?php
-												   }
-												  ?>
-												</select>
-											</div>
-										</div>
+									
 										<div class="col-lg-6 col-md-6 col-sm-12">
 											<div class="form-group">
 												<label>No. of bathrooms<i class="req">*</i></label>
@@ -361,35 +344,30 @@ let myApartmentDescriptionEditor = new Simditor({
 										
 										<div class="col-lg-6 col-md-6 col-sm-12">
 											<div class="form-group">
+												<label>County (if applicable)</label>
+												<input type="text" class="form-control" id="my-apartment-county" value="{{$address['county']}}" placeholder="County">
+											</div>
+										</div>
+										
+										<div class="col-lg-6 col-md-6 col-sm-12">
+											<div class="form-group">
 												<label>City<i class="req">*</i></label>
-												<input type="text" class="form-control" id="my-apartment-city" value="{{$address['city']}}" placeholder="City">
-											</div>
-										</div>
-										
-										<div class="col-lg-6 col-md-6 col-sm-12">
-											<div class="form-group">
-												<label>LGA<i class="req">*</i></label>
-												<input type="text" class="form-control" id="my-apartment-lga" value="{{$address['lga']}}" placeholder="LGA">
-											</div>
-										</div>
-										
-										<div class="col-lg-6 col-md-6 col-sm-12">
-											<div class="form-group">
-												<label>State<i class="req">*</i></label>
-												<select class="form-control" id="my-apartment-state">
-												  <option value="none">Select state</option>
+												<select class="form-control" id="my-apartment-city">
+												  <option value="none">Select city</option>
 												  <?php
-												   foreach($states as $key => $value)
+												   foreach($cities as $c)
 												   {
-													   $ss = $key == $address['state'] ? " selected='selected'" : "";
+													   $ss = $c == $address['city'] ? " selected='selected'" : "";
 												  ?>
-												    <option value="{{$key}}"{{$ss}}>{{$value}}</option>
+												    <option value="{{$c}}"{{$ss}}>{{$c}}</option>
 												  <?php
 												   }
 												  ?>
 												</select>
 											</div>
 										</div>
+										
+										
 										<div class="col-lg-6 col-md-6 col-sm-12">
 											<div class="form-group">
 												<label>Country<i class="req">*</i></label>
@@ -398,7 +376,7 @@ let myApartmentDescriptionEditor = new Simditor({
 												  <?php
 												   foreach($countries as $key => $value)
 												   {
-													   $ss = $key == $address['country'] ? " selected='selected'" : "";
+													$ss = $key == "uk" ? " selected='selected'" : "";
 												  ?>
 												    <option value="{{$key}}"{{$ss}}>{{$value}}</option>
 												  <?php
@@ -523,48 +501,7 @@ let myApartmentDescriptionEditor = new Simditor({
 											
 										</div>
 										
-										<div class="col-md-12 col-lg-12">
-										  <div class="form-group">
-												<label>Select Bank Account<i class="req">*</i></label>
-												<select class="form-control" id="my-apartment-bank">
-												  <option value="none">Select bank account</option>
-												  <?php
-												   foreach($bankAccounts as $b)
-												   {
-													   $ss = $bank_id == $b['id'] ? " selected='selected'" : "";
-												  ?>
-												    <option value="{{$b['id']}}"{{$ss}}>{{strtoupper($b['bname'])}} - {{$b['acname']}} - {{$b['acnum']}}</option>
-												  <?php
-												   }
-												  ?>
-												  <option value="new">Add a new bank account</option>
-												</select>
-											</div>
-										</div>
-										<div class="col-md-12 col-lg-12" id="my-apartment-bank-new">
-										  <div class="form-group">
-												<label>Select Bank<i class="req">*</i></label>
-												<select class="form-control" id="my-apartment-bname">
-												  <option value="none">Select bank</option>
-												  <?php
-												   foreach($banks as $b)
-												   {
-												  ?>
-												    <option value="{{$b['slug']}}">{{$b['name']}}</option>
-												  <?php
-												   }
-												  ?>
-												</select>
-											</div>
-											<div class="form-group">
-												<label>Account name<i class="req">*</i></label>
-												<input type="text" class="form-control" id="my-apartment-acname" placeholder="Account name">
-											</div>
-											<div class="form-group">
-												<label>Account number<i class="req">*</i></label>
-												<input type="text" class="form-control" id="my-apartment-acnum" placeholder="Account number">
-											</div>
-										</div>
+										
 										
 										<div class="col-lg-12 col-md-12 col-sm-12">
 											<div class="form-group text-center" id="my-apartment-submit">

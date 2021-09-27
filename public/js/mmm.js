@@ -412,15 +412,15 @@ $(document).ready(function() {
 	      aptMaxChildren = $('#apartment-preference-max-children').val(),aptCategory = $('#apartment-preference-category').val(),
 		  aptChildren = $('#apartment-preference-children').val(),aptPets = $('#apartment-preference-pets').val(),
 		  aptPType = $('#apartment-preference-ptype').val(),aptRooms = $('#apartment-preference-rooms').val(),
-	       aptUnits = $('#apartment-preference-units').val(),aptBathrooms = $('#apartment-preference-bathrooms').val(),
+	      aptBathrooms = $('#apartment-preference-bathrooms').val(),
 		   aptBedrooms = $('#apartment-preference-bedrooms').val(),aptAvb = $('#apartment-preference-avb').val(),
 		   aptRating = $('#apartment-preference-rating').val(),
 		   side1_validation = (facilities.length < 1);	  
 	  
        //side 2 validation imgs = $(`${BUUPlist[bc].id}-images-div input[type=file]`);
 	   let aptAddress = $('#apartment-preference-address').val(), aptCity = $('#apartment-preference-city').val(),
-	   aptLGA = $('#apartment-preference-lga').val(),aptState = $('#apartment-preference-state').val(), aptCountry = $('#apartment-preference-country').val(),
-	       side2_validation = (aptState == "none" || aptCountry == "none");
+	   aptCounty = $('#apartment-preference-county').val(), aptCountry = $('#apartment-preference-country').val(),
+	       side2_validation = (aptAddress == "" || aptCity == "none");
      
 	   if(side1_validation || side2_validation){
 		   Swal.fire({
@@ -449,13 +449,11 @@ $(document).ready(function() {
 		 fd.append("amount",aptAmount);
 		 fd.append("bedrooms",aptBedrooms);
 		fd.append("bathrooms",aptBathrooms);
-		fd.append("units",aptUnits);
 		 fd.append("children",aptChildren);
 		 fd.append("pets",aptPets);
 		 fd.append("address",aptAddress);
 		 fd.append("city",aptCity);
-		 fd.append("lga",aptLGA);
-		 fd.append("state",aptState);
+		 fd.append("county",aptCounty);
 		 fd.append("country",aptCountry);
 		 fd.append("facilities",JSON.stringify(ff));
 		 
@@ -526,15 +524,15 @@ $(document).ready(function() {
 	   let aptUrl = $('#my-apartment-url').val(), aptName = $('#my-apartment-name').val(), aptAmount = $('#my-apartment-amount').val(), aptAvb = $('#my-apartment-avb').val(),
 	   aptMaxAdults = $('#my-apartment-max-adults').val(),aptMaxChildren = $('#my-apartment-max-children').val(),aptDescription = $('#my-apartment-description').val(),
 	      aptCategory = $('#my-apartment-category').val(), aptPType = $('#my-apartment-ptype').val(),aptRooms = $('#my-apartment-rooms').val(),
-	       aptUnits = $('#my-apartment-units').val(),aptBathrooms = $('#my-apartment-bathrooms').val(),
+	       aptBathrooms = $('#my-apartment-bathrooms').val(),
 		   aptBedrooms = $('#my-apartment-bedrooms').val(), aptPets = $('#my-apartment-pets').val(),
-		   side1_validation = (aptUrl == "" || aptName == "" || aptAvb == "none" || aptMaxAdults == "" || aptAmount < 0 || aptDescription == "" || aptCategory == "none" || aptPType == "none" || aptRooms == "none" || aptUnits == "none" || aptBedrooms == "none" || aptBathrooms == "none" || aptPets == "none" || facilities.length < 1);		  
+		   side1_validation = (aptUrl == "" || aptName == "" || aptAvb == "none" || aptMaxAdults == "" || aptAmount < 0 || aptDescription == "" || aptCategory == "none" || aptPType == "none" || aptRooms == "none" || aptBedrooms == "none" || aptBathrooms == "none" || aptPets == "none" || facilities.length < 1);		  
 	  
        //side 2 validation imgs = $(`${BUUPlist[bc].id}-images-div input[type=file]`);
 	   let aptAddress = $('#my-apartment-address').val(), aptCity = $('#my-apartment-city').val(),
-	       aptLGA = $('#my-apartment-lga').val(),aptState = $('#my-apartment-state').val(), aptCountry = $('#my-apartment-country').val(),
+	      aptCounty = $('#my-apartment-county').val(), aptCountry = $('#my-apartment-country').val(),
 	       aptImages = $(`#my-apartment-images input[type=file]`), emptyImage = false,
-           side2_validation = (aptAddress == "" || aptCity == "" || aptLGA == "" || aptState == "none" || aptCountry == "none");
+           side2_validation = (aptAddress == "" || aptCity == "none");
            
 		   for(let i = 0; i < aptImages.length; i++){
 			   if(aptImages[i].files.length < 1) emptyImage = true;
@@ -543,9 +541,7 @@ $(document).ready(function() {
         // console.log("video: ",aptVideo);
          //console.log("images: ",aptImages);
 	   
-	   let aptBank = $('#my-apartment-bank').val(), aptBname = $('#my-apartment-bname').val(), aptAcname = $('#my-apartment-acname').val(), aptAcnum = $('#my-apartment-acnum').val(),
-	   bankValidation = (aptBank == "none" || ( aptBank == "new" && (aptBname == "none" || aptAcname == "" || aptAcnum == "") ) );
-
+	 
 	   
 	   if(side1_validation || side2_validation){
 		   Swal.fire({
@@ -565,12 +561,7 @@ $(document).ready(function() {
              title: "Select a cover image."
            })
 	   }
-	   else if(bankValidation){
-		   Swal.fire({
-			 icon: 'error',
-             title: "Select a bank account or fill all required bank details."
-           })
-	   }
+	 
 	   /**
 	   else if(aptVideo[0].size > 15000000){
 		   Swal.fire({
@@ -600,17 +591,11 @@ $(document).ready(function() {
 		 fd.append("amount",aptAmount);
 		 fd.append("bedrooms",aptBedrooms);
 		 fd.append("bathrooms",aptBathrooms);
-		 fd.append("units",aptUnits);
 		 fd.append("pets",aptPets);
 		 fd.append("address",aptAddress);
 		 fd.append("city",aptCity);
-		 fd.append("lga",aptLGA);
-		 fd.append("state",aptState);
+		 fd.append("county",aptCounty);
 		 fd.append("country",aptCountry);
-		 fd.append("bank",aptBank);
-		 fd.append("bname",aptBname);
-		 fd.append("acname",aptAcname);
-		 fd.append("acnum",aptAcnum);
 		 fd.append("facilities",JSON.stringify(ff));
 		 
 		 //fd.append("video",aptVideo[0]);
@@ -647,10 +632,10 @@ $(document).ready(function() {
 		let aptMaxAdults = $(`#guest-apt-sidebar-max-adults`).val(), aptMaxChildren = $(`#guest-apt-sidebar-max-children`).val(),
 		aptAvb = $(`#guest-apt-sidebar-avb`).val(), aptAmount = $(`#guest-apt-sidebar-amount`).val(),
        aptRating = $(`#guest-apt-sidebar-rating`).val(),aptCategory = $(`#guest-apt-sidebar-category`).val(),
-       aptPType = $(`#guest-apt-ptype`).val(),aptRooms = $(`#guest-apt-rooms`).val(),aptBedrooms = $(`#guest-apt-bedrooms`).val(),
-       aptUnits = $(`#guest-apt-units`).val(),aptBathrooms = $(`#guest-apt-bathrooms`).val(),
+       aptPType = $(`#guest-apt-ptype`).val(),aptRooms = $(`#guest-apt-rooms`).val(),
+	   aptBedrooms = $(`#guest-apt-bedrooms`).val(),aptBathrooms = $(`#guest-apt-bathrooms`).val(),
 	   aptChildren = $(`#guest-apt-sidebar-children`).val(), aptPets = $(`#guest-apt-sidebar-pets`).val(),
-       aptCity = $(`#guest-apt-sidebar-city`).val(), aptLGA = "", aptState = $(`#guest-apt-sidebar-state`).val(),
+       aptCity = $(`#guest-apt-sidebar-city`).val(), aptCounty = $(`#guest-apt-sidebar-county`).val(),
 	   facilities = $('input.guest-apt-sidebar-facility:checked'), validation = (facilities.length < 1 || aptState == "");
 	   
 		console.log(facilities);
@@ -672,12 +657,10 @@ $(document).ready(function() {
 			let searchDT = {
 				avb: aptAvb,
 				city: aptCity,
-				lga: "",
-				state: aptState,
+				county: aptCounty,
 				category: aptCategory,
 				property_type: aptPType,
 				rooms: aptRooms,
-				units: aptUnits,
 				bedrooms: aptBedrooms,
 				bathrooms: aptBathrooms,
 				max_adults: aptMaxAdults,

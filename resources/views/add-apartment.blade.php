@@ -428,7 +428,7 @@ $('#add-apartment-city').flexselect();
 											<hr>
 											
 											<h4>Final Notes</h4>
-											<p>Take a moment to preview the information about your apartment to ensure there are no errors or mistypes as your request will be reviewed by an admin. If you are sure all your information is correct click on <b>Submit</b> below. To make changes click on <b>Back</b>.</p>
+											<p>Take a moment to preview the information about your apartment to ensure there are no errors or mistypes as your request will be reviewed by an admin. If you are sure all your information is correct click on <b>Proceed</b> below. To make changes click on <b>Back</b>.</p>
 										</div>
 										
 										
