@@ -3,16 +3,16 @@ $title = "Search Results";
 $subtitle = count($results)." results found";
 
 ?>
-@extends('layout')
 
-@section('title',$title)
 
-@section('top-header')
-@include('top-header')
-@stop
+<?php $__env->startSection('title',$title); ?>
 
-@section('content')
-@include('banner-2',['title' => $title,'subtitle' => $subtitle])
+<?php $__env->startSection('top-header'); ?>
+<?php echo $__env->make('top-header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<?php echo $__env->make('banner-2',['title' => $title,'subtitle' => $subtitle], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <script>
  let page = 0, perPage = 8, apartments = [], viewType = "grid", apartmentsLength = 0;
  
@@ -41,19 +41,19 @@ $rr = count($results) == 1 ? "Result" : "Results";
 	?>
 		  
 		  temp = {
-			   apartment_id: "{{$a['apartment_id']}}",
-			   name: "{{$a['name']}}",
-			   uu: "{{$uu}}",
-			   lu: "{{$lu}}",
-			   bu: "{{$bu}}",
-			   location: "{{$location}}",
-			   description: `{!! $description !!}`,
-			   stars: "{{$stars}}",
-			   facilities: "{{json_encode($facilities,JSON_HEX_APOS|JSON_HEX_QUOT) }}".replace(/&quot;/g, '\"'),
-			   reviews: "{{count($a['reviews'])}}",
-			   amount: "{{number_format($amount,2)}}",
-			   img: "{{$img}}",
-			   status: "{{$a['status']}}",
+			   apartment_id: "<?php echo e($a['apartment_id']); ?>",
+			   name: "<?php echo e($a['name']); ?>",
+			   uu: "<?php echo e($uu); ?>",
+			   lu: "<?php echo e($lu); ?>",
+			   bu: "<?php echo e($bu); ?>",
+			   location: "<?php echo e($location); ?>",
+			   description: `<?php echo $description; ?>`,
+			   stars: "<?php echo e($stars); ?>",
+			   facilities: "<?php echo e(json_encode($facilities,JSON_HEX_APOS|JSON_HEX_QUOT)); ?>".replace(/&quot;/g, '\"'),
+			   reviews: "<?php echo e(count($a['reviews'])); ?>",
+			   amount: "<?php echo e(number_format($amount,2)); ?>",
+			   img: "<?php echo e($img); ?>",
+			   status: "<?php echo e($a['status']); ?>",
 		   };
 		   apartments.push(temp);
 	<?php
@@ -73,14 +73,14 @@ $rr = count($results) == 1 ? "Result" : "Results";
 			<section class="gray">
 				<div class="container">
 					<div class="row">
-						@include('student-apt-sidebar',['apf' => $def,'cities' => $cities])
+						<?php echo $__env->make('student-apt-sidebar',['apf' => $def,'cities' => $cities], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 							
 						<div class="order-1 content-area col-lg-8 col-md-12 order-md-1 order-lg-2">
 							<div class="row">
 							
 								<div class="col-lg-12 col-md-12 col-sm-12">
 									<div class="shorting-wrap">
-										<h5 class="shorting-title">{{count($results)}} {{$rr}}</h5>
+										<h5 class="shorting-title"><?php echo e(count($results)); ?> <?php echo e($rr); ?></h5>
 										<div class="shorting-right">
 											<label>Sort By:</label>
 											<div class="dropdown show">
@@ -125,7 +125,7 @@ $rr = count($results) == 1 ? "Result" : "Results";
 					                   for($i = 0; $i < $pages; $i++)
 						                {
 					                  ?>
-									  <a class="btn btn-info" onclick="showPage({{$i+1}});">{{$i+1}}</a>
+									  <a class="btn btn-info" onclick="showPage(<?php echo e($i+1); ?>);"><?php echo e($i+1); ?></a>
 									   <?php
 						                }
 						               ?>
@@ -156,4 +156,6 @@ $rr = count($results) == 1 ? "Result" : "Results";
 			</section>
 			<!-- =================== Sidebar Search ==================== -->
 
-@stop
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\bkupp\lokl\repo\fazio-project\resources\views/search-results.blade.php ENDPATH**/ ?>

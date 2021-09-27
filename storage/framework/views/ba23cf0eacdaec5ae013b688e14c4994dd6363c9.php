@@ -66,7 +66,10 @@ let myApartmentDescriptionEditor = new Simditor({
 	  }
   ?>
 	aptRemoveImage({id: 'my-apartment',ctr: '0'});
+	
+	$('#my-apartment-city').flexselect();
 });
+
 
 </script>
 <!-- =================== Add Apartment Search ==================== -->

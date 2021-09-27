@@ -1,6 +1,6 @@
 <?php
 $title = "Host Dashboard";
-$subtitle = "Manage your apartments and host account here";
+$subtitle = "Manage your postings and host account here";
 
 $months = [
   'january','february','march','april','may','june','july','august','september','october','november','december'

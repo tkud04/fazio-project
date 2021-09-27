@@ -27,8 +27,9 @@ if(count($apf) < 1) $apf = $def;
 								
 								<!-- Find New Property -->
 								<div class="sidebar-widgets">
-									<form method="post" action="{{url('search')}}" id="search-form">
-										{!! csrf_field() !!}
+									<form method="post" action="<?php echo e(url('search')); ?>" id="search-form">
+										<?php echo csrf_field(); ?>
+
 									<div style=" margin-bottom: 5px;">
 									<div class="form-group">
 									   <label>Availability:</label>
@@ -41,7 +42,7 @@ if(count($apf) < 1) $apf = $def;
 												{
 												  $ss = $apf['avb'] == $k ? " selected='selected'" : "";
 												?>
-												<option value="{{$k}}"{{$ss}}>{{ucwords($v)}}</option>
+												<option value="<?php echo e($k); ?>"<?php echo e($ss); ?>><?php echo e(ucwords($v)); ?></option>
 												<?php
 												}
 												?>
@@ -53,7 +54,7 @@ if(count($apf) < 1) $apf = $def;
 									<div class="form-group">
 									   <label>County:</label>
 										<div class="input-with-icon">
-											<input id="guest-apt-sidebar-county" name="county" value="{{$apf['county']}}" type="text" class="form-control" placeholder="County">
+											<input id="guest-apt-sidebar-county" name="county" value="<?php echo e($apf['county']); ?>" type="text" class="form-control" placeholder="County">
 											<i class="ti-location-pin"></i>
 										</div>
 									</div>
@@ -68,7 +69,7 @@ if(count($apf) < 1) $apf = $def;
 												{
 												  $ss = $apf['city'] == $c ? " selected='selected'" : "";
 												?>
-												<option value="{{$c}}"{{$ss}}>{{ucwords($c)}}</option>
+												<option value="<?php echo e($c); ?>"<?php echo e($ss); ?>><?php echo e(ucwords($c)); ?></option>
 												<?php
 												}
 												?>
@@ -80,7 +81,7 @@ if(count($apf) < 1) $apf = $def;
 									<div class="form-group">
 									   <label>Min. price (&#0163;)</label>
 										<div class="input-with-icon">
-											<input id="guest-apt-sidebar-amount" name="amount" value="{{$apf['amount']}}" type="number" class="form-control" placeholder="Amount (NGN)">
+											<input id="guest-apt-sidebar-amount" name="amount" value="<?php echo e($apf['amount']); ?>" type="number" class="form-control" placeholder="Amount (NGN)">
 											<i class="ti-credit-card"></i>
 										</div>
 									</div>
@@ -103,7 +104,7 @@ if(count($apf) < 1) $apf = $def;
 												  {
 													  $ss = $apf['category'] == $key ? " selected='selected'" : "";
 												  ?>
-												  <option value="{{$key}}"{{$ss}}>{{$value}}</option>
+												  <option value="<?php echo e($key); ?>"<?php echo e($ss); ?>><?php echo e($value); ?></option>
 												  <?php
 												  }
 												  ?>
@@ -127,7 +128,7 @@ if(count($apf) < 1) $apf = $def;
 												  {
 													   $ss = $apf['property_type'] == $key ? " selected='selected'" : "";
 												  ?>
-												  <option value="{{$key}}"{{$ss}}>{{$value}}</option>
+												  <option value="<?php echo e($key); ?>"<?php echo e($ss); ?>><?php echo e($value); ?></option>
 												  <?php
 												  }
 												  ?>
@@ -147,7 +148,7 @@ if(count($apf) < 1) $apf = $def;
                                                      $rr = $i == 0 ? "room" : "rooms";
                                                       $ss = $apf['rooms'] == ($i + 1) ? " selected='selected'" : "";													 
 												  ?>
-												  <option value="{{$i + 1}}"{{$ss}}>{{$i + 1}} {{$rr}}</option>
+												  <option value="<?php echo e($i + 1); ?>"<?php echo e($ss); ?>><?php echo e($i + 1); ?> <?php echo e($rr); ?></option>
 												  <?php
 												   }
 												  ?>
@@ -169,7 +170,7 @@ if(count($apf) < 1) $apf = $def;
                                                      $rr = $i == 0 ? "bathroom" : "bathrooms";
                                                       $ss = $apf['bathrooms'] == ($i + 1) ? " selected='selected'" : "";													 
 												  ?>
-												  <option value="{{$i + 1}}"{{$ss}}>{{$i + 1}} {{$rr}}</option>
+												  <option value="<?php echo e($i + 1); ?>"<?php echo e($ss); ?>><?php echo e($i + 1); ?> <?php echo e($rr); ?></option>
 												  <?php
 												   }
 												  ?>
@@ -189,7 +190,7 @@ if(count($apf) < 1) $apf = $def;
                                                      $rr = $i == 0 ? "bedroom" : "bedrooms";
                                                      $ss = $apf['bedrooms'] == ($i + 1) ? " selected='selected'" : "";													 
 												  ?>
-												  <option value="{{$i + 1}}"{{$ss}}>{{$i + 1}} {{$rr}}</option>
+												  <option value="<?php echo e($i + 1); ?>"<?php echo e($ss); ?>><?php echo e($i + 1); ?> <?php echo e($rr); ?></option>
 												  <?php
 												   }
 												  ?>
@@ -215,7 +216,7 @@ if(count($apf) < 1) $apf = $def;
 												   {
 													   $ss = $apf['children'] == $key ? " selected='selected'" : "";
 												  ?>
-												    <option value="{{$key}}"{{$ss}}>{{$value}}</option>
+												    <option value="<?php echo e($key); ?>"<?php echo e($ss); ?>><?php echo e($value); ?></option>
 												  <?php
 												   }
 												  ?>
@@ -237,7 +238,7 @@ if(count($apf) < 1) $apf = $def;
 												   {
 													   $ss = $apf['pets'] == $key ? " selected='selected'" : "";
 												  ?>
-												    <option value="{{$key}}"{{$ss}}>{{$value}}</option>
+												    <option value="<?php echo e($key); ?>"<?php echo e($ss); ?>><?php echo e($value); ?></option>
 												  <?php
 												   }
 												  ?>
@@ -249,7 +250,7 @@ if(count($apf) < 1) $apf = $def;
 									<div class="form-group">
 									   <label>Max. adults</label>
 										<div class="input-with-icon">
-											<input id="guest-apt-sidebar-max-adults" name="max_adults" value="{{$apf['max_adults']}}" type="number" class="form-control" placeholder="Max. adults allowed">
+											<input id="guest-apt-sidebar-max-adults" name="max_adults" value="<?php echo e($apf['max_adults']); ?>" type="number" class="form-control" placeholder="Max. adults allowed">
 											<i class="ti-user"></i>
 										</div>
 									</div>
@@ -257,7 +258,7 @@ if(count($apf) < 1) $apf = $def;
 									<div class="form-group">
 									   <label>Max. children</label>
 										<div class="input-with-icon">
-											<input id="guest-apt-sidebar-max-children" name="max_children" value="{{$apf['max_children']}}" type="number" class="form-control" placeholder="Max. children allowed">
+											<input id="guest-apt-sidebar-max-children" name="max_children" value="<?php echo e($apf['max_children']); ?>" type="number" class="form-control" placeholder="Max. children allowed">
 											<i class="ti-user"></i>
 										</div>
 									</div>
@@ -275,8 +276,8 @@ if(count($apf) < 1) $apf = $def;
 												}
 										   ?>
 											<li>
-												<input id="guest-apt-sidebar-{{$s['tag']}}" class="guest-apt-sidebar-facility" data-tag="{{$s['tag']}}" class="checkbox-custom" name="guest-apt-sidebar-{{$s['tag']}}" type="checkbox"{{$cc}}>
-												<label for="guest-apt-sidebar-{{$s['tag']}}" class="checkbox-custom-label">{{ucwords($s['name'])}}</label>
+												<input id="guest-apt-sidebar-<?php echo e($s['tag']); ?>" class="guest-apt-sidebar-facility" data-tag="<?php echo e($s['tag']); ?>" class="checkbox-custom" name="guest-apt-sidebar-<?php echo e($s['tag']); ?>" type="checkbox"<?php echo e($cc); ?>>
+												<label for="guest-apt-sidebar-<?php echo e($s['tag']); ?>" class="checkbox-custom-label"><?php echo e(ucwords($s['name'])); ?></label>
 											</li>
 											<?php
 											}
@@ -288,7 +289,7 @@ if(count($apf) < 1) $apf = $def;
 									<div class="range-slider mt-5">
 										<label>Show apartments with</label>
 										<div class="distance-title">a rating of at least <span class="theme-cl"></span> stars</div>
-										<input id="guest-apt-sidebar-rating" name="rating" class="distance-radius rangeslider--horizontal" type="range" min="1" max="5" step="1" value="{{$apf['rating']}}" data-title="Rating of at least">
+										<input id="guest-apt-sidebar-rating" name="rating" class="distance-radius rangeslider--horizontal" type="range" min="1" max="5" step="1" value="<?php echo e($apf['rating']); ?>" data-title="Rating of at least">
 									</div>
 									</div>
 									<center>
@@ -299,4 +300,4 @@ if(count($apf) < 1) $apf = $def;
 								</form>
 							</div>
 						</div>
-						<!-- Sidebar End -->
+						<!-- Sidebar End --><?php /**PATH C:\bkupp\lokl\repo\fazio-project\resources\views/student-apt-sidebar.blade.php ENDPATH**/ ?>

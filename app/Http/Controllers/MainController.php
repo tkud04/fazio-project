@@ -1070,13 +1070,13 @@ if ($handle) {
 		    $plugins = $this->helpers->getPlugins();
 
 			$services = $this->helpers->getServices();
-			$states = $this->helpers->states;
+			$cities = $this->helpers->cities;
    
 			$results = $this->helpers->search($req['dt']);
 			#dd($results);
 			if(count($results) > 0)
 			{
-				return view("search-results",compact(['user','cart','messages','def','c','ad','results','services','states','signals','plugins','banner']));
+				return view("search-results",compact(['user','cart','messages','def','c','ad','results','services','cities','signals','plugins','banner']));
 			}
 			else
 			{
@@ -1201,13 +1201,13 @@ if ($handle) {
 		    $plugins = $this->helpers->getPlugins();
 
 			$services = $this->helpers->getServices();
-			$states = $this->helpers->states;
+			$cities = $this->helpers->cities;
    
 			$results = $this->helpers->search($req['dt']);
 			#dd($results);
 			if(count($results) > 0)
 			{
-				return view("search-results",compact(['user','cart','messages','def','c','ad','results','services','states','signals','plugins','banner']));
+				return view("search-results",compact(['user','cart','messages','def','c','ad','results','services','cities','signals','plugins','banner']));
 			}
 			else
 			{
