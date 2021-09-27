@@ -792,8 +792,8 @@ $(document).ready(function() {
 	$('#apartment-book-now-btn').click(e => {
 		e.preventDefault();
 		
-		let as = $('#apt-as').val(), c1 = $('#apartment-checkin').val(), c2 = $('#apartment-checkout').val(),
-   		    g = $('#guestNo').val(), mg = $('#mg').val(), k = "0", validation = (c1 == "" || c2 == "" || parseInt(g) < 1 );
+		let as = $('#apt-as').val(), g = $('#guestNo').val(), mg = $('#mg').val(), k = "0",
+		    validation = ( parseInt(g) < 1 );
 		
 		
         if(as == "occupied" || as == "booked"){
@@ -826,7 +826,7 @@ $(document).ready(function() {
            });
 		}
         else{
-			$('#add-to-cart-form').submit();
+			$('#book-now-form').submit();
 		}		
 	});
 	
