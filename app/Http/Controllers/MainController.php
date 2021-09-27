@@ -464,14 +464,14 @@ if ($handle) {
 			$cpt = ['user','cart','messages','activities','transactions','bookings','revenueData','stats','bsa','c','ad','signals','plugins','banner'];
 			$v = "host-dashboard";
 		}
-		else if($user->mode == "guest")
+		else if($user->mode == "student")
 		{
 			$sps = $this->helpers->getSavedPayments($user);
 			$sapts = $this->helpers->getSavedApartments($user);
 			$orders = $this->helpers->getOrders($user);
 			#dd($sapts);
 			$cpt = ['user','cart','messages','activities','sps','sapts','stats','orders','c','ad','signals','plugins','banner'];
-			$v = "guest-dashboard";
+			$v = "student-dashboard";
 		}
 		
     	return view($v,compact($cpt));

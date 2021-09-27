@@ -398,7 +398,7 @@
 									<div class="form-group">
 										<button type="submit" id="signup-submit" class="btn btn-md full-width pop-login">Submit</button>
 										<h4 class="text-primary" id="signup-loading">Processing your registration: <img alt="Loading.." src="{{asset('img/loading.gif')}}"></h4>
-										<h4 class="text-primary" id="signup-finish"><b>Signup successful!</b><p class='text-primary'>Redirecting you to the home page.</p></h4>
+										<h4 class="text-primary" id="signup-finish"><b>Signup successful!</b><p class='text-primary'>Redirecting to your dashboard.</p></h4>
 										<h4 class="text-primary" id="signup-error"><b>We couldn't sign you up. Reason: </b> <p class='text-danger' id="signup-error-msg"></p></h4>
 									</div>
 								

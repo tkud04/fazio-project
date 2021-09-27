@@ -1,24 +1,24 @@
 <?php
-$title = "Guest Dashboard";
-$subtitle = "Manage your guest account here";
+$title = "Student Dashboard";
+$subtitle = "Manage your student account here";
 ?>
-@extends('layout')
 
-@section('title',$title)
 
-@section('top-header')
-@include('top-header')
-@stop
+<?php $__env->startSection('title',$title); ?>
 
-@section('content')
-@include('banner-2',['title' => $title,'subtitle' => $subtitle])
+<?php $__env->startSection('top-header'); ?>
+<?php echo $__env->make('top-header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<?php echo $__env->make('banner-2',['title' => $title,'subtitle' => $subtitle], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 	<!-- ============================ Dashboard Start ================================== -->
 			<section class="gray">
 				<div class="container-fluid">
 					<div class="row">
 						
-						@include('guest-dashboard-sidebar',['user' => $user])
+						<?php echo $__env->make('student-dashboard-sidebar',['user' => $user], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 						
 						<div class="col-lg-9 col-md-8 col-sm-12">
 							<div class="dashboard-wrapers">
@@ -47,8 +47,9 @@ $subtitle = "Manage your guest account here";
 												  
 											?>
 												<li>
-													<i class="dash-icon-box ti-credit-card"></i>{{strtoupper($ctype)}} | <strong><a href="javascript:void(0)">{{$bname}}</a></strong> | **** {{$last4}}<br>
-													{{$exp->format("F, Y")}}
+													<i class="dash-icon-box ti-credit-card"></i><?php echo e(strtoupper($ctype)); ?> | <strong><a href="javascript:void(0)"><?php echo e($bname); ?></a></strong> | **** <?php echo e($last4); ?><br>
+													<?php echo e($exp->format("F, Y")); ?>
+
 													<a href="javascript:void(0)" class="close-list-item"><i class="fa fa-close"></i></a>
 												</li>
 
@@ -56,7 +57,7 @@ $subtitle = "Manage your guest account here";
 											 }
                                             ?>											 
 											</ul>
-											<h4><center><a href="{{url('saved-payments')}}" class="btn btn-theme">View more</a></center></h4>
+											<h4><center><a href="<?php echo e(url('saved-payments')); ?>" class="btn btn-theme">View more</a></center></h4>
 											<?php
 											 }
 											 else
@@ -117,17 +118,18 @@ $subtitle = "Manage your guest account here";
 													<div class="row">
 													<div class="col-md-6">
 											        <strong>
-													 <a href="{{$au}}" target="_blank">
-													   <img src="{{$imgs[0]}}" style="width: 80px; height: 80px;"><br>
-													    {{$title}}<br> 
-														{{ucwords($location)}}
+													 <a href="<?php echo e($au); ?>" target="_blank">
+													   <img src="<?php echo e($imgs[0]); ?>" style="width: 80px; height: 80px;"><br>
+													    <?php echo e($title); ?><br> 
+														<?php echo e(ucwords($location)); ?>
+
 													  
 													 </a>
 													 </strong>
 													</div>
 													<div class="col-md-6">
 													 <h3>
-													 Rating: <div class="numerical-rating {{$ratingClass}}" data-rating="{{$stars}}"></div>
+													 Rating: <div class="numerical-rating <?php echo e($ratingClass); ?>" data-rating="<?php echo e($stars); ?>"></div>
 													 <div class="mt-2">
 													 <?php
 													  for($i = 0; $i < $stars; $i++)
@@ -148,7 +150,7 @@ $subtitle = "Manage your guest account here";
 											 }
                                                                                         ?>											 
 											</ul>
-											<h4><center><a href="{{url('saved-apartments')}}" class="btn btn-theme">View more</a></center></h4>
+											<h4><center><a href="<?php echo e(url('saved-apartments')); ?>" class="btn btn-theme">View more</a></center></h4>
 											<?php
 											 }
 											 else
@@ -181,7 +183,8 @@ $subtitle = "Manage your guest account here";
                                                   $m = $a['msg'];												  
 										     ?>
 												<li>
-													<i class="dash-icon-box {{$m['icon']}}"></i> {!! $m['msg'] !!}
+													<i class="dash-icon-box <?php echo e($m['icon']); ?>"></i> <?php echo $m['msg']; ?>
+
 													<a href="javascript:void(0)" class="close-list-item"><i class="fa fa-close"></i></a>
 												</li>
 											<?php
@@ -240,18 +243,18 @@ $subtitle = "Manage your guest account here";
 												<li><i class="dash-icon-box ti-files"></i>
 													<strong>Order #</strong>
 													<ul>
-														<li class="{{$liClass}}">{{$s}}</li>
-														<li>Reference #: {{$ref}}</li>
-														<li>Date: {{$o['date']}}</li>
+														<li class="<?php echo e($liClass); ?>"><?php echo e($s); ?></li>
+														<li>Reference #: <?php echo e($ref); ?></li>
+														<li>Date: <?php echo e($o['date']); ?></li>
 													</ul>
 													<div class="buttons-to-right">
-														<a href="{{$ru}}" class="button gray">View Receipt</a>
+														<a href="<?php echo e($ru); ?>" class="button gray">View Receipt</a>
 													</div>
 												</li>
 												<?php
 												 }
 												 ?>
-												 <h4><center><a href="{{url('bookings')}}" class="btn btn-theme">View more</a></center></h4>
+												 <h4><center><a href="<?php echo e(url('bookings')); ?>" class="btn btn-theme">View more</a></center></h4>
 												 <?php
 												}
 												 else
@@ -278,4 +281,6 @@ $subtitle = "Manage your guest account here";
 			</section>
 			<!-- ============================ Dashboard End ================================== -->
 
-@stop
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\bkupp\lokl\repo\fazio-project\resources\views/student-dashboard.blade.php ENDPATH**/ ?>

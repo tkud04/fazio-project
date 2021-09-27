@@ -39,10 +39,10 @@
 		<script src="<?php echo e(asset('js/popper.min.js')); ?>"></script>
 		<script src="<?php echo e(asset('js/bootstrap.min.js')); ?>"></script>
 		
-		<!--AutoComplete.js--> 
-    <link href="<?php echo e(asset('lib/autocomplete/css/autoComplete.css')); ?>" rel="stylesheet">
-    <script src="<?php echo e(asset('lib/autocomplete/js/autoComplete.js')); ?>"></script>
-    <script src="<?php echo e(asset('lib/autocomplete/js/index.js')); ?>"></script>
+		<!--AutoComplete --> 
+    <link href="<?php echo e(asset('css/flexselect.css')); ?>" rel="stylesheet">
+    <script src="<?php echo e(asset('js/liquidmetal.js')); ?>"></script>
+    <script src="<?php echo e(asset('js/jquery.flexselect.js')); ?>"></script>
 		
 		<script src="<?php echo e(asset('js/helpers.js').'?ver='.rand(23,999)); ?>"></script>
 		<script src="<?php echo e(asset('js/mmm.js').'?ver='.rand(23,999)); ?>"></script>
@@ -399,7 +399,7 @@
 									<div class="form-group">
 										<button type="submit" id="signup-submit" class="btn btn-md full-width pop-login">Submit</button>
 										<h4 class="text-primary" id="signup-loading">Processing your registration: <img alt="Loading.." src="<?php echo e(asset('img/loading.gif')); ?>"></h4>
-										<h4 class="text-primary" id="signup-finish"><b>Signup successful!</b><p class='text-primary'>Redirecting you to the home page.</p></h4>
+										<h4 class="text-primary" id="signup-finish"><b>Signup successful!</b><p class='text-primary'>Redirecting to your dashboard.</p></h4>
 										<h4 class="text-primary" id="signup-error"><b>We couldn't sign you up. Reason: </b> <p class='text-danger' id="signup-error-msg"></p></h4>
 									</div>
 								

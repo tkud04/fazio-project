@@ -15,11 +15,10 @@ $void = "javascript:void(0)";
 										<li class="active"><a href="{{url('dashboard')}}"><i class="ti-dashboard"></i>Dashboard</a></li>
 										<li><a href="{{url('add-apartment')}}"><i class="ti-home"></i>Post a Property</a></li>
 										<li><a href="{{url('my-apartments')}}"><i class="ti-home"></i>My Listings</a></li>
-										<li><a href="{{$void}}"><i class="ti-home"></i>Callback Requests</a></li>
+										<li><a href="{{$void}}"><i class="ti-home"></i>Messages</a></li>
 										<li><a href="{{$void}}"><i class="ti-home"></i>Client Requests</a></li>
-										<li><a href="{{url('my-subscriptions')}}"><i class="ti-home"></i>Subscriptions</a></li>
 										<li><a href="{{url('profile')}}"><i class="ti-user"></i>Profile</a></li>
-										<li><a href="{{url('logout')}}"><i class="ti-power-off"></i>Sign Out</a></li>
+										<li><a href="{{url('bye')}}"><i class="ti-power-off"></i>Sign Out</a></li>
 									</ul>
 								</div>
 								

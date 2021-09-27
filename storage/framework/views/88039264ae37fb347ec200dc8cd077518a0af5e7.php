@@ -17,14 +17,14 @@ let countries = `<?php echo $countries; ?>`;
 					<div class="col-md-12 col-sm-12">
 					
 						<div class="caption text-center cl-white mb-5">
-							<span class="stylish">Rent An Apartment for Short Rest</span>
-							<h1>Explore Choice Apartments</h1>
+							<span class="stylish">Rent An Apartment for Your Study Program</span>
+							<h1>Explore Choice Postings</h1>
 						</div>
 						
 						<form class="st-search-form-tour icon-frm withlbl" action="<?php echo e(url('search')); ?>" id="landing-search-form" method="post">
 						<?php echo csrf_field(); ?>
 
-						<input type="hidden" id="landing-search-country" value="">
+						<input type="hidden" id="landing-search-country" value="uk">
 						<input type="hidden" id="landing-search-state" value="">
 						<input type="hidden" id="landing-search-city" value="">
 						<input type="hidden" name="dt" id="landing-search-dt"/>
@@ -34,18 +34,20 @@ let countries = `<?php echo $countries; ?>`;
 										<div class="form-group">
 											<i class="ti-location-pin field-icon"></i>
 											<label>Location</label>
-											<a href="javascript:void(0)" id="location-picker-btn">
-											
-											  <input type="text" class="form-control" id="landing-search-location" value="<?php echo e($def['city']); ?>" placeholder="Where are you going?" readonly>
-											</a>
+											<select class="form-control" id="landing-search-location">
+                                                                                         <option value="none">Select location</option>
+                                                                                          <?php $__currentLoopData = $cities; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $c): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                                                          <option value="<?php echo e($c); ?>"><?php echo e($c); ?></option>
+                                                                                          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+											</select>
 										</div>
 									</div>
 									
 									<div class="col-lg-3 col-md-4 border-right mxnbr">
 										<div class="form-group">
 											<i class="ti-calendar field-icon"></i>
-											<label>From - To</label>
-											<input type="text" class="form-control check-in-out"id="landing-search-dates" value="<?php echo e($today); ?> - <?php echo e($tomorrow); ?>" />
+											<label>Period (Weeks)</label>
+											<input type="text" class="form-control check-in-out"id="landing-search-duration" placeholder="Number of weeks you want to rent for" />
 										</div>
 									</div>
 									
@@ -54,7 +56,7 @@ let countries = `<?php echo $countries; ?>`;
 											<i class="ti-user field-icon"></i>
 											<div class="form-content dropdown-toggle" data-toggle="dropdown">
 												<div class="wrapper-more">
-													<label>Guests</label>
+													<label>No. of Tenants</label>
 													<div class="render">
 														<span class="adults"><span class="one ">1 Adult</span> <span class=" d-none  multi" data-html=":count Adults">1 Adults</span></span>-
 														<span class="children">
@@ -99,4 +101,5 @@ let countries = `<?php echo $countries; ?>`;
 					</div>
 				</div>
 			</div>
-			<!-- ======================= End Banner ===================== --><?php /**PATH C:\bkupp\lokl\repo\fazio-project\resources\views/banner.blade.php ENDPATH**/ ?>
+			<!-- ======================= End Banner ===================== -->
+<?php /**PATH C:\bkupp\lokl\repo\fazio-project\resources\views/banner.blade.php ENDPATH**/ ?>

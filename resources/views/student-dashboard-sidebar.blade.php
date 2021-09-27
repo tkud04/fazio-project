@@ -1,3 +1,6 @@
+<?php
+$void = "javascript:void(0)";
+?>
 <div class="col-lg-3 col-md-4 col-sm-12">
 							<div class="dashboard-navbar">
 								
@@ -12,10 +15,12 @@
 										<li class="active"><a href="{{url('dashboard')}}"><i class="ti-dashboard"></i>Dashboard</a></li>
 										<li><a href="{{url('profile')}}"><i class="ti-user"></i>My Profile</a></li>
 										<li><a href="{{url('bookings')}}"><i class="ti-credit-card"></i>My Bookings</a></li>
+										<li><a href="{{url('transactions')}}"><i class="ti-credit-card"></i>My Transactions</a></li>
+										<li><a href="{{$void}}"><i class="ti-home"></i>Messages</a></li>
 										<li><a href="{{url('saved-apartments')}}"><i class="ti-heart"></i>Saved Apartments</a></li>
 										<li><a href="{{url('apartment-preferences')}}"><i class="ti-home"></i>Apartment Preferences</a></li>
 										<li><a href="{{url('change-password')}}"><i class="ti-unlock"></i>Change Password</a></li>
-										<li><a href="{{url('logout')}}"><i class="ti-power-off"></i>Log Out</a></li>
+										<li><a href="{{url('bye')}}"><i class="ti-power-off"></i>Log Out</a></li>
 									</ul>
 								</div>
 								

@@ -158,7 +158,7 @@ class LoginController extends Controller {
             $dt['verified'] = "yes";
             $mu = "";
             if($dt['mode'] == "host") $mu = "host";			
-            else if($dt['mode'] == "guest") $mu = "guest";			
+            else if($dt['mode'] == "student") $mu = "student";			
             $dt['mode_type'] = $dt['mode'];           
             $dt['mode'] = $mu;           
             

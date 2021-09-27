@@ -39,12 +39,17 @@ let landingSearchDT = {
 				],
 				rating: "0"
 			};
+
+$(document).ready(() => {
+ $('#landing-search-location').flexselect();
+});
+
 </script>
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('content'); ?>
 
-<?php echo $__env->make('banner',['def' => $def,'banner' => $banner], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php echo $__env->make('banner',['def' => $def,'banner' => $banner,'cities' => $cities], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 
 
