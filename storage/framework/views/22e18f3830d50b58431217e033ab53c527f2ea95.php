@@ -2,16 +2,16 @@
 $title = "About Us";
 $subtitle = "Who we are & What we strive for";
 ?>
-@extends('layout')
 
-@section('title',"About Us")
 
-@section('top-header')
-@include('top-header')
-@stop
+<?php $__env->startSection('title',"About Us"); ?>
 
-@section('content')
-@include('banner-2',['title' => $title,'subtitle' => $subtitle,'banner' => $banner])
+<?php $__env->startSection('top-header'); ?>
+<?php echo $__env->make('top-header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+<?php echo $__env->make('banner-2',['title' => $title,'subtitle' => $subtitle,'banner' => $banner], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
 <!-- ============================ Our Story Start ================================== -->
 			<section>
@@ -63,4 +63,6 @@ $subtitle = "Who we are & What we strive for";
 						
 			</section>
 			<!-- ============================ Our Story End ================================== -->
-@stop
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\bkupp\lokl\repo\fazio-project\resources\views/about.blade.php ENDPATH**/ ?>
