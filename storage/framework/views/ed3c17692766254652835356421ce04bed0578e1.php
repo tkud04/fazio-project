@@ -8,12 +8,10 @@
 let landingSearchDT = {
 				avb: "<?php echo e($def['avb']); ?>",
 				city: "<?php echo e($def['city']); ?>",
-				lga: "<?php echo e($def['lga']); ?>",
-				state: "<?php echo e($def['state']); ?>",
+				county: "<?php echo e($def['county']); ?>",
 				category: "<?php echo e($def['category']); ?>",
 				property_type: "<?php echo e($def['property_type']); ?>",
 				rooms: "<?php echo e($def['rooms']); ?>",
-				units: "<?php echo e($def['units']); ?>",
 				bedrooms: "<?php echo e($def['bedrooms']); ?>",
 				bathrooms: "<?php echo e($def['bathrooms']); ?>",
 				max_adults: "<?php echo e($def['max_adults']); ?>",

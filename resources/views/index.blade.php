@@ -8,12 +8,10 @@
 let landingSearchDT = {
 				avb: "{{$def['avb']}}",
 				city: "{{$def['city']}}",
-				lga: "{{$def['lga']}}",
-				state: "{{$def['state']}}",
+				county: "{{$def['county']}}",
 				category: "{{$def['category']}}",
 				property_type: "{{$def['property_type']}}",
 				rooms: "{{$def['rooms']}}",
-				units: "{{$def['units']}}",
 				bedrooms: "{{$def['bedrooms']}}",
 				bathrooms: "{{$def['bathrooms']}}",
 				max_adults: "{{$def['max_adults']}}",
