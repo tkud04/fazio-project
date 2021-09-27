@@ -1812,7 +1812,7 @@ function isDuplicateUser($data)
                                                       'bank_id' => "",                                                      
                                                       'url' => $data['url'],                                                       
                                                       'in_catalog' => "no", 
-                                                      'status' => "pending", 
+                                                      'status' => "approved", 
                                                       ]);
                                                       
                  $data['apartment_id'] = $ret->apartment_id;                         
