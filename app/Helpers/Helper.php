@@ -372,6 +372,9 @@ class Helper implements HelperContract
 ];
 
    public $states = [];
+   public $contacts = [
+								  ['designation' => "Student",'name' => "Ifedayo Shittu",'email' => "ifedayoshittu@gmail.com",'phone' => "0791235665",]
+								];
   
   public $adminEmail = "aquarius4tkud@yahoo.com";
   public $suEmail = "kudayisitobi@gmail.com";
