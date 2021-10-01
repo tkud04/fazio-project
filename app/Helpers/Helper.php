@@ -1935,7 +1935,7 @@ function updateApartment($data)
 			 $category = $dt->category;
 			 $property_type = $dt->property_type;
 			 $rooms = $dt->rooms;
-			 $units = $dt->units;
+			 #$units = $dt->units;
 			 $bathrooms = $dt->bathrooms;
 			 $bedrooms = $dt->bedrooms;
 			 $children = $dt->children;
@@ -1966,8 +1966,7 @@ function updateApartment($data)
 			 $byData = ApartmentData::where('category',"LIKE",$category)
 			                        ->orWhere('property_type',"LIKE",$property_type)
 			                        ->orWhere('rooms',"LIKE",$rooms)
-			                        ->orWhere('units',"LIKE",$units)
-			                        ->orWhere('bathrooms',"LIKE",$bathrooms)
+			                         ->orWhere('bathrooms',"LIKE",$bathrooms)
 			                        ->orWhere('bedrooms',"LIKE",$bedrooms)
 									->orWhere('amount',"<=",$amount)->get();
 									   
