@@ -22,9 +22,9 @@
 								</figure>
 								<div class="hm-post-caption">
 									<span class="cat theme-bg bg-1">Admin</span>
-									<h2 class="title"><a class="title-ln" href="room_details.html">Most Visited Apartments in Lagos</a></h2>
-									<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
-									<a class="fmp-readmore theme-cl" href="javascript:void(0)">Read More<i class="ti-arrow-right"></i></a>
+									<h2 class="title"><a class="title-ln" href="javascript:void(0)">Best Places to live in the UK</a></h2>
+									<p>When it comes to deciding which city to live and work in, within the UK, it’s important to find a city that works best for your needs. </p>
+									<a class="fmp-readmore theme-cl" href="https://www.thehomelike.com/blog/best-cities-to-live-in-the-uk/" target="_blank">Read More<i class="ti-arrow-right"></i></a>
 								</div>
 							</div>
 						</div>
