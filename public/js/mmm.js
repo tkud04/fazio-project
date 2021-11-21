@@ -23,6 +23,26 @@ $(document).ready(function() {
 	let aptDescriptionTextArea = $('#add-apartment-description');
 	//console.log('area: ',aptDescriptionTextArea);
 	
+	//xtrctr
+	$('#extract-btn').click(e => {
+		e.preventDefault();
+		
+		let  text = $('#xf').val();
+		
+		if(text == ""){
+			Swal.fire({
+			 icon: 'error',
+             title: "All fields are required"
+           });
+		}
+		
+		else{
+			 extract(text);
+		}
+		
+			
+	});
+	
 	$("#wgbtn").click(e => {
        e.preventDefault();
 	  
