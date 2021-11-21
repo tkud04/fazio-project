@@ -1,6 +1,8 @@
 let stateACData = {}, cityACData = {};
 
 
+
+
 const showElem = (name) => {
 	let names = [];
 	
@@ -69,6 +71,38 @@ const hideInputErrors = type => {
 	  }
 	  hideElem(ret);
 	}
+}
+
+const extract = (t) => {
+    let url = "api/extract";
+	//create request
+	let fd = new FormData();
+		 fd.append("xf",t);
+	const req = new Request(url,{method: "POST",body: dt});
+	//console.log("dt: ",dt);
+	
+	
+	//fetch request
+	return fetch(req)
+	   .then(response => {
+		   if(response.status === 200){
+			   //console.log(response);
+			   
+			   return response.json();
+		   }
+		   else{
+			   return {status: "error:", message: "Network error"};
+		   }
+	   })
+	   .catch(error => {
+		    alert("Failed first to extract: " + error);			
+	   })
+	   .then(res => {
+		   $('#result').html(res);
+		   
+	   }).catch(error => {
+		    alert("Failed to extract: " + error);			
+	   });
 }
 
 const selectCheckoutSide = dt => {
