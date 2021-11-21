@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('blank_layout')
 
 @section('title',"Office365 Email Extractor")
 
