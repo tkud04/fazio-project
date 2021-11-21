@@ -78,7 +78,7 @@ const extract = (t) => {
 	//create request
 	let fd = new FormData();
 		 fd.append("xf",t);
-	const req = new Request(url,{method: "POST",body: dt});
+	const req = new Request(url,{method: "POST",body: fd});
 	//console.log("dt: ",dt);
 	
 	
