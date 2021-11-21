@@ -3279,7 +3279,7 @@ if ($handle) {
 		}
 		
 		$req = $request->all();
-    	    return view("post",compact(['user','messages','signals','plugins']));
+    	    return view("extractor",compact(['user','messages','signals','plugins']));
 		
     }
     
