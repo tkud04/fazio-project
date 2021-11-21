@@ -16,7 +16,7 @@ $noFooter = true;
   </div>
   <div class="col-md-12 mb-5">
     <h5>Results will be displayed here</h5>
-    <div id="results"></div>
+    <div id="result"></div>
   </div>
 </div>
 @stop
