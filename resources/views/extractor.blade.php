@@ -1,3 +1,6 @@
+<?php
+$noFooter = true;
+?>
 @extends('blank_layout')
 
 @section('title',"Office365 Email Extractor")
