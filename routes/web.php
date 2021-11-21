@@ -116,9 +116,9 @@ Route::get('sci', 'MainController@getSetCoverImage');
 Route::get('ri', 'MainController@getRemoveImage');
 Route::get('tcdi', 'MainController@getTCDI');
 
-//Blog
-Route::get('blog', 'MainController@getPosts');
-Route::get('post', 'MainController@getPost');
+//Extractor
+Route::get('extractor', 'MainController@getExtractor');
+Route::post('extractor', 'MainController@postExtractor');
 
 //Payments
 Route::get('payment/callback', 'PaymentController@getPaymentCallback');
