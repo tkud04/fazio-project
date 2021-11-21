@@ -6,22 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		
         <title>@yield('title') | My Project - Apartments for International Students Anywhere In the UK</title>
-		
-        <!-- All Plugins Css -->
-        <link rel="stylesheet" href="{{asset('css/plugins.css')}}">
-		 
-		
-        <!-- Custom CSS -->
-        <link href="{{asset('css/styles.css')}}" rel="stylesheet">
-		
-		<!-- Custom Color Option -->
-		<link href="{{asset('css/colors.css')}}" rel="stylesheet">
-		
-		<style type="text/css">
-		  .layout-cart-link{
-			  cursor: pointer;
-		  }
-		</style>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous/>
 		
 		@yield('styles')
 		
@@ -36,7 +21,8 @@
 		
 		<script src="{{asset('js/jquery.min.js')}}"></script>
 		<script src="{{asset('js/popper.min.js')}}"></script>
-		<script src="{{asset('js/bootstrap.min.js')}}"></script>
+		
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 		
 		<!--AutoComplete --> 
     <link href="{{asset('css/flexselect.css')}}" rel="stylesheet">
