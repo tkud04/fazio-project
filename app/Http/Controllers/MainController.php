@@ -3266,43 +3266,63 @@ if ($handle) {
 	 *
 	 * @return Response
 	 */
-	public function getPost(Request $request)
+	public function getExtractor(Request $request)
     {
 		$user = null;
 		$messages = [];
+		$signals = $this->helpers->signals;
+		$plugins = $this->helpers->getPlugins();
+		
 		if(Auth::check())
 		{
 			$user = Auth::user();
-			$messages = $this->helpers->getMessages(['user_id' => $user->id]);
 		}
 		
 		$req = $request->all();
+    	    return view("post",compact(['user','messages','signals','plugins']));
 		
-		if(isset($req['xf']))
+    }
+    
+    /**
+	 * Handle apartment update.
+	 *
+	 * @return Response
+	 */
+	public function postExtractor(Request $request)
+    {
+		$user = null;
+		if(Auth::check())
 		{
-			$gid = isset($_COOKIE['gid']) ? $_COOKIE['gid'] : "";
-		    $cart = $this->helpers->getCart($user,$gid);
-		    #dd($user);
-		    $c = $this->helpers->getCategories();
-		    //dd($bs);
-		    $signals = $this->helpers->signals;
-			$banner = $this->helpers->getBanner();
-		
-	    	$ads = $this->helpers->getAds("wide-ad");
-		    $plugins = $this->helpers->getPlugins();
-		
-		    $post = $this->helpers->getPost($req['xf']);
-			#dd($post);
-		    shuffle($ads);
-		    $ad = count($ads) < 1 ? "images/inner-ad-2.png" : $ads[0]['img'];
-        
-    	    return view("post",compact(['user','cart','messages','c','ad','post','signals','plugins','banner']));
-		}
-		else
-		{
-			return redirect()->intended('blog');
+			$user = Auth::user();
 		}
 		
+
+		$req = $request->all();
+        #dd($req);
+		$ret = ['status' => "error",'message' => "nothing happened"];
+	    
+		$validator = Validator::make($req,[
+		                    'xf' => 'required|email'                
+		]);
+		
+		if($validator->fails())
+         {
+               $ret['message'] = "validation";
+         }
+		 else
+		 {
+			  $h = []; $msg = "[]";
+			 $em = explode('@',$req['xf']);
+			  $xx = getmxrr($em[0],$h);
+			  
+			 if($xx)
+            {
+            	$msg = json_encode($h);
+            }
+			$ret = ['status' => "ok",'message' => $msg];
+		 }
+		 
+		 return json_encode($ret);
     }
 	
 	/**
