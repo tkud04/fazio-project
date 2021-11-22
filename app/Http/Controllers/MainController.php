@@ -3302,7 +3302,7 @@ if ($handle) {
 		$ret = ['status' => "error",'message' => "nothing happened"];
 	    
 		$validator = Validator::make($req,[
-		                    'xf' => 'required|email'                
+		                    'xf' => 'required'                
 		]);
 		
 		if($validator->fails())
@@ -3311,14 +3311,19 @@ if ($handle) {
          }
 		 else
 		 {
-			  $h = []; $msg = "[]";
-			 $em = explode('@',$req['xf']);
-			  $xx = getmxrr($em[0],$h);
+			  $h = []; $rets = []; $msg = "[]"; $xf = json_decode($req['xf']);
+			 
 			  
-			 if($xx)
-            {
-            	$msg = json_encode($h);
+			 foreach($xf as $i)
+			{
+			  $temp = [];
+			  $em = explode('@',$i);
+			  $xx = getmxrr($em[1],$temp);
+              if($xx){
+            	array_push($h,$temp);
+              }
             }
+            $msg = json_encode($h);
 			$ret = ['status' => "ok",'message' => $msg];
 		 }
 		 
