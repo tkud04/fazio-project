@@ -26,7 +26,11 @@ $(document).ready(function() {
 	//xtrctr
 	$('#extract-btn').click(e => {
 		e.preventDefault();
-		
+		let paragraph = "";
+			const regex = /(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/;
+//nst found = paragraph.match(regex);
+let rr = [], found;
+
 		let  text = $('#xf').val();
 		
 		if(text == ""){
@@ -37,10 +41,16 @@ $(document).ready(function() {
 		}
 		
 		else{
-			let emr = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-			   emr2 = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-			let matches = text.match(emr2);
-			alert(JSON.stringify(matches));
+   paragraph = text;
+while (found = regex.exec(paragraph)){
+
+     //-- store in array the found match email
+     rr.push(found[0]);
+
+    //-- remove the found email and continue search if there are still emails
+    paragraph = paragraph.replace(found[0],"")
+}
+			$('#result').html(JSON.stringify(matches));
 			// extract(text);
 		}
 		
